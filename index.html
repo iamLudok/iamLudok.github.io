@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iamLudok — Luken Iriondo Bilbao</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="navbar-brand">
+      <span class="brand-prompt">~</span>
+      <span class="brand-name">iamLudok</span>
+    </div>
+    <nav class="navbar-tabs">
+      <button class="tab-btn active" data-target="me">Me</button>
+      <button class="tab-btn" data-target="projects">Projects</button>
+      <button class="tab-btn" data-target="experience">Studies & Experience</button>
+      <button class="tab-btn" data-target="links">Links</button>
+    </nav>
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+
+    <!-- ========== SECTION: ME ========== -->
+    <section id="me" class="section active">
+      <div class="container">
+
+        <!-- Hero -->
+        <div class="hero">
+          <div class="hero-text">
+            <div class="terminal-line">
+              <span class="prompt">$</span>
+              <span class="typing-text" id="typing-name"></span>
+              <span class="cursor" id="cursor">|</span>
+            </div>
+            <p class="hero-sub">
+              Computer Engineering Student · AI & ML Enthusiast · DJ & Producer as Ludok
+            </p>
+          </div>
+          <div class="hero-avatar">
+            <div class="avatar-placeholder">
+              <!-- EDIT: argazkixe /> -->
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="35" r="20" fill="none" stroke="#00ff88" stroke-width="2"/>
+                <path d="M15 90 Q15 60 50 60 Q85 60 85 90" fill="none" stroke="#00ff88" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- About -->
+        <div class="about-card">
+          <h2 class="section-title"><span class="accent">//</span> about_me</h2>
+          <p class="about-text">
+            Hi! I'm <strong>Luken Iriondo Bilbao</strong>, also known as <strong>iamLudok</strong>.
+            I'm passionate about AI, privacy and building things on my own.
+          </p>
+        </div>
+
+        <!-- Interests -->
+        <div class="interests-section">
+          <h2 class="section-title"><span class="accent">//</span> interests</h2>
+          <div class="interests-grid">
+
+            <div class="interest-card">
+              <div class="interest-icon">
+                <!-- Linux penguin -->
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="32" cy="22" rx="14" ry="16" stroke="#00ff88" stroke-width="2"/>
+                  <ellipse cx="27" cy="20" rx="3" ry="4" fill="#00ff88"/>
+                  <ellipse cx="37" cy="20" rx="3" ry="4" fill="#00ff88"/>
+                  <circle cx="27" cy="20" r="1.5" fill="#0a0a0a"/>
+                  <circle cx="37" cy="20" r="1.5" fill="#0a0a0a"/>
+                  <ellipse cx="32" cy="38" rx="12" ry="14" stroke="#00ff88" stroke-width="2"/>
+                  <rect x="26" y="50" width="5" height="8" rx="2" stroke="#00ff88" stroke-width="2"/>
+                  <rect x="33" y="50" width="5" height="8" rx="2" stroke="#00ff88" stroke-width="2"/>
+                  <path d="M20 30 L14 36" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M44 30 L50 36" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <span>Linux Fedora</span>
+            </div>
+
+            <div class="interest-card">
+              <div class="interest-icon">
+                <!-- Raspberry Pi -->
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="12" y="16" width="40" height="32" rx="4" stroke="#00ff88" stroke-width="2"/>
+                  <rect x="18" y="22" width="10" height="8" rx="1" stroke="#00ff88" stroke-width="1.5"/>
+                  <rect x="36" y="22" width="10" height="8" rx="1" stroke="#00ff88" stroke-width="1.5"/>
+                  <circle cx="23" cy="38" r="3" stroke="#00ff88" stroke-width="1.5"/>
+                  <circle cx="41" cy="38" r="3" stroke="#00ff88" stroke-width="1.5"/>
+                  <rect x="29" y="30" width="6" height="6" rx="1" fill="#00ff88" opacity="0.6"/>
+                  <rect x="25" y="8" width="4" height="8" rx="1" stroke="#00ff88" stroke-width="1.5"/>
+                  <rect x="35" y="8" width="4" height="8" rx="1" stroke="#00ff88" stroke-width="1.5"/>
+                  <rect x="25" y="48" width="4" height="8" rx="1" stroke="#00ff88" stroke-width="1.5"/>
+                  <rect x="35" y="48" width="4" height="8" rx="1" stroke="#00ff88" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <span>Raspberry Pi</span>
+            </div>
+
+            <div class="interest-card">
+              <div class="interest-icon">
+                <!-- Shield (GrapheneOS/Security) -->
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M32 8 L54 18 L54 34 C54 46 44 56 32 58 C20 56 10 46 10 34 L10 18 Z" stroke="#00ff88" stroke-width="2"/>
+                  <path d="M22 32 L28 38 L42 26" stroke="#00ff88" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span>Graphene OS</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="skills-section">
+          <h2 class="section-title"><span class="accent">//</span> skills</h2>
+
+          <div class="skills-categories">
+
+            <div class="skill-category">
+              <span class="skill-category-label">AI &amp; ML</span>
+              <div class="skills-grid">
+                <span class="skill-badge">Python</span>
+                <span class="skill-badge">Jupyter</span>
+                <span class="skill-badge">Anaconda</span>
+                <span class="skill-badge">LangChain</span>
+                <span class="skill-badge">Streamlit</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <span class="skill-category-label">Cloud &amp; DevOps</span>
+              <div class="skills-grid">
+                <span class="skill-badge">Docker</span>
+                <span class="skill-badge">Azure</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <span class="skill-category-label">Cybersecurity &amp; CTF</span>
+              <div class="skills-grid">
+                <span class="skill-badge">Wireshark</span>
+                <span class="skill-badge">Linux</span>
+                <span class="skill-badge">Bash</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <span class="skill-category-label">Web Dev</span>
+              <div class="skills-grid">
+                <span class="skill-badge">Spring</span>
+                <span class="skill-badge">HTML5</span>
+                <span class="skill-badge">CSS3</span>
+                <span class="skill-badge">JavaScript</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <span class="skill-category-label">Databases</span>
+              <div class="skills-grid">
+                <span class="skill-badge">MySQL</span>
+                <span class="skill-badge">Oracle</span>
+                <span class="skill-badge">MongoDB</span>
+                <span class="skill-badge">Neo4j</span>
+                <span class="skill-badge">ChromaDB</span>
+                <span class="skill-badge">FAISS</span>
+                <span class="skill-badge">Pinecone</span>
+                <span class="skill-badge">Qdrant</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Views -->
+        <div class="views-section">
+          <h2 class="section-title"><span class="accent">//</span> views</h2>
+          <div class="views-grid">
+
+            <div class="view-card">
+              <span class="view-tag">Privacy & Data</span>
+              <p>Our data is one of our most valuable assets — yet we hand it over to corporations without a second thought. I believe in self-hosting, owning your infrastructure, and being conscious of what you store and how. Depending on others for your own data is a vulnerability, not a convenience.</p>
+            </div>
+
+            <div class="view-card">
+              <span class="view-tag">AI Responsibility</span>
+              <p>AI is one of the most powerful tools we have right now — and that's exactly why we need to understand what we're building. Shipping code you don't understand to a client isn't a shortcut, it's a risk. If everyone builds things they can't explain, we're heading somewhere bad. Read the code. Know what it does.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== SECTION: PROJECTS ========== -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title page-title"><span class="accent">//</span> projects</h2>
+
+        <!-- Filter buttons -->
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="dev">Dev</button>
+          <button class="filter-btn" data-filter="ctf">CTF &amp; Hackathons</button>
+          <button class="filter-btn" data-filter="research">Research</button>
+        </div>
+
+        <!-- Projects grid -->
+        <div class="projects-grid" id="projects-grid">
+
+          <article class="project-card" data-category="dev">
+            <div class="project-header">
+              <h3 class="project-title">Ludext</h3>
+            </div>
+            <p class="project-desc">
+              Self-hosted morning assistant running on a Raspberry Pi. Collects emails, calendar events, tasks and news from your own infrastructure, summarizes everything with a local AI model, and sends a Telegram digest before you start your day.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Raspberry Pi</span>
+              <span class="tag">AI</span>
+              <span class="tag">Self-hosted</span>
+              <span class="tag">Telegram</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/iamLudok/Ludext" class="project-link" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="dev">
+            <div class="project-header">
+              <h3 class="project-title">AI Bookmarks</h3>
+            </div>
+            <p class="project-desc">
+              A curated collection of free and freemium AI tools — personally tested and recommended.
+            </p>
+            <div class="project-tags">
+              <span class="tag">AI</span>
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">GitHub Pages</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/iamLudok/ai-bookmarks" class="project-link" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub
+              </a>
+              <a href="https://iamludok.github.io/ai-bookmarks/" class="project-link project-link--demo" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="ctf">
+            <div class="project-header">
+              <h3 class="project-title">Ikerlan CTF</h3>
+              <span class="ctf-badge">CTF</span>
+            </div>
+            <p class="project-desc">
+              My first CTF. Ended up going solo - tackled a bit of everything across categories.
+              A good intro to the mindset.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Crypto</span>
+              <span class="tag">Reversing</span>
+              <span class="tag">Web</span>
+              <span class="tag">Forensics</span>
+              <span class="tag">Hardware</span>
+              <span class="tag">Miscellaneous</span>
+              <span class="tag">Operational Technology</span>
+              <span class="tag">Machine Learning</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/iamludok" class="project-link" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                Writeups
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="ctf">
+            <div class="project-header">
+              <h3 class="project-title">HackUPC 2026</h3>
+              <span class="ctf-badge hackathon-badge">Hackathon</span>
+            </div>
+            <p class="project-desc">
+              48h hackathon at Universitat Politècnica de Catalunya, Barcelona.
+              Apr 24–26, 2026 - project TBD.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Barcelona</span>
+              <span class="tag">48h</span>
+              <span class="tag">UPC</span>
+            </div>
+            <div class="project-links">
+              <a href="https://hackupc.com" class="project-link" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                hackupc.com
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="research">
+            <div class="project-header">
+              <h3 class="project-title">Bachelor's Thesis - TBD</h3>
+            </div>
+            <p class="project-desc">
+              Development of a cognitive AI-powered search system.
+            </p>
+            <div class="project-tags">
+              <span class="tag">LLM</span>
+              <span class="tag">LangChain</span>
+              <span class="tag">RAG</span>
+              <span class="tag">Python</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="dev">
+            <div class="project-header">
+              <h3 class="project-title">Euskal Herriko Teknoa</h3>
+            </div>
+            <p class="project-desc">
+              Community platform for electronic music in the Basque Country. One place for all events, venues, vinyl shops, radio stations and DJ collectives from the local scene.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Community</span>
+              <span class="tag">Music</span>
+              <span class="tag">Basque Country</span>
+            </div>
+            <div class="project-links">
+              <a href="https://www.euskalherrikoteknoa.eu/" class="project-link project-link--demo" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Website
+              </a>
+              <a href="https://www.instagram.com/euskal_herriko_teknoa/" class="project-link" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+                Instagram
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION: STUDIES & EXPERIENCE ========== -->
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="section-title page-title"><span class="accent">//</span> studies_&amp;_experience</h2>
+
+        <div class="timeline-layout">
+
+          <!-- EDUCATION -->
+          <div class="timeline-col">
+            <h3 class="timeline-heading">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              Education
+            </h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-date">2026/09 – Soon</span>
+                  <h4 class="timeline-title">Master’s Degree on Artificial Intelligence</h4>
+                  <span class="timeline-sub">Mondragon University</span>
+                  <p class="timeline-desc">
+                    Incoming — spot already reserved. Next step after finishing my Computer Engineering degree.
+                  </p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-date">2022/09 – Present</span>
+                  <h4 class="timeline-title">Computer Engineering Degree</h4>
+                  <span class="timeline-sub">Mondragon University</span>
+                  <p class="timeline-desc">
+                    Currently in my 4th year. Focused on databases, security and AI.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- EXPERIENCE -->
+          <div class="timeline-col">
+            <h3 class="timeline-heading">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              Experience
+            </h3>
+            <div class="timeline">
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-date">2025/09 – Present</span>
+                  <h4 class="timeline-title">Researcher</h4>
+                  <span class="timeline-sub">ULMA Handling Systems · Oñati</span>
+                  <p class="timeline-desc">
+                    Bachelor's thesis. Development of a cognitive AI-powered search system.
+                  </p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-date">2024/09 – 2025/07</span>
+                  <h4 class="timeline-title">Researcher</h4>
+                  <span class="timeline-sub">ULMA Handling Systems · Oñati</span>
+                  <p class="timeline-desc">
+                    Built an LLM-based system allowing non-technical users to query databases and extract knowledge intuitively.
+                  </p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-date">2023/10 – 2024/07</span>
+                  <h4 class="timeline-title">Project Assistant</h4>
+                  <span class="timeline-sub">ULMA Handling Systems · Oñati</span>
+                  <p class="timeline-desc">
+                    Developed a logistics system to automate a pallet and container warehouse for an industrial client.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION: LINKS ========== -->
+    <section id="links" class="section">
+      <div class="container links-container">
+        <h2 class="section-title page-title"><span class="accent">//</span> find_me</h2>
+        <p class="links-intro">Want to connect, collaborate, or just say hi?</p>
+
+        <div class="links-grid">
+          <a href="https://www.linkedin.com/in/luken-iriondo-bilbao/" target="_blank" rel="noopener" class="social-card" id="linkedin-card">
+            <div class="social-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="social-info">
+              <span class="social-name">LinkedIn</span>
+              <span class="social-handle">@luken-iriondo-bilbao</span>
+            </div>
+            <svg class="social-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+
+          <a href="https://github.com/iamludok" target="_blank" rel="noopener" class="social-card" id="github-card">
+            <div class="social-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="social-info">
+              <span class="social-name">GitHub</span>
+              <span class="social-handle">@iamludok</span>
+            </div>
+            <svg class="social-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+
+          <a href="https://linktr.ee/luken.iriondo" target="_blank" rel="noopener" class="social-card" id="linktree-card">
+            <div class="social-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2 L12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 6 L12 2 L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 10 L12 4 L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 12 L10 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M14 12 L14 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 22 L16 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="social-info">
+              <span class="social-name">Linktree</span>
+              <span class="social-handle">@luken.iriondo</span>
+            </div>
+            <svg class="social-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+
+          <a href="mailto:lukeniri@gmail.com" class="social-card" id="email-card">
+            <div class="social-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M2 7 L12 13 L22 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="social-info">
+              <span class="social-name">Email</span>
+              <span class="social-handle">lukeniri@gmail.com</span>
+            </div>
+            <svg class="social-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <span class="footer-prompt">$</span>
+    <span>Luken Iriondo Bilbao</span>
+    <span class="footer-sep">//</span>
+    <span>iamLudok</span>
+    <span class="footer-sep">//</span>
+    <span id="footer-year"></span>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
