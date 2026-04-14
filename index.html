@@ -46,6 +46,10 @@
             <p class="hero-sub">
               Computer Engineering Student · AI & ML Enthusiast · DJ & Producer as Ludok
             </p>
+            <p class="hero-location">
+              <span class="location-dot"></span>
+              Markina-Xemein, Basque Country
+            </p>
           </div>
           <div class="hero-avatar">
             <div class="avatar-placeholder">
@@ -119,6 +123,44 @@
                 </svg>
               </div>
               <span>Graphene OS</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="languages-section">
+          <h2 class="section-title"><span class="accent">//</span> languages</h2>
+          <div class="languages-list">
+
+            <div class="lang-item">
+              <div class="lang-info">
+                <span class="lang-name">Euskera</span>
+                <span class="lang-level">Native</span>
+              </div>
+              <div class="lang-bar">
+                <div class="lang-fill" style="width:100%"></div>
+              </div>
+            </div>
+
+            <div class="lang-item">
+              <div class="lang-info">
+                <span class="lang-name">Español</span>
+                <span class="lang-level">Bilingual</span>
+              </div>
+              <div class="lang-bar">
+                <div class="lang-fill" style="width:100%"></div>
+              </div>
+            </div>
+
+            <div class="lang-item">
+              <div class="lang-info">
+                <span class="lang-name">English</span>
+                <span class="lang-level">B2</span>
+              </div>
+              <div class="lang-bar">
+                <div class="lang-fill" style="width:72%"></div>
+              </div>
             </div>
 
           </div>
@@ -526,8 +568,26 @@
   </main>
 
   <!-- ===== FOOTER ===== -->
+  <!-- ===== EASTER EGG: PARANOID MODE ===== -->
+  <div id="paranoid-overlay" class="paranoid-overlay" aria-hidden="true">
+    <p class="paranoid-msg"><span class="paranoid-accent">Your data.</span><br>Your rules.</p>
+  </div>
+
+  <!-- ===== EASTER EGG: YOU ARE TRACKABLE ===== -->
+  <div id="tracking-modal" class="tracking-overlay" aria-hidden="true">
+    <div class="tracking-terminal">
+      <div class="tracking-bar">
+        <span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span>
+        <span class="tracking-title">~/privacy/expose.sh</span>
+        <button class="tracking-close" id="tracking-close" aria-label="Close">×</button>
+      </div>
+      <pre class="tracking-body" id="tracking-content"></pre>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <span class="footer-prompt">$</span>
+    <span class="footer-prompt" id="footer-trigger" title="">$</span>
     <span>Luken Iriondo Bilbao</span>
     <span class="footer-sep">//</span>
     <span>iamLudok</span>

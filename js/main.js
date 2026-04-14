@@ -4,8 +4,7 @@
 
 // ---- Typing effect ----
 (function initTyping() {
-  const el     = document.getElementById('typing-name');
-  const cursor = document.getElementById('cursor');
+  const el = document.getElementById('typing-name');
   if (!el) return;
 
   const lines = [
@@ -26,17 +25,7 @@
   function tick() {
     const current = lines[lineIndex];
 
-    if (!deleting) {
-      charIndex++;
-      el.textContent = current.slice(0, charIndex);
-      if (charIndex === current.length) {
-        deleting = true;
-        clearTimeout(pauseTimer);
-        pauseTimer = setTimeout(tick, PAUSE_AFTER);
-        return;
-      }
-      setTimeout(tick, TYPE_SPEED);
-    } else {
+    if (deleting) {
       charIndex--;
       el.textContent = current.slice(0, charIndex);
       if (charIndex === 0) {
@@ -46,6 +35,16 @@
         return;
       }
       setTimeout(tick, DELETE_SPEED);
+    } else {
+      charIndex++;
+      el.textContent = current.slice(0, charIndex);
+      if (charIndex === current.length) {
+        deleting = true;
+        clearTimeout(pauseTimer);
+        pauseTimer = setTimeout(tick, PAUSE_AFTER);
+        return;
+      }
+      setTimeout(tick, TYPE_SPEED);
     }
   }
 
@@ -74,11 +73,11 @@
 
   // Support direct URL hash navigation
   function handleHash() {
-    const hash = window.location.hash.replace('#', '');
+    const hash = globalThis.location.hash.replace('#', '');
     const valid = ['me', 'projects', 'experience', 'links'];
     if (hash && valid.includes(hash)) activateTab(hash);
   }
-  window.addEventListener('hashchange', handleHash);
+  globalThis.addEventListener('hashchange', handleHash);
   handleHash();
 })();
 
@@ -119,4 +118,178 @@
 (function initFooter() {
   const el = document.getElementById('footer-year');
   if (el) el.textContent = new Date().getFullYear();
+})();
+
+
+// ---- Easter egg: Paranoid Mode (type "privacy") ----
+(function initParanoidMode() {
+  let buffer = '';
+  const TARGET = 'privacy';
+
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey || e.altKey || e.metaKey) return;
+    buffer = (buffer + e.key).slice(-TARGET.length);
+    if (buffer.toLowerCase() === TARGET) {
+      buffer = '';
+      startMatrix();
+    }
+  });
+
+  function startMatrix() {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'matrix-canvas';
+    document.body.appendChild(canvas);
+
+    const ctx    = canvas.getContext('2d');
+    canvas.width  = globalThis.innerWidth;
+    canvas.height = globalThis.innerHeight;
+
+    const fontSize = 15;
+    const cols     = Math.floor(canvas.width / fontSize);
+    const drops    = Array.from({ length: cols }, () => Math.random() * -40);
+
+    let elapsed = 0;
+
+    const interval = setInterval(() => {
+      ctx.fillStyle = 'rgba(0,0,0,0.08)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#00ff88';
+      ctx.font      = `${fontSize}px 'JetBrains Mono', monospace`;
+
+      drops.forEach((y, i) => {
+        ctx.fillText(Math.random() > 0.5 ? '1' : '0', i * fontSize, y * fontSize);
+        drops[i]++;
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.97) drops[i] = 0;
+      });
+
+      elapsed += 50;
+      if (elapsed >= 2900) {
+        clearInterval(interval);
+        canvas.remove();
+        showParanoidMessage();
+      }
+    }, 50);
+  }
+
+  function showParanoidMessage() {
+    const overlay = document.getElementById('paranoid-overlay');
+    overlay.setAttribute('aria-hidden', 'false');
+    overlay.classList.add('active');
+
+    setTimeout(() => {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.setAttribute('aria-hidden', 'true'), 500);
+    }, 2800);
+  }
+})();
+
+
+// ---- Easter egg: You are trackable (triple-click footer $) ----
+(function initTrackingEgg() {
+  const trigger = document.getElementById('footer-trigger');
+  const modal   = document.getElementById('tracking-modal');
+  const content = document.getElementById('tracking-content');
+  const closeBtn = document.getElementById('tracking-close');
+  if (!trigger || !modal) return;
+
+  let clickCount = 0;
+  let clickTimer  = null;
+
+  trigger.style.cursor = 'default';
+
+  trigger.addEventListener('click', () => {
+    clickCount++;
+    clearTimeout(clickTimer);
+    clickTimer = setTimeout(() => { clickCount = 0; }, 600);
+    if (clickCount >= 3) {
+      clickCount = 0;
+      openTrackingModal();
+    }
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+  });
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  async function openTrackingModal() {
+    content.textContent = '';
+    modal.setAttribute('aria-hidden', 'false');
+    modal.classList.add('active');
+
+    const ua       = navigator.userAgent;
+    const lang     = navigator.language || 'unknown';
+    const tz       = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const res      = `${globalThis.screen.width}x${globalThis.screen.height}`;
+    const os       = detectOS(ua);
+    const browser  = detectBrowser(ua);
+
+    let ip = 'resolving...';
+
+    const lines = [
+      { text: '$ ./expose.sh', color: '#00ff88' },
+      { text: '' },
+      { text: `  IP Address  : ${ip}`, id: 'ip-line' },
+      { text: `  OS          : ${os}` },
+      { text: `  Browser     : ${browser}` },
+      { text: `  Language    : ${lang}` },
+      { text: `  Timezone    : ${tz}` },
+      { text: `  Resolution  : ${res}` },
+      { text: '' },
+      { text: '  This is what every website sees.' },
+      { text: '  Think about it.', color: '#cc0000' },
+    ];
+
+    await typeLines(content, lines);
+
+    // Now fetch real IP and replace placeholder
+    try {
+      const r    = await fetch('https://api.ipify.org?format=json');
+      const data = await r.json();
+      ip = data.ip;
+    } catch {
+      ip = 'blocked (good instinct)';
+    }
+
+    // Update IP line in rendered text
+    content.textContent = content.textContent.replace('resolving...', ip);
+  }
+
+  function typeLines(el, lines) {
+    return new Promise(resolve => {
+      let i = 0;
+      function nextLine() {
+        if (i >= lines.length) { resolve(); return; }
+        const line = lines[i++];
+        el.textContent += line.text + '\n';
+        el.scrollTop = el.scrollHeight;
+        setTimeout(nextLine, line.text === '' ? 60 : 90);
+      }
+      nextLine();
+    });
+  }
+
+  function detectOS(ua) {
+    if (/Windows NT/.test(ua))         return 'Windows';
+    if (/Android/.test(ua))            return 'Android';
+    if (/iPhone|iPad|iPod/.test(ua))   return 'iOS';
+    if (/Macintosh/.test(ua))          return 'macOS';
+    if (/Linux/.test(ua))              return 'Linux';
+    return 'Unknown';
+  }
+
+  function detectBrowser(ua) {
+    if (/Firefox\//.test(ua))          return 'Firefox';
+    if (/Edg\//.test(ua))              return 'Edge';
+    if (/OPR\/|Opera/.test(ua))        return 'Opera';
+    if (/Chrome\//.test(ua))           return 'Chrome';
+    if (/Safari\//.test(ua))           return 'Safari';
+    return 'Unknown';
+  }
 })();
