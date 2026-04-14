@@ -16,11 +16,18 @@
   let charIndex = 0;
   let deleting  = false;
   let pauseTimer = null;
+  let glitching  = false;
+  let glitchChars = 0;
 
   const TYPE_SPEED   = 75;
   const DELETE_SPEED = 40;
   const PAUSE_AFTER  = 2200;
   const PAUSE_BEFORE = 400;
+
+  const GLITCH_WORD         = ' privacy';
+  const GLITCH_TYPE_SPEED   = 20;
+  const GLITCH_DELETE_SPEED = 12;
+  const GLITCH_CHANCE       = 0.4;
 
   function tick() {
     const current = lines[lineIndex];
@@ -39,12 +46,43 @@
       charIndex++;
       el.textContent = current.slice(0, charIndex);
       if (charIndex === current.length) {
+        if (!glitching && Math.random() < GLITCH_CHANCE) {
+          glitching  = true;
+          glitchChars = 0;
+          setTimeout(glitchType, 350);
+          return;
+        }
         deleting = true;
         clearTimeout(pauseTimer);
         pauseTimer = setTimeout(tick, PAUSE_AFTER);
         return;
       }
       setTimeout(tick, TYPE_SPEED);
+    }
+  }
+
+  function glitchType() {
+    const current = lines[lineIndex];
+    if (glitchChars < GLITCH_WORD.length) {
+      glitchChars++;
+      el.textContent = current + GLITCH_WORD.slice(0, glitchChars);
+      setTimeout(glitchType, GLITCH_TYPE_SPEED);
+    } else {
+      setTimeout(glitchDelete, 200);
+    }
+  }
+
+  function glitchDelete() {
+    const current = lines[lineIndex];
+    if (glitchChars > 0) {
+      glitchChars--;
+      el.textContent = current + GLITCH_WORD.slice(0, glitchChars);
+      setTimeout(glitchDelete, GLITCH_DELETE_SPEED);
+    } else {
+      glitching = false;
+      deleting  = true;
+      clearTimeout(pauseTimer);
+      pauseTimer = setTimeout(tick, PAUSE_AFTER);
     }
   }
 
@@ -184,28 +222,16 @@
 })();
 
 
-// ---- Easter egg: You are trackable (triple-click footer $) ----
+// ---- Easter egg: You are trackable (click Privacy & Data view card) ----
 (function initTrackingEgg() {
-  const trigger = document.getElementById('footer-trigger');
-  const modal   = document.getElementById('tracking-modal');
-  const content = document.getElementById('tracking-content');
+  const modal    = document.getElementById('tracking-modal');
+  const content  = document.getElementById('tracking-content');
   const closeBtn = document.getElementById('tracking-close');
-  if (!trigger || !modal) return;
+  const card     = document.getElementById('privacy-card');
+  if (!modal || !card) return;
 
-  let clickCount = 0;
-  let clickTimer  = null;
-
-  trigger.style.cursor = 'default';
-
-  trigger.addEventListener('click', () => {
-    clickCount++;
-    clearTimeout(clickTimer);
-    clickTimer = setTimeout(() => { clickCount = 0; }, 600);
-    if (clickCount >= 3) {
-      clickCount = 0;
-      openTrackingModal();
-    }
-  });
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', openTrackingModal);
 
   closeBtn.addEventListener('click', () => {
     modal.classList.remove('active');
