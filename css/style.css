@@ -260,6 +260,10 @@ main { padding-top: var(--nav-h); }
   box-shadow: 0 0 16px var(--accent-glow);
   color: var(--text);
 }
+.interest-card--link {
+  cursor: pointer;
+  text-decoration: none;
+}
 .interest-icon {
   width: 40px;
   height: 40px;
@@ -321,6 +325,26 @@ main { padding-top: var(--nav-h); }
   color: var(--text-muted);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.skill-subcategories {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.skill-subcategory {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.skill-subcategory-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-soft);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-left: 8px;
+  border-left: 2px solid var(--border-accent);
 }
 
 /* =============================================
@@ -442,6 +466,11 @@ main { padding-top: var(--nav-h); }
   color: #ff9f43;
   border-color: rgba(255, 159, 67, 0.3);
   background: rgba(255, 159, 67, 0.08);
+}
+.wip-badge {
+  color: #a29bfe;
+  border-color: rgba(162, 155, 254, 0.3);
+  background: rgba(162, 155, 254, 0.08);
 }
 
 .project-desc {
