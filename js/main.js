@@ -74,7 +74,7 @@
   // Support direct URL hash navigation
   function handleHash() {
     const hash = globalThis.location.hash.replace('#', '');
-    const valid = ['me', 'projects', 'experience', 'links'];
+    const valid = ['me', 'projects', 'challenges', 'experience', 'links'];
     if (hash && valid.includes(hash)) activateTab(hash);
   }
   globalThis.addEventListener('hashchange', handleHash);

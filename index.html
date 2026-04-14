@@ -20,6 +20,7 @@
     <nav class="navbar-tabs">
       <button class="tab-btn active" data-target="me">Me</button>
       <button class="tab-btn" data-target="projects">Projects</button>
+      <button class="tab-btn" data-target="challenges">Challenges</button>
       <button class="tab-btn" data-target="experience">Studies & Experience</button>
       <button class="tab-btn" data-target="links">Links</button>
     </nav>
@@ -97,21 +98,15 @@
 
             <div class="interest-card">
               <div class="interest-icon">
-                <!-- Raspberry Pi -->
+                <!-- Nextcloud -->
                 <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="12" y="16" width="40" height="32" rx="4" stroke="#00ff88" stroke-width="2"/>
-                  <rect x="18" y="22" width="10" height="8" rx="1" stroke="#00ff88" stroke-width="1.5"/>
-                  <rect x="36" y="22" width="10" height="8" rx="1" stroke="#00ff88" stroke-width="1.5"/>
-                  <circle cx="23" cy="38" r="3" stroke="#00ff88" stroke-width="1.5"/>
-                  <circle cx="41" cy="38" r="3" stroke="#00ff88" stroke-width="1.5"/>
-                  <rect x="29" y="30" width="6" height="6" rx="1" fill="#00ff88" opacity="0.6"/>
-                  <rect x="25" y="8" width="4" height="8" rx="1" stroke="#00ff88" stroke-width="1.5"/>
-                  <rect x="35" y="8" width="4" height="8" rx="1" stroke="#00ff88" stroke-width="1.5"/>
-                  <rect x="25" y="48" width="4" height="8" rx="1" stroke="#00ff88" stroke-width="1.5"/>
-                  <rect x="35" y="48" width="4" height="8" rx="1" stroke="#00ff88" stroke-width="1.5"/>
+                  <circle cx="32" cy="28" r="12" stroke="#00ff88" stroke-width="2"/>
+                  <circle cx="14" cy="36" r="8" stroke="#00ff88" stroke-width="2"/>
+                  <circle cx="50" cy="36" r="8" stroke="#00ff88" stroke-width="2"/>
+                  <path d="M22 36 Q32 44 42 36" stroke="#00ff88" stroke-width="2" stroke-linecap="round" fill="none"/>
                 </svg>
               </div>
-              <span>Raspberry Pi</span>
+              <span>Nextcloud</span>
             </div>
 
             <div class="interest-card">
@@ -123,6 +118,18 @@
                 </svg>
               </div>
               <span>Graphene OS</span>
+            </div>
+
+            <div class="interest-card">
+              <div class="interest-icon">
+                <!-- Headphones / DJ -->
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 32 C12 18 22 8 32 8 C42 8 52 18 52 32" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/>
+                  <rect x="8" y="30" width="10" height="16" rx="4" stroke="#00ff88" stroke-width="2"/>
+                  <rect x="46" y="30" width="10" height="16" rx="4" stroke="#00ff88" stroke-width="2"/>
+                </svg>
+              </div>
+              <span>DJ & Producer</span>
             </div>
 
           </div>
@@ -184,15 +191,19 @@
             </div>
 
             <div class="skill-category">
-              <span class="skill-category-label">Cloud &amp; DevOps</span>
+              <span class="skill-category-label">Infrastructure &amp; DevOps</span>
               <div class="skills-grid">
                 <span class="skill-badge">Docker</span>
+                <span class="skill-badge">Docker Compose</span>
                 <span class="skill-badge">Azure</span>
+                <span class="skill-badge">SSH</span>
+                <span class="skill-badge">VMs</span>
+                <span class="skill-badge">Raspberry Pi</span>
               </div>
             </div>
 
             <div class="skill-category">
-              <span class="skill-category-label">Cybersecurity &amp; CTF</span>
+              <span class="skill-category-label">Cybersecurity</span>
               <div class="skills-grid">
                 <span class="skill-badge">Wireshark</span>
                 <span class="skill-badge">Linux</span>
@@ -203,6 +214,7 @@
             <div class="skill-category">
               <span class="skill-category-label">Web Dev</span>
               <div class="skills-grid">
+                <span class="skill-badge">Git</span>
                 <span class="skill-badge">Spring</span>
                 <span class="skill-badge">HTML5</span>
                 <span class="skill-badge">CSS3</span>
@@ -253,14 +265,6 @@
       <div class="container">
         <h2 class="section-title page-title"><span class="accent">//</span> projects</h2>
 
-        <!-- Filter buttons -->
-        <div class="filter-bar">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="dev">Dev</button>
-          <button class="filter-btn" data-filter="ctf">CTF &amp; Hackathons</button>
-          <button class="filter-btn" data-filter="research">Research</button>
-        </div>
-
         <!-- Projects grid -->
         <div class="projects-grid" id="projects-grid">
 
@@ -310,6 +314,41 @@
             </div>
           </article>
 
+          <article class="project-card" data-category="dev">
+            <div class="project-header">
+              <h3 class="project-title">Euskal Herriko Teknoa</h3>
+            </div>
+            <p class="project-desc">
+              Community platform for electronic music in the Basque Country. One place for all events, venues, vinyl shops, radio stations and DJ collectives from the local scene.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Community</span>
+              <span class="tag">Music</span>
+              <span class="tag">Basque Country</span>
+            </div>
+            <div class="project-links">
+              <a href="https://www.euskalherrikoteknoa.eu/" class="project-link project-link--demo" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Website
+              </a>
+              <a href="https://www.instagram.com/euskal_herriko_teknoa/" class="project-link" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+                Instagram
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION: CHALLENGES ========== -->
+    <section id="challenges" class="section">
+      <div class="container">
+        <h2 class="section-title page-title"><span class="accent">//</span> challenges</h2>
+
+        <div class="projects-grid">
+
           <article class="project-card" data-category="ctf">
             <div class="project-header">
               <h3 class="project-title">Ikerlan CTF</h3>
@@ -355,45 +394,6 @@
               <a href="https://hackupc.com" class="project-link" target="_blank" rel="noopener">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 hackupc.com
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card" data-category="research">
-            <div class="project-header">
-              <h3 class="project-title">Bachelor's Thesis - TBD</h3>
-            </div>
-            <p class="project-desc">
-              Development of a cognitive AI-powered search system.
-            </p>
-            <div class="project-tags">
-              <span class="tag">LLM</span>
-              <span class="tag">LangChain</span>
-              <span class="tag">RAG</span>
-              <span class="tag">Python</span>
-            </div>
-          </article>
-
-          <article class="project-card" data-category="dev">
-            <div class="project-header">
-              <h3 class="project-title">Euskal Herriko Teknoa</h3>
-            </div>
-            <p class="project-desc">
-              Community platform for electronic music in the Basque Country. One place for all events, venues, vinyl shops, radio stations and DJ collectives from the local scene.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Community</span>
-              <span class="tag">Music</span>
-              <span class="tag">Basque Country</span>
-            </div>
-            <div class="project-links">
-              <a href="https://www.euskalherrikoteknoa.eu/" class="project-link project-link--demo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Website
-              </a>
-              <a href="https://www.instagram.com/euskal_herriko_teknoa/" class="project-link" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-                Instagram
               </a>
             </div>
           </article>
