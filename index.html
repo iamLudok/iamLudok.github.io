@@ -18,12 +18,17 @@
       <span class="brand-name">iamLudok</span>
     </div>
     <nav class="navbar-tabs">
-      <button class="tab-btn active" data-target="me">Me</button>
-      <button class="tab-btn" data-target="projects">Projects</button>
-      <button class="tab-btn" data-target="challenges">Challenges</button>
-      <button class="tab-btn" data-target="experience">Studies & Experience</button>
-      <button class="tab-btn" data-target="links">Links</button>
+      <button class="tab-btn active" data-target="me" data-i18n="nav_me">Me</button>
+      <button class="tab-btn" data-target="projects" data-i18n="nav_projects">Projects</button>
+      <button class="tab-btn" data-target="challenges" data-i18n="nav_challenges">Challenges</button>
+      <button class="tab-btn" data-target="experience" data-i18n="nav_experience">Studies & Experience</button>
+      <button class="tab-btn" data-target="links" data-i18n="nav_links">Links</button>
     </nav>
+    <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+      <span class="lang-option" data-lang="en">EN</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-option" data-lang="es">ES</span>
+    </button>
     <button class="menu-toggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -44,12 +49,12 @@
               <span class="typing-text" id="typing-name"></span>
               <span class="cursor" id="cursor">|</span>
             </div>
-            <p class="hero-sub">
+            <p class="hero-sub" data-i18n="hero_sub">
               Computer Engineering Student · AI & ML Enthusiast · DJ & Producer as Ludok
             </p>
             <p class="hero-location">
               <span class="location-dot"></span>
-              Markina-Xemein, Basque Country
+              <span data-i18n="hero_location">Markina-Xemein, Basque Country</span>
             </p>
           </div>
           <div class="hero-avatar">
@@ -65,8 +70,8 @@
 
         <!-- About -->
         <div class="about-card">
-          <h2 class="section-title"><span class="accent">//</span> about_me</h2>
-          <p class="about-text">
+          <h2 class="section-title"><span class="accent">//</span> <span data-i18n="about_title">about_me</span></h2>
+          <p class="about-text" data-i18n-html="about_text">
             Hi! I'm <strong>Luken Iriondo Bilbao</strong>, also known as <strong>iamLudok</strong>.
             I'm passionate about AI, privacy and building things on my own.
           </p>
@@ -74,7 +79,7 @@
 
         <!-- Interests -->
         <div class="interests-section">
-          <h2 class="section-title"><span class="accent">//</span> interests</h2>
+          <h2 class="section-title"><span class="accent">//</span> <span data-i18n="interests_title">interests</span></h2>
           <div class="interests-grid">
 
             <div class="interest-card">
@@ -129,7 +134,7 @@
                   <rect x="46" y="30" width="10" height="16" rx="4" stroke="#00ff88" stroke-width="2"/>
                 </svg>
               </div>
-              <span>DJ & Producer</span>
+              <span data-i18n="interest_dj">DJ & Producer</span>
             </a>
 
           </div>
@@ -137,13 +142,13 @@
 
         <!-- Languages -->
         <div class="languages-section">
-          <h2 class="section-title"><span class="accent">//</span> languages</h2>
+          <h2 class="section-title"><span class="accent">//</span> <span data-i18n="lang_title">languages</span></h2>
           <div class="languages-list">
 
             <div class="lang-item">
               <div class="lang-info">
-                <span class="lang-name">Euskera</span>
-                <span class="lang-level">Native</span>
+                <span class="lang-name" data-i18n="lang_name_eu">Euskera</span>
+                <span class="lang-level" data-i18n="lang_native">Native</span>
               </div>
               <div class="lang-bar">
                 <div class="lang-fill" style="width:100%"></div>
@@ -152,8 +157,8 @@
 
             <div class="lang-item">
               <div class="lang-info">
-                <span class="lang-name">Español</span>
-                <span class="lang-level">Bilingual</span>
+                <span class="lang-name" data-i18n="lang_name_es">Español</span>
+                <span class="lang-level" data-i18n="lang_bilingual">Bilingual</span>
               </div>
               <div class="lang-bar">
                 <div class="lang-fill" style="width:100%"></div>
@@ -162,7 +167,7 @@
 
             <div class="lang-item">
               <div class="lang-info">
-                <span class="lang-name">English</span>
+                <span class="lang-name" data-i18n="lang_name_en">English</span>
                 <span class="lang-level">B2</span>
               </div>
               <div class="lang-bar">
@@ -175,12 +180,12 @@
 
         <!-- Skills -->
         <div class="skills-section">
-          <h2 class="section-title"><span class="accent">//</span> skills</h2>
+          <h2 class="section-title"><span class="accent">//</span> <span data-i18n="skills_title">skills</span></h2>
 
           <div class="skills-categories">
 
             <div class="skill-category">
-              <span class="skill-category-label">AI &amp; ML</span>
+              <span class="skill-category-label" data-i18n="skills_ai">AI &amp; ML</span>
               <div class="skills-grid">
                 <span class="skill-badge">Python</span>
                 <span class="skill-badge">Jupyter</span>
@@ -191,7 +196,7 @@
             </div>
 
             <div class="skill-category">
-              <span class="skill-category-label">Infrastructure &amp; DevOps</span>
+              <span class="skill-category-label" data-i18n="skills_infra">Infrastructure &amp; DevOps</span>
               <div class="skills-grid">
                 <span class="skill-badge">Docker</span>
                 <span class="skill-badge">Docker Compose</span>
@@ -205,7 +210,7 @@
             </div>
 
             <div class="skill-category">
-              <span class="skill-category-label">Cybersecurity</span>
+              <span class="skill-category-label" data-i18n="skills_cyber">Cybersecurity</span>
               <div class="skills-grid">
                 <span class="skill-badge">Wireshark</span>
                 <span class="skill-badge">Linux</span>
@@ -214,7 +219,7 @@
             </div>
 
             <div class="skill-category">
-              <span class="skill-category-label">Web Dev</span>
+              <span class="skill-category-label" data-i18n="skills_webdev">Web Dev</span>
               <div class="skills-grid">
                 <span class="skill-badge">Git</span>
                 <span class="skill-badge">Spring</span>
@@ -225,10 +230,10 @@
             </div>
 
             <div class="skill-category">
-              <span class="skill-category-label">Databases</span>
+              <span class="skill-category-label" data-i18n="skills_db">Databases</span>
               <div class="skill-subcategories">
                 <div class="skill-subcategory">
-                  <span class="skill-subcategory-label">Relational</span>
+                  <span class="skill-subcategory-label" data-i18n="skills_relational">Relational</span>
                   <div class="skills-grid">
                     <span class="skill-badge">MySQL</span>
                     <span class="skill-badge">PostgreSQL</span>
@@ -236,19 +241,19 @@
                   </div>
                 </div>
                 <div class="skill-subcategory">
-                  <span class="skill-subcategory-label">NoSQL</span>
+                  <span class="skill-subcategory-label" data-i18n="skills_nosql">NoSQL</span>
                   <div class="skills-grid">
                     <span class="skill-badge">MongoDB</span>
                   </div>
                 </div>
                 <div class="skill-subcategory">
-                  <span class="skill-subcategory-label">Graph</span>
+                  <span class="skill-subcategory-label" data-i18n="skills_graph">Graph</span>
                   <div class="skills-grid">
                     <span class="skill-badge">Neo4j</span>
                   </div>
                 </div>
                 <div class="skill-subcategory">
-                  <span class="skill-subcategory-label">Vector</span>
+                  <span class="skill-subcategory-label" data-i18n="skills_vector">Vector</span>
                   <div class="skills-grid">
                     <span class="skill-badge">ChromaDB</span>
                     <span class="skill-badge">FAISS</span>
@@ -264,17 +269,17 @@
 
         <!-- Views -->
         <div class="views-section">
-          <h2 class="section-title"><span class="accent">//</span> views</h2>
+          <h2 class="section-title"><span class="accent">//</span> <span data-i18n="views_title">views</span></h2>
           <div class="views-grid">
 
             <div class="view-card" id="privacy-card">
-              <span class="view-tag">Privacy & Data</span>
-              <p>Our data is one of our most valuable assets — yet we hand it over to corporations without a second thought. I believe in self-hosting, owning your infrastructure, and being conscious of what you store and how. Depending on others for your own data is a vulnerability, not a convenience.</p>
+              <span class="view-tag" data-i18n="views_privacy_tag">Privacy & Data</span>
+              <p data-i18n="views_privacy_text">Our data is one of our most valuable assets — yet we hand it over to corporations without a second thought. I believe in self-hosting, owning your infrastructure, and being conscious of what you store and how. Depending on others for your own data is a vulnerability, not a convenience.</p>
             </div>
 
             <div class="view-card">
-              <span class="view-tag">AI Responsibility</span>
-              <p>AI is one of the most powerful tools we have right now — and that's exactly why we need to understand what we're building. Shipping code you don't understand to a client isn't a shortcut, it's a risk. If everyone builds things they can't explain, we're heading somewhere bad. Read the code. Know what it does.</p>
+              <span class="view-tag" data-i18n="views_ai_tag">AI Responsibility</span>
+              <p data-i18n="views_ai_text">AI is one of the most powerful tools we have right now — and that's exactly why we need to understand what we're building. Shipping code you don't understand to a client isn't a shortcut, it's a risk. If everyone builds things they can't explain, we're heading somewhere bad. Read the code. Know what it does.</p>
             </div>
 
           </div>
@@ -286,7 +291,7 @@
     <!-- ========== SECTION: PROJECTS ========== -->
     <section id="projects" class="section">
       <div class="container">
-        <h2 class="section-title page-title"><span class="accent">//</span> projects</h2>
+        <h2 class="section-title page-title"><span class="accent">//</span> <span data-i18n="projects_title">projects</span></h2>
 
         <!-- Projects grid -->
         <div class="projects-grid" id="projects-grid">
@@ -295,14 +300,14 @@
             <div class="project-header">
               <h3 class="project-title">Ludext</h3>
             </div>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="project_ludext_desc">
               Self-hosted morning assistant running on a Raspberry Pi. Collects emails, calendar events, tasks and news from your own infrastructure, summarizes everything with a local AI model, and sends a Telegram digest before you start your day.
             </p>
             <div class="project-tags">
               <span class="tag">Python</span>
               <span class="tag">Raspberry Pi</span>
-              <span class="tag">AI</span>
-              <span class="tag">Self-hosted</span>
+              <span class="tag" data-i18n="tag_ai">AI</span>
+              <span class="tag" data-i18n="tag_selfhosted">Self-hosted</span>
               <span class="tag">Telegram</span>
             </div>
             <div class="project-links">
@@ -317,7 +322,7 @@
             <div class="project-header">
               <h3 class="project-title">AI Bookmarks</h3>
             </div>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="project_aibookmarks_desc">
               A curated collection of free and freemium AI tools — personally tested and recommended.
             </p>
             <div class="project-tags">
@@ -332,7 +337,7 @@
               </a>
               <a href="https://iamludok.github.io/ai-bookmarks/" class="project-link project-link--demo" target="_blank" rel="noopener">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Live
+                <span data-i18n="link_live">Live</span>
               </a>
             </div>
           </article>
@@ -341,18 +346,18 @@
             <div class="project-header">
               <h3 class="project-title">Euskal Herriko Teknoa</h3>
             </div>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="project_teknoa_desc">
               Community platform for electronic music in the Basque Country. One place for all events, venues, vinyl shops, radio stations and DJ collectives from the local scene.
             </p>
             <div class="project-tags">
-              <span class="tag">Community</span>
-              <span class="tag">Music</span>
-              <span class="tag">Basque Country</span>
+              <span class="tag" data-i18n="tag_community">Community</span>
+              <span class="tag" data-i18n="tag_music">Music</span>
+              <span class="tag" data-i18n="tag_basquecountry">Basque Country</span>
             </div>
             <div class="project-links">
               <a href="https://www.euskalherrikoteknoa.eu/" class="project-link project-link--demo" target="_blank" rel="noopener">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Website
+                <span data-i18n="link_website">Website</span>
               </a>
               <a href="https://www.instagram.com/euskal_herriko_teknoa/" class="project-link" target="_blank" rel="noopener">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
@@ -366,7 +371,7 @@
               <h3 class="project-title">Music Genre Classifier</h3>
               <span class="ctf-badge wip-badge">WIP</span>
             </div>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="project_musicgenre_desc">
               Automated music organization system that classifies and groups large song libraries by genre using ML and audio processing.
             </p>
             <div class="project-tags">
@@ -387,7 +392,7 @@
               <h3 class="project-title">Music Visualizer Generator</h3>
               <span class="ctf-badge wip-badge">WIP</span>
             </div>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="project_visualizer_desc">
               Real-time visual generator for DJs and live performances, reacting to audio input.
             </p>
             <div class="project-tags">
@@ -408,7 +413,7 @@
               <h3 class="project-title">Jai Alai Bot</h3>
               <span class="ctf-badge wip-badge">WIP</span>
             </div>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="project_jaialai_desc">
               AI chatbot with specialized knowledge about Jai Alai sport and culture.
             </p>
             <div class="project-tags">
@@ -429,11 +434,11 @@
               <h3 class="project-title">Claude Code Template</h3>
               <span class="ctf-badge wip-badge">WIP</span>
             </div>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="project_claudetemplate_desc">
               Boilerplate template to accelerate development workflows with Claude Code.
             </p>
             <div class="project-tags">
-              <span class="tag">Dev Tools</span>
+              <span class="tag" data-i18n="tag_devtools">Dev Tools</span>
               <span class="tag">Claude Code</span>
             </div>
             <div class="project-links">
@@ -449,7 +454,7 @@
               <h3 class="project-title">Playlist Downloader</h3>
               <span class="ctf-badge wip-badge">WIP</span>
             </div>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="project_playlist_desc">
               Batch download tool for SoundCloud and Spotify playlists via YouTube, outputting WAV files.
             </p>
             <div class="project-tags">
@@ -473,7 +478,7 @@
     <!-- ========== SECTION: CHALLENGES ========== -->
     <section id="challenges" class="section">
       <div class="container">
-        <h2 class="section-title page-title"><span class="accent">//</span> challenges</h2>
+        <h2 class="section-title page-title"><span class="accent">//</span> <span data-i18n="challenges_title">challenges</span></h2>
 
         <div class="projects-grid">
 
@@ -482,18 +487,18 @@
               <h3 class="project-title">Ikerlan CTF</h3>
               <span class="ctf-badge">CTF</span>
             </div>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="challenge_ikerlan_desc">
               My first CTF. Ended up going solo - tackled a bit of everything across categories.
               A good intro to the mindset.
             </p>
             <div class="project-tags">
-              <span class="tag">Crypto</span>
-              <span class="tag">Reversing</span>
+              <span class="tag" data-i18n="tag_crypto">Crypto</span>
+              <span class="tag" data-i18n="tag_reversing">Reversing</span>
               <span class="tag">Web</span>
-              <span class="tag">Forensics</span>
+              <span class="tag" data-i18n="tag_forensics">Forensics</span>
               <span class="tag">Hardware</span>
-              <span class="tag">Miscellaneous</span>
-              <span class="tag">Operational Technology</span>
+              <span class="tag" data-i18n="tag_misc">Miscellaneous</span>
+              <span class="tag" data-i18n="tag_ot">Operational Technology</span>
               <span class="tag">Machine Learning</span>
             </div>
             <div class="project-links">
@@ -509,7 +514,7 @@
               <h3 class="project-title">HackUPC 2026</h3>
               <span class="ctf-badge hackathon-badge">Hackathon</span>
             </div>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="challenge_hackupc_desc">
               48h hackathon at Universitat Politècnica de Catalunya, Barcelona.
               Apr 24–26, 2026 - project TBD.
             </p>
@@ -533,7 +538,7 @@
     <!-- ========== SECTION: STUDIES & EXPERIENCE ========== -->
     <section id="experience" class="section">
       <div class="container">
-        <h2 class="section-title page-title"><span class="accent">//</span> studies_&amp;_experience</h2>
+        <h2 class="section-title page-title"><span class="accent">//</span> <span data-i18n="experience_title">studies_&amp;_experience</span></h2>
 
         <div class="timeline-layout">
 
@@ -541,16 +546,16 @@
           <div class="timeline-col">
             <h3 class="timeline-heading">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-              Education
+              <span data-i18n="edu_heading">Education</span>
             </h3>
             <div class="timeline">
               <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                  <span class="timeline-date">2026/09 – Soon</span>
-                  <h4 class="timeline-title">Master’s Degree on Artificial Intelligence</h4>
+                  <span class="timeline-date" data-i18n="edu1_date">2026/09 – Soon</span>
+                  <h4 class="timeline-title" data-i18n="edu1_title">Master's Degree on Artificial Intelligence</h4>
                   <span class="timeline-sub">Mondragon University</span>
-                  <p class="timeline-desc">
+                  <p class="timeline-desc" data-i18n="edu1_desc">
                     Incoming — spot already reserved. Next step after finishing my Computer Engineering degree.
                   </p>
                 </div>
@@ -559,10 +564,10 @@
               <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                  <span class="timeline-date">2022/09 – Present</span>
-                  <h4 class="timeline-title">Computer Engineering Degree</h4>
+                  <span class="timeline-date" data-i18n="edu2_date">2022/09 – Present</span>
+                  <h4 class="timeline-title" data-i18n="edu2_title">Computer Engineering Degree</h4>
                   <span class="timeline-sub">Mondragon University</span>
-                  <p class="timeline-desc">
+                  <p class="timeline-desc" data-i18n="edu2_desc">
                     Currently in my 4th year. Focused on databases, security and AI.
                   </p>
                 </div>
@@ -575,17 +580,17 @@
           <div class="timeline-col">
             <h3 class="timeline-heading">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-              Experience
+              <span data-i18n="work_heading">Experience</span>
             </h3>
             <div class="timeline">
 
               <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                  <span class="timeline-date">2025/09 – Present</span>
-                  <h4 class="timeline-title">Researcher</h4>
+                  <span class="timeline-date" data-i18n="work1_date">2025/09 – Present</span>
+                  <h4 class="timeline-title" data-i18n="work1_title">Researcher</h4>
                   <span class="timeline-sub">ULMA Handling Systems · Oñati</span>
-                  <p class="timeline-desc">
+                  <p class="timeline-desc" data-i18n="work1_desc">
                     Bachelor's thesis. Development of a cognitive AI-powered search system.
                   </p>
                 </div>
@@ -594,10 +599,10 @@
               <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                  <span class="timeline-date">2024/09 – 2025/07</span>
-                  <h4 class="timeline-title">Researcher</h4>
+                  <span class="timeline-date" data-i18n="work2_date">2024/09 – 2025/07</span>
+                  <h4 class="timeline-title" data-i18n="work2_title">Researcher</h4>
                   <span class="timeline-sub">ULMA Handling Systems · Oñati</span>
-                  <p class="timeline-desc">
+                  <p class="timeline-desc" data-i18n="work2_desc">
                     Built an LLM-based system allowing non-technical users to query databases and extract knowledge intuitively.
                   </p>
                 </div>
@@ -606,10 +611,10 @@
               <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                  <span class="timeline-date">2023/10 – 2024/07</span>
-                  <h4 class="timeline-title">Project Assistant</h4>
+                  <span class="timeline-date" data-i18n="work3_date">2023/10 – 2024/07</span>
+                  <h4 class="timeline-title" data-i18n="work3_title">Project Assistant</h4>
                   <span class="timeline-sub">ULMA Handling Systems · Oñati</span>
-                  <p class="timeline-desc">
+                  <p class="timeline-desc" data-i18n="work3_desc">
                     Developed a logistics system to automate a pallet and container warehouse for an industrial client.
                   </p>
                 </div>
@@ -625,8 +630,8 @@
     <!-- ========== SECTION: LINKS ========== -->
     <section id="links" class="section">
       <div class="container links-container">
-        <h2 class="section-title page-title"><span class="accent">//</span> find_me</h2>
-        <p class="links-intro">Want to connect, collaborate, or just say hi?</p>
+        <h2 class="section-title page-title"><span class="accent">//</span> <span data-i18n="links_title">find_me</span></h2>
+        <p class="links-intro" data-i18n="links_intro">Want to connect, collaborate, or just say hi?</p>
 
         <div class="links-grid">
           <a href="https://www.linkedin.com/in/luken-iriondo-bilbao/" target="_blank" rel="noopener" class="social-card" id="linkedin-card">
@@ -690,10 +695,9 @@
 
   </main>
 
-  <!-- ===== FOOTER ===== -->
   <!-- ===== EASTER EGG: PARANOID MODE ===== -->
   <div id="paranoid-overlay" class="paranoid-overlay" aria-hidden="true">
-    <p class="paranoid-msg"><span class="paranoid-accent">Your data.</span><br>Your rules.</p>
+    <p class="paranoid-msg" data-i18n-html="paranoid_msg"><span class="paranoid-accent">Your data.</span><br>Your rules.</p>
   </div>
 
   <!-- ===== EASTER EGG: YOU ARE TRACKABLE ===== -->
@@ -718,6 +722,7 @@
     <span id="footer-year"></span>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

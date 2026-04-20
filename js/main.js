@@ -249,27 +249,28 @@
     modal.setAttribute('aria-hidden', 'false');
     modal.classList.add('active');
 
-    const ua       = navigator.userAgent;
-    const lang     = navigator.language || 'unknown';
-    const tz       = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const res      = `${globalThis.screen.width}x${globalThis.screen.height}`;
-    const os       = detectOS(ua);
-    const browser  = detectBrowser(ua);
+    const i18n    = globalThis.i18n || { t: k => k };
+    const ua      = navigator.userAgent;
+    const lang    = navigator.language || 'unknown';
+    const tz      = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const res     = `${globalThis.screen.width}x${globalThis.screen.height}`;
+    const os      = detectOS(ua);
+    const browser = detectBrowser(ua);
 
     let ip = 'resolving...';
 
     const lines = [
-      { text: '$ ./expose.sh', color: '#00ff88' },
+      { text: i18n.t('tracking_cmd'), color: '#00ff88' },
       { text: '' },
-      { text: `  IP Address  : ${ip}`, id: 'ip-line' },
-      { text: `  OS          : ${os}` },
-      { text: `  Browser     : ${browser}` },
-      { text: `  Language    : ${lang}` },
-      { text: `  Timezone    : ${tz}` },
-      { text: `  Resolution  : ${res}` },
+      { text: i18n.t('tracking_ip') + ip },
+      { text: i18n.t('tracking_os') + os },
+      { text: i18n.t('tracking_browser') + browser },
+      { text: i18n.t('tracking_lang') + lang },
+      { text: i18n.t('tracking_tz') + tz },
+      { text: i18n.t('tracking_res') + res },
       { text: '' },
-      { text: '  This is what every website sees.' },
-      { text: '  Think about it.', color: '#cc0000' },
+      { text: i18n.t('tracking_footer1') },
+      { text: i18n.t('tracking_footer2'), color: '#cc0000' },
     ];
 
     await typeLines(content, lines);
