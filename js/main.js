@@ -320,3 +320,158 @@
     return 'Unknown';
   }
 })();
+
+
+// ---- Skill ↔ Project crosslinks ----
+(function initSkillProjectLinks() {
+  // Tags whose text differs from the skill badge text
+  const ALIASES = {
+    'HTML5':      ['html', 'html5'],
+    'CSS3':       ['css', 'css3'],
+    'JavaScript': ['js', 'javascript'],
+  };
+
+  function getAliases(skill) {
+    return ALIASES[skill] || [skill.toLowerCase()];
+  }
+
+  const badges = document.querySelectorAll('.skill-badge');
+  const aliasToSkill = new Map();
+
+  badges.forEach(badge => {
+    const skill = badge.textContent.trim();
+    badge.dataset.skillName = skill;
+    getAliases(skill).forEach(a => aliasToSkill.set(a, skill));
+  });
+
+  // Highlight tags that correspond to a real skill
+  document.querySelectorAll('.project-tags .tag').forEach(tag => {
+    const skill = aliasToSkill.get(tag.textContent.trim().toLowerCase());
+    if (skill) {
+      tag.classList.add('tag--skill');
+      tag.dataset.skillName = skill;
+    }
+  });
+
+  // Build skill → [{title, sectionId}] map
+  const skillProjects = new Map();
+  document.querySelectorAll('.project-card').forEach(card => {
+    const title = card.querySelector('.project-title')?.textContent.trim();
+    const sectionId = card.closest('section')?.id;
+    card.querySelectorAll('.tag--skill').forEach(tag => {
+      const skill = tag.dataset.skillName;
+      if (!skillProjects.has(skill)) skillProjects.set(skill, []);
+      const list = skillProjects.get(skill);
+      if (!list.some(p => p.title === title)) list.push({ title, sectionId });
+    });
+  });
+
+  // Shared popover element
+  const popover = document.createElement('div');
+  popover.className = 'skill-popover';
+  popover.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(popover);
+  let hideTimer;
+
+  badges.forEach(badge => {
+    const skill = badge.dataset.skillName;
+    const projects = skillProjects.get(skill);
+    if (!projects?.length) return;
+
+    // Append [n] counter
+    const counter = document.createElement('span');
+    counter.className = 'skill-count';
+    counter.textContent = `[${projects.length}]`;
+    badge.appendChild(counter);
+    badge.classList.add('skill-badge--linked');
+
+    badge.addEventListener('mouseenter', () => {
+      clearTimeout(hideTimer);
+      const rect = badge.getBoundingClientRect();
+
+      popover.innerHTML = '';
+      projects.forEach((p, i) => {
+        if (i > 0) popover.appendChild(document.createElement('br'));
+        const arrow = document.createElement('span');
+        arrow.className = 'sp-arrow';
+        arrow.textContent = '→ ';
+        popover.appendChild(arrow);
+        popover.appendChild(document.createTextNode(p.title));
+      });
+
+      popover.classList.add('active');
+      popover.setAttribute('aria-hidden', 'false');
+
+      requestAnimationFrame(() => {
+        const ph = popover.offsetHeight;
+        const pw = popover.offsetWidth;
+        let top  = rect.top - ph - 10;
+        let left = rect.left;
+
+        if (rect.top < ph + 16) top = rect.bottom + 10;
+        if (left + pw > window.innerWidth - 16) left = window.innerWidth - pw - 16;
+        if (left < 8) left = 8;
+
+        popover.style.top  = top  + 'px';
+        popover.style.left = left + 'px';
+      });
+    });
+
+    badge.addEventListener('mouseleave', () => {
+      hideTimer = setTimeout(() => {
+        popover.classList.remove('active');
+        popover.setAttribute('aria-hidden', 'true');
+      }, 200);
+    });
+
+    badge.addEventListener('click', () => {
+      popover.classList.remove('active');
+      const target = projects.some(p => p.sectionId === 'projects')
+        ? 'projects'
+        : (projects[0]?.sectionId || 'projects');
+      document.querySelector(`.tab-btn[data-target="${target}"]`)?.click();
+      setTimeout(() => applySkillFilter(skill, target), 60);
+    });
+  });
+
+  function applySkillFilter(skill, sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    section.querySelector('.skill-filter-bar')?.remove();
+
+    const bar = document.createElement('div');
+    bar.className = 'skill-filter-bar';
+
+    const prompt = document.createElement('span');
+    prompt.className = 'prompt';
+    prompt.textContent = '$';
+    bar.appendChild(prompt);
+    bar.appendChild(document.createTextNode(' filter: '));
+
+    const nameSpan = document.createElement('span');
+    nameSpan.className = 'skill-filter-name';
+    nameSpan.textContent = skill;
+    bar.appendChild(nameSpan);
+
+    const clearBtn = document.createElement('button');
+    clearBtn.className = 'skill-filter-clear';
+    clearBtn.setAttribute('aria-label', 'Clear filter');
+    clearBtn.textContent = '×';
+    bar.appendChild(clearBtn);
+
+    section.querySelector('.projects-grid')?.parentElement.insertBefore(
+      bar,
+      section.querySelector('.projects-grid')
+    );
+
+    section.querySelectorAll('.project-card').forEach(card => {
+      card.classList.toggle('card--dimmed', !card.querySelector(`.tag[data-skill-name="${skill}"]`));
+    });
+
+    clearBtn.addEventListener('click', () => {
+      bar.remove();
+      section.querySelectorAll('.project-card').forEach(c => c.classList.remove('card--dimmed'));
+    });
+  }
+})();

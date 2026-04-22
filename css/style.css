@@ -915,6 +915,96 @@ main { padding-top: var(--nav-h); }
 .footer-sep    { color: var(--text-muted); opacity: 0.4; }
 
 /* =============================================
+   SKILL ↔ PROJECT CROSSLINKS
+   ============================================= */
+
+/* Project tag that matches a skill */
+.tag--skill {
+  color: var(--accent);
+  border-color: var(--border-accent);
+  background: var(--accent-glow);
+}
+
+/* [n] counter inside skill badge */
+.skill-count {
+  margin-left: 5px;
+  font-size: 0.72em;
+  color: var(--accent-dim);
+  opacity: 0.7;
+  letter-spacing: 0.02em;
+  transition: opacity var(--transition);
+}
+
+.skill-badge--linked {
+  cursor: pointer;
+}
+.skill-badge--linked:hover .skill-count {
+  opacity: 1;
+}
+
+/* Hover popover */
+.skill-popover {
+  position: fixed;
+  z-index: 200;
+  background: var(--bg-2);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-soft);
+  line-height: 1.9;
+  box-shadow: 0 0 20px var(--accent-glow);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+.skill-popover.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sp-arrow {
+  color: var(--accent);
+}
+
+/* Active filter bar in project sections */
+.skill-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 24px;
+  padding: 8px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  background: var(--bg-2);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius);
+  animation: fadeIn 0.2s ease;
+}
+.skill-filter-name {
+  color: var(--accent);
+  font-weight: 500;
+}
+.skill-filter-clear {
+  margin-left: auto;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1;
+  padding: 0 2px;
+  transition: color var(--transition);
+}
+.skill-filter-clear:hover { color: var(--text); }
+
+/* Dimmed non-matching project cards */
+.card--dimmed {
+  opacity: 0.25;
+  transition: opacity 0.25s ease;
+}
+
+/* =============================================
    RESPONSIVE
    ============================================= */
 @media (max-width: 768px) {
