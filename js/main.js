@@ -2,6 +2,28 @@
    iamLudok Portfolio — main.js
    ============================================= */
 
+// ---- Lightbox ----
+(function initLightbox() {
+  const dialog = document.getElementById('lightbox');
+  const img    = document.getElementById('lightbox-img');
+  const close  = document.getElementById('lightbox-close');
+
+  document.querySelectorAll('.preview-img-wrap .preview-img').forEach(thumb => {
+    thumb.style.cursor = 'zoom-in';
+    thumb.addEventListener('click', () => {
+      img.src = thumb.src;
+      img.alt = thumb.alt;
+      dialog.showModal();
+    });
+  });
+
+  const closeLightbox = () => { dialog.close(); img.src = ''; };
+  close.addEventListener('click', closeLightbox);
+  img.addEventListener('click', closeLightbox);
+  dialog.addEventListener('click', e => { if (e.target === dialog) closeLightbox(); });
+  dialog.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+})();
+
 // ---- Typing effect ----
 (function initTyping() {
   const el = document.getElementById('typing-name');

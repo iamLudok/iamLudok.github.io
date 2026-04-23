@@ -20,13 +20,6 @@
       interests_title: 'interests',
       interest_dj:     'DJ & Producer',
 
-      lang_title:     'languages',
-      lang_name_eu:   'Basque',
-      lang_name_es:   'Spanish',
-      lang_name_en:   'English',
-      lang_native:    'Native',
-      lang_bilingual: 'Bilingual',
-
       skills_title:      'skills',
       skills_ai:         'AI & ML',
       skills_infra:      'Infrastructure & DevOps',
@@ -124,13 +117,6 @@
 
       interests_title: 'intereses',
       interest_dj:     'DJ y Productor',
-
-      lang_title:     'idiomas',
-      lang_name_eu:   'Vasco',
-      lang_name_es:   'Español',
-      lang_name_en:   'Inglés',
-      lang_native:    'Nativo',
-      lang_bilingual: 'Bilingüe',
 
       skills_title:      'habilidades',
       skills_ai:         'IA y ML',

@@ -220,19 +220,16 @@ main { padding-top: var(--nav-h); }
   flex-shrink: 0;
 }
 .avatar-placeholder {
-  width: 120px;
-  height: 120px;
-  border: 2px solid var(--border-accent);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg-2);
+  width: 150px;
+  height: 150px;
+  border: 1px solid var(--border-accent);
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 0 24px var(--accent-glow);
+  background: var(--bg-2);
+  box-shadow: 0 0 20px var(--accent-glow);
 }
 .avatar-placeholder svg { width: 80px; height: 80px; }
-.avatar-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.avatar-placeholder img { width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
 
 /* =============================================
    SECTION: ME — About
@@ -435,7 +432,7 @@ main { padding-top: var(--nav-h); }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
   gap: 20px;
 }
 
@@ -722,61 +719,6 @@ main { padding-top: var(--nav-h); }
   flex-shrink: 0;
 }
 
-/* =============================================
-   SECTION: ME — Languages
-   ============================================= */
-.languages-section {
-  margin-bottom: 56px;
-}
-
-.languages-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 480px;
-}
-
-.lang-item {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.lang-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.lang-name {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--text);
-}
-
-.lang-level {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--accent);
-  opacity: 0.8;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.lang-bar {
-  height: 4px;
-  background: var(--bg-3);
-  border-radius: 2px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-
-.lang-fill {
-  height: 100%;
-  background: linear-gradient(to right, var(--accent-dim), var(--accent));
-  border-radius: 2px;
-  transition: width 1s ease;
-}
 
 /* =============================================
    EASTER EGG: PARANOID MODE
@@ -915,6 +857,114 @@ main { padding-top: var(--nav-h); }
 .footer-sep    { color: var(--text-muted); opacity: 0.4; }
 
 /* =============================================
+   PROJECT CARD — PREVIEW FRAME
+   ============================================= */
+
+/* Cards with preview: image top / content bottom */
+#projects-grid .project-card:has(.project-preview) {
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#projects-grid .project-card:has(.project-preview) .project-preview {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.project-preview {
+  overflow: hidden;
+  background: var(--bg-3);
+  flex-shrink: 0;
+}
+
+
+.preview-img-wrap {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  filter: brightness(0.88) saturate(0.85);
+  transition: filter 0.4s ease;
+}
+
+.project-card:hover .preview-img {
+  filter: brightness(1) saturate(1);
+}
+
+/* =============================================
+   LIGHTBOX
+   ============================================= */
+.lightbox {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 90dvh;
+  object-fit: contain;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: zoom-out;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 1.2rem;
+  line-height: 1;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition), border-color var(--transition);
+  z-index: 1;
+}
+
+.lightbox-close:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* =============================================
    SKILL ↔ PROJECT CROSSLINKS
    ============================================= */
 
@@ -1024,6 +1074,7 @@ main { padding-top: var(--nav-h); }
   .section { padding: 44px 0 60px; }
 
   .footer { flex-wrap: wrap; gap: 6px; }
+
 }
 
 @media (max-width: 480px) {
