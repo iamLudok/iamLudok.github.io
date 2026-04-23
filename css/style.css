@@ -496,6 +496,20 @@ main { padding-top: var(--nav-h); }
   flex: 1;
 }
 
+.project-collab {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.project-collab-link {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+
+.project-collab-link:hover { opacity: 0.75; }
+
 .project-tags {
   display: flex;
   flex-wrap: wrap;
