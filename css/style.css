@@ -855,6 +855,38 @@ main { padding-top: var(--nav-h); }
 }
 
 /* =============================================
+   EASTER EGG: CLAP
+   ============================================= */
+.clap-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9500;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+.clap-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.clap-terminal {
+  background: var(--bg-2);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  width: min(520px, 92vw);
+  box-shadow: 0 0 40px rgba(0, 255, 136, 0.2);
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+.clap-dot { background: var(--accent) !important; }
+.footer-prompt.listening { color: var(--accent); }
+
+/* =============================================
    FOOTER
    ============================================= */
 .footer {
@@ -867,7 +899,7 @@ main { padding-top: var(--nav-h); }
   align-items: center;
   gap: 10px;
 }
-.footer-prompt { color: var(--accent); }
+.footer-prompt { color: var(--accent); cursor: pointer; transition: color var(--transition); }
 .footer-sep    { color: var(--text-muted); opacity: 0.4; }
 
 /* =============================================

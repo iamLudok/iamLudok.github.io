@@ -360,6 +360,118 @@
 })();
 
 
+// ---- Easter egg: Clap detector (click $ in footer → 2 claps → flag) ----
+(function initClapEgg() {
+  const trigger  = document.getElementById('footer-trigger');
+  const overlay  = document.getElementById('clap-overlay');
+  const content  = document.getElementById('clap-content');
+  const closeBtn = document.getElementById('clap-close');
+  if (!trigger || !overlay) return;
+
+  let listening    = false;
+  let stream       = null;
+  let audioCtx     = null;
+  let clapCount    = 0;
+  let lastClapTime = 0;
+
+  trigger.addEventListener('click', async () => {
+    if (listening) return;
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+      startListening();
+    } catch { /* permission denied — fail silently */ }
+  });
+
+  closeBtn.addEventListener('click', stopAndClose);
+  overlay.addEventListener('click', e => { if (e.target === overlay) stopAndClose(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && listening) stopListening(); });
+
+  function startListening() {
+    listening  = true;
+    clapCount  = 0;
+    lastClapTime = 0;
+
+    const AudioCtx = globalThis.AudioContext || /** @type {any} */ (globalThis).webkitAudioContext;
+    audioCtx = new AudioCtx();
+    const source   = audioCtx.createMediaStreamSource(stream);
+    const analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 512;
+    source.connect(analyser);
+
+    const dataArray = new Float32Array(analyser.fftSize);
+    let wasLoud = false;
+
+    trigger.textContent = '$ ○○';
+    trigger.classList.add('listening');
+
+    function tick() {
+      if (!listening) return;
+      analyser.getFloatTimeDomainData(dataArray);
+
+      let sum = 0;
+      for (let i = 0; i < dataArray.length; i++) sum += dataArray[i] * dataArray[i];
+      const rms = Math.sqrt(sum / dataArray.length);
+
+      const now = Date.now();
+      if (!wasLoud && rms > 0.12 && now - lastClapTime > 400) {
+        wasLoud      = true;
+        lastClapTime = now;
+        clapCount++;
+        trigger.textContent = `$ ${'●'.repeat(clapCount)}${'○'.repeat(2 - clapCount)}`;
+        if (clapCount >= 2) { stopListening(); showEasterEgg(); return; }
+      } else if (rms < 0.05) {
+        wasLoud = false;
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function stopListening() {
+    listening = false;
+    stream?.getTracks().forEach(t => t.stop());
+    stream = null;
+    audioCtx?.close();
+    audioCtx = null;
+    trigger.textContent = '$';
+    trigger.classList.remove('listening');
+  }
+
+  function stopAndClose() {
+    stopListening();
+    overlay.classList.remove('active');
+    setTimeout(() => overlay.setAttribute('aria-hidden', 'true'), 300);
+  }
+
+  async function showEasterEgg() {
+    content.textContent = '';
+    overlay.setAttribute('aria-hidden', 'false');
+    overlay.classList.add('active');
+
+    const lines = [
+      '> audio_input detected',
+      '> analyzing clap pattern...',
+      '> signature match ✓',
+      '',
+      '> unlocking...',
+      '',
+      '  flag{cl4p_cl4p_y0u_f0und_m3}',
+      '',
+      '> nice ears.',
+    ];
+
+    for (const line of lines) {
+      content.textContent += line + '\n';
+      let delay = 60;
+      if (line.startsWith('> unlock')) delay = 300;
+      else if (line.startsWith('>'))    delay = 130;
+      else if (line.startsWith('  '))   delay = 220;
+      await new Promise(r => setTimeout(r, delay));
+    }
+  }
+})();
+
+
 // ---- Skill ↔ Project crosslinks ----
 (function initSkillProjectLinks() {
   // Tags whose text differs from the skill badge text
