@@ -472,6 +472,129 @@
 })();
 
 
+// ---- Easter egg: tap DJ card at 120–130 BPM → visualizer ----
+(function initDJEgg() {
+  const djCard = document.getElementById('dj-card');
+  if (!djCard) return;
+
+  const BPM_MIN  = 115;
+  const BPM_MAX  = 135;
+  const DURATION = 8000;
+
+  let clickTimes = [];
+  djCard.style.cursor = 'pointer';
+
+  djCard.addEventListener('click', () => {
+    const now = Date.now();
+
+    // Reset if last click was too long ago
+    if (clickTimes.length && now - clickTimes.at(-1) > 1200) {
+      clickTimes = [];
+    }
+    clickTimes.push(now);
+
+    if (clickTimes.length < 4) return;
+
+    const intervals = [];
+    for (let i = 1; i < clickTimes.length; i++) {
+      intervals.push(clickTimes[i] - clickTimes[i - 1]);
+    }
+    const avg = intervals.reduce((a, b) => a + b, 0) / intervals.length;
+    const bpm = Math.round(60000 / avg);
+
+    if (bpm >= BPM_MIN && bpm <= BPM_MAX) {
+      clickTimes = [];
+      startVisualizer(bpm);
+    } else {
+      clickTimes = clickTimes.slice(-3);
+    }
+  });
+
+  function startVisualizer(bpm) {
+    const canvas = document.createElement('canvas');
+    Object.assign(canvas.style, {
+      position: 'fixed', inset: '0', zIndex: '9000',
+      opacity: '0', transition: 'opacity 0.4s ease',
+    });
+    document.body.appendChild(canvas);
+
+    const ctx   = canvas.getContext('2d');
+    canvas.width  = globalThis.innerWidth;
+    canvas.height = globalThis.innerHeight;
+
+    const BAR_COUNT    = 48;
+    const beatInterval = 60000 / bpm;
+    const heights      = new Array(BAR_COUNT).fill(0.1);
+    const targets      = new Array(BAR_COUNT).fill(0.1);
+    let lastBeat = Date.now();
+    let startTime = Date.now();
+
+    requestAnimationFrame(() => { canvas.style.opacity = '1'; });
+
+    function newTargets() {
+      for (let i = 0; i < BAR_COUNT; i++) {
+        const center = BAR_COUNT / 2;
+        const dist   = Math.abs(i - center) / center;
+        targets[i]   = (0.1 + Math.random() * 0.9) * (1 - dist * 0.3);
+      }
+    }
+    newTargets();
+
+    function draw() {
+      const now     = Date.now();
+      const elapsed = now - startTime;
+
+      if (now - lastBeat >= beatInterval) { lastBeat = now; newTargets(); }
+
+      for (let i = 0; i < BAR_COUNT; i++) {
+        heights[i] += (targets[i] - heights[i]) * 0.15;
+      }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(0,0,0,0.88)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      const barW  = canvas.width / BAR_COUNT;
+      const gap   = 2;
+      const maxH  = canvas.height * 0.65;
+      const baseY = canvas.height * 0.82;
+
+      for (let i = 0; i < BAR_COUNT; i++) {
+        const h    = heights[i] * maxH;
+        const x    = i * barW + gap / 2;
+        const grad = ctx.createLinearGradient(0, baseY - h, 0, baseY);
+        grad.addColorStop(0, 'rgba(0,255,136,0.95)');
+        grad.addColorStop(1, 'rgba(0,255,136,0.15)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(x, baseY - h, barW - gap, h);
+      }
+
+      if (elapsed < 2200) {
+        const alpha = elapsed < 1600 ? 1 : (2200 - elapsed) / 600;
+        ctx.fillStyle = `rgba(0,255,136,${alpha * 0.7})`;
+        ctx.font = `700 ${Math.round(canvas.width * 0.055)}px 'JetBrains Mono',monospace`;
+        ctx.textAlign = 'center';
+        ctx.fillText(`${bpm} BPM`, canvas.width / 2, canvas.height * 0.44);
+      }
+
+      if (elapsed < DURATION - 500) {
+        requestAnimationFrame(draw);
+      } else {
+        canvas.style.transition = 'opacity 0.5s ease';
+        canvas.style.opacity    = '0';
+        setTimeout(() => canvas.remove(), 500);
+      }
+    }
+
+    requestAnimationFrame(draw);
+    canvas.addEventListener('click', () => {
+      canvas.style.opacity = '0';
+      setTimeout(() => canvas.remove(), 500);
+    }, { once: true });
+  }
+})();
+
+
 // ---- Skill ↔ Project crosslinks ----
 (function initSkillProjectLinks() {
   // Tags whose text differs from the skill badge text

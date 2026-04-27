@@ -276,10 +276,7 @@ main { padding-top: var(--nav-h); }
   box-shadow: 0 0 16px var(--accent-glow);
   color: var(--text);
 }
-.interest-card--link {
-  cursor: pointer;
-  text-decoration: none;
-}
+
 .interest-icon {
   width: 40px;
   height: 40px;
