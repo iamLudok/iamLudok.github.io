@@ -43,6 +43,7 @@
       project_teknoa_desc:      'Community platform for electronic music in the Basque Country. One place for all events, venues, vinyl shops, radio stations and DJ collectives from the local scene.',
       project_musicgenre_desc:  'Automated music organization system that classifies and groups large song libraries by genre using ML and audio processing.',
       project_visualizer_desc:  'Real-time visual generator for DJs and live performances, reacting to audio input.',
+      project_skai_desc:        'AI travel companion that turns emotional intent into real, ranked flight options. Vibe-based matching across 11 dimensions, scored by compatibility, price, history, and novelty.',
       project_jaialai_desc:     'AI chatbot with specialized knowledge about Jai Alai sport and culture.',
       project_gluteina_desc:       'Platform focused on people with celiac disease, helping them find safe places to eat when travelling or dining out.',
       project_claudetemplate_desc: 'Boilerplate template to accelerate development workflows with Claude Code.',
@@ -52,6 +53,7 @@
 
       link_live:    'Live',
       link_website: 'Website',
+      link_project: 'Project',
 
       tag_ai:         'AI',
       tag_selfhosted: 'Self-hosted',
@@ -67,7 +69,7 @@
 
       challenges_title:       'challenges',
       challenge_ikerlan_desc: 'My first CTF. Ended up going solo - tackled a bit of everything across categories. A good intro to the mindset.',
-      challenge_hackupc_desc: '48h hackathon at Universitat Politècnica de Catalunya, Barcelona. Apr 24–26, 2026 - project TBD.',
+      challenge_hackupc_desc: '36h hackathon at Universitat Politècnica de Catalunya, Barcelona.',
 
       experience_title: 'studies_&_experience',
       edu_heading:      'Education',
@@ -144,6 +146,7 @@
       project_teknoa_desc:      'Plataforma comunitaria de música electrónica del País Vasco. Un único lugar para eventos, locales, tiendas de vinilos, radios y colectivos de DJs de la escena local.',
       project_musicgenre_desc:  'Sistema de organización musical automatizado que clasifica y agrupa grandes bibliotecas de canciones por género usando ML y procesamiento de audio.',
       project_visualizer_desc:  'Generador de visuales en tiempo real para DJs y actuaciones en directo, reactivo al audio.',
+      project_skai_desc:        'Asistente de viaje con IA que convierte la intención emocional en opciones de vuelo reales y ordenadas. Compatibilidad de vibes en 11 dimensiones, puntuada por afinidad, precio, historial y novedad.',
       project_jaialai_desc:     'Chatbot de IA con conocimiento especializado sobre el deporte y la cultura del Jai Alai.',
       project_gluteina_desc:       'Plataforma enfocada en personas celíacas, ayudándoles a encontrar sitios donde comer de forma segura cuando viajan o comen fuera.',
       project_claudetemplate_desc: 'Plantilla base para acelerar flujos de trabajo de desarrollo con Claude Code.',
@@ -153,6 +156,7 @@
 
       link_live:    'Demo',
       link_website: 'Web',
+      link_project: 'Proyecto',
 
       tag_ai:         'IA',
       tag_selfhosted: 'Autoalojado',
@@ -168,7 +172,7 @@
 
       challenges_title:       'retos',
       challenge_ikerlan_desc: 'Mi primer CTF. Acabé participando en solitario, cubrí un poco de todo entre las categorías. Una buena introducción a los CTF-s.',
-      challenge_hackupc_desc: 'Hackathon de 48h en la Universitat Politècnica de Catalunya, Barcelona. 24–26 Abr, 2026 - proyecto por determinar.',
+      challenge_hackupc_desc: 'Hackathon de 36h en la Universitat Politècnica de Catalunya, Barcelona.',
 
       experience_title: 'estudios_y_experiencia',
       edu_heading:      'Formación',

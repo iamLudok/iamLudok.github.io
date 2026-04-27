@@ -131,11 +131,27 @@
     btn.addEventListener('click', () => activateTab(btn.dataset.target));
   });
 
+  // Intercept clicks on internal element anchors (e.g. #project-skai)
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const hash = a.getAttribute('href').slice(1);
+    const valid = ['me', 'projects', 'challenges', 'experience', 'links'];
+    if (valid.includes(hash)) return; // let tab buttons handle these
+    const el = document.getElementById(hash);
+    if (!el) return;
+    e.preventDefault();
+    const section = el.closest('.section');
+    if (section) activateTab(section.id);
+    setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 50);
+  });
+
   // Support direct URL hash navigation
   function handleHash() {
     const hash = globalThis.location.hash.replace('#', '');
+    if (!hash) return;
     const valid = ['me', 'projects', 'challenges', 'experience', 'links'];
-    if (hash && valid.includes(hash)) activateTab(hash);
+    if (valid.includes(hash)) activateTab(hash);
   }
   globalThis.addEventListener('hashchange', handleHash);
   handleHash();
