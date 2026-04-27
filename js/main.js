@@ -131,6 +131,12 @@
     btn.addEventListener('click', () => activateTab(btn.dataset.target));
   });
 
+  const brand = document.querySelector('.navbar-brand');
+  if (brand) brand.addEventListener('click', () => {
+    activateTab('me');
+    globalThis.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
   // Intercept clicks on internal element anchors (e.g. #project-skai)
   document.addEventListener('click', e => {
     const a = e.target.closest('a[href^="#"]');
@@ -212,6 +218,7 @@
   });
 
   function startMatrix() {
+    globalThis.markCTFSolved?.('ctf-1');
     const canvas = document.createElement('canvas');
     canvas.id = 'matrix-canvas';
     document.body.appendChild(canvas);
@@ -283,6 +290,7 @@
   });
 
   async function openTrackingModal() {
+    globalThis.markCTFSolved?.('ctf-2');
     content.textContent = '';
     modal.setAttribute('aria-hidden', 'false');
     modal.classList.add('active');
@@ -444,18 +452,13 @@
   }
 
   async function showEasterEgg() {
+    globalThis.markCTFSolved?.('ctf-3');
     content.textContent = '';
     overlay.setAttribute('aria-hidden', 'false');
     overlay.classList.add('active');
 
     const lines = [
-      '> audio_input detected',
-      '> analyzing clap pattern...',
-      '> signature match ✓',
-      '',
-      '> unlocking...',
-      '',
-      '  flag{cl4p_cl4p_y0u_f0und_m3}',
+      '> signal received.',
       '',
       '> nice ears.',
     ];
@@ -511,6 +514,7 @@
   });
 
   function startVisualizer(bpm) {
+    globalThis.markCTFSolved?.('ctf-4');
     const canvas = document.createElement('canvas');
     Object.assign(canvas.style, {
       position: 'fixed', inset: '0', zIndex: '9000',
@@ -747,4 +751,46 @@
       section.querySelectorAll('.project-card').forEach(c => c.classList.remove('card--dimmed'));
     });
   }
+})();
+
+
+// ---- CTF Board ----
+(function initCTFBoard() {
+  const POINTS = { 'ctf-1': 150, 'ctf-2': 75, 'ctf-3': 225, 'ctf-4': 300 };
+  const TOTAL  = 750;
+
+  function getSolved() {
+    try { return JSON.parse(localStorage.getItem('ctf-solved') || '[]'); }
+    catch { return []; }
+  }
+
+  function updateBoard() {
+    const solved = getSolved();
+    let score = 0;
+
+    Object.entries(POINTS).forEach(([id, pts]) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const isSolved = solved.includes(id);
+      el.classList.toggle('solved', isSolved);
+      el.querySelector('.ctf-status').textContent = isSolved ? '[✓]' : '[ ]';
+      if (isSolved) score += pts;
+    });
+
+    const scoreEl = document.getElementById('ctf-score');
+    if (scoreEl) scoreEl.textContent = `${score} / ${TOTAL} pts`;
+
+    const allEl = document.getElementById('ctf-all-solved');
+    if (allEl) allEl.classList.toggle('visible', solved.length >= Object.keys(POINTS).length);
+  }
+
+  globalThis.markCTFSolved = function (id) {
+    const solved = getSolved();
+    if (solved.includes(id)) return;
+    solved.push(id);
+    localStorage.setItem('ctf-solved', JSON.stringify(solved));
+    updateBoard();
+  };
+
+  updateBoard();
 })();

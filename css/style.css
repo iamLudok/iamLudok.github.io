@@ -69,6 +69,10 @@ img, svg { display: block; max-width: 100%; }
   display: flex;
   align-items: center;
   gap: 6px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 .brand-prompt { color: var(--accent); }
 .brand-name   { color: var(--text); }
@@ -399,6 +403,76 @@ main { padding-top: var(--nav-h); }
   color: var(--text-soft);
   line-height: 1.8;
 }
+.secrets-hint {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 32px;
+}
+
+.visitor-challenge {
+  margin-top: 48px;
+  max-width: 620px;
+}
+
+.visitor-challenge-intro p {
+  margin-top: -16px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.ctf-board {
+  margin-top: 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  background: var(--bg-2);
+}
+
+.ctf-board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.ctf-total-score { color: var(--accent); }
+
+.ctf-challenge {
+  display: grid;
+  grid-template-columns: 28px 90px 58px 1fr;
+  gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  align-items: center;
+}
+
+.ctf-challenge:last-child { border-bottom: none; }
+
+.ctf-status { color: var(--text-muted); transition: color 0.3s ease; }
+.ctf-name   { color: var(--text); font-weight: 700; letter-spacing: 0.04em; }
+.ctf-pts    { color: var(--accent); opacity: 0.6; }
+.ctf-hint   { color: var(--text-muted); font-style: italic; opacity: 0.7; }
+
+.ctf-challenge.solved .ctf-status { color: var(--accent); }
+.ctf-challenge.solved .ctf-name   { text-decoration: line-through; opacity: 0.5; }
+.ctf-challenge.solved .ctf-pts    { opacity: 1; }
+
+.ctf-all-solved {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  color: var(--accent);
+  text-align: center;
+  display: none;
+}
+
+.ctf-all-solved.visible { display: block; }
 
 /* =============================================
    SECTION: PROJECTS

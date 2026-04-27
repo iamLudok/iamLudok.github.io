@@ -67,6 +67,16 @@
       tag_misc:       'Miscellaneous',
       tag_ot:         'Operational Technology',
 
+      visitor_challenge_title: 'your_turn',
+      visitor_challenge_desc:  "I've hidden 4 easter eggs somewhere on this page. Think you can find them all?",
+
+      ctf_board_title: 'secret_challenges',
+      ctf_hint_1:      '"some words trigger reactions"',
+      ctf_hint_2:      '"visit = consent"',
+      ctf_hint_3:      '"$ → ×2"',
+      ctf_hint_4:      '"4/4 in the pocket"',
+      ctf_all_solved:  '> gg. you found them all.',
+
       challenges_title:       'challenges',
       challenge_ikerlan_desc: 'My first CTF. Ended up going solo - tackled a bit of everything across categories. A good intro to the mindset.',
       challenge_hackupc_desc: '36h hackathon at Universitat Politècnica de Catalunya, Barcelona.',
@@ -95,6 +105,7 @@
       links_title: 'find_me',
       links_intro: 'Want to connect, collaborate, or just say hi?',
 
+      secrets_hint:      '4 secrets hidden somewhere in this page',
       paranoid_msg:      '<span class="paranoid-accent">Your data.</span><br>Your rules.',
       tracking_cmd:      '$ ./expose.sh',
       tracking_ip:       '  IP Address  : ',
@@ -170,6 +181,16 @@
       tag_misc:       'Miscelánea',
       tag_ot:         'Tecnología Operacional',
 
+      visitor_challenge_title: 'tu_turno',
+      visitor_challenge_desc:  'He escondido 4 easter eggs en algún lugar de esta página. ¿Crees que puedes encontrarlos todos?',
+
+      ctf_board_title: 'retos_secretos',
+      ctf_hint_1:      '"algunas palabras desencadenan reacciones"',
+      ctf_hint_2:      '"visitar = consentir"',
+      ctf_hint_3:      '"$ → ×2"',
+      ctf_hint_4:      '"4/4 en el bolsillo"',
+      ctf_all_solved:  '> gg. los encontraste todos.',
+
       challenges_title:       'retos',
       challenge_ikerlan_desc: 'Mi primer CTF. Acabé participando en solitario, cubrí un poco de todo entre las categorías. Una buena introducción a los CTF-s.',
       challenge_hackupc_desc: 'Hackathon de 36h en la Universitat Politècnica de Catalunya, Barcelona.',
@@ -198,6 +219,7 @@
       links_title: 'encuéntrame',
       links_intro: '¿Quieres conectar, colaborar o simplemente saludar?',
 
+      secrets_hint:     '4 secretos escondidos en algún lugar de esta página',
       paranoid_msg:     '<span class="paranoid-accent">Tus datos.</span><br>Tus reglas.',
       tracking_cmd:     '$ ./expose.sh',
       tracking_ip:      '  Dir. IP      : ',
