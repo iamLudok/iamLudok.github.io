@@ -104,6 +104,7 @@
 
       links_title: 'find_me',
       links_intro: 'Want to connect, collaborate, or just say hi?',
+      cal_name: 'Book a Meeting',
 
       secrets_hint:      '4 secrets hidden somewhere in this page',
       paranoid_msg:      '<span class="paranoid-accent">Your data.</span><br>Your rules.',
@@ -218,6 +219,7 @@
 
       links_title: 'encuéntrame',
       links_intro: '¿Quieres conectar, colaborar o simplemente saludar?',
+      cal_name: 'Reservar una Reunión',
 
       secrets_hint:     '4 secretos escondidos en algún lugar de esta página',
       paranoid_msg:     '<span class="paranoid-accent">Tus datos.</span><br>Tus reglas.',
