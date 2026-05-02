@@ -15,7 +15,7 @@
       hero_location: 'Markina-Xemein, Basque Country',
 
       about_title: 'about_me',
-      about_text:  `Hi! I'm <strong>Luken Iriondo Bilbao</strong>, also known as <strong>iamLudok</strong>. I'm passionate about AI, privacy and building things on my own.`,
+      about_text:  `Hi! I'm <strong>Luken Iriondo Bilbao</strong>, also known as <strong>iamLudok</strong>. I'm passionate about AI, privacy and building things on my own. Highly motivated by agentic AI and constantly curious about the latest trends in frameworks, models and architectures.`,
 
       interests_title: 'interests',
       interest_dj:     'DJ & Producer',
@@ -140,7 +140,7 @@
       hero_location: 'Markina-Xemein, País Vasco',
 
       about_title: 'sobre_mí',
-      about_text:  '¡Hola! Soy <strong>Luken Iriondo Bilbao</strong>, también conocido como <strong>iamLudok</strong>. Me apasiona la IA, la privacidad y construir cosas por mi cuenta.',
+      about_text:  '¡Hola! Soy <strong>Luken Iriondo Bilbao</strong>, también conocido como <strong>iamLudok</strong>. Me apasiona la IA, la privacidad y construir cosas por mi cuenta. Alta motivación por la IA agéntica y curiosidad constante por las últimas tendencias en frameworks, modelos y arquitecturas.',
 
       interests_title: 'intereses',
       interest_dj:     'DJ y Productor',
