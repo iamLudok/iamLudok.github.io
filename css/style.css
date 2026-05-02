@@ -1062,7 +1062,7 @@ main { padding-top: var(--nav-h); }
   right: 20px;
   background: var(--bg-2);
   border: 1px solid var(--border);
-  color: var(--text-dim);
+  color: var(--text-soft);
   font-size: 1.2rem;
   line-height: 1;
   width: 36px;

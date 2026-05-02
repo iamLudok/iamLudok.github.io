@@ -120,6 +120,7 @@
   function activateTab(target) {
     tabBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.target === target));
     sections.forEach(sec => sec.classList.toggle('active', sec.id === target));
+    history.replaceState(null, '', '#' + target);
     // Close mobile menu if open
     const tabs = document.querySelector('.navbar-tabs');
     const toggle = document.querySelector('.menu-toggle');

@@ -22,6 +22,9 @@
 
       skills_title:      'skills',
       skills_ai:         'AI & ML',
+      skills_research:   'Research & Experimentation Stack',
+      skills_data:       'Data Analysis & Visualization',
+      skills_design:     'Design & Creative Systems',
       skills_infra:      'Infrastructure & DevOps',
       skills_cyber:      'Cybersecurity',
       skills_webdev:     'Web Dev',
@@ -38,6 +41,10 @@
       views_ai_text:      `AI is one of the most powerful tools we have right now and that's exactly why we need to understand what we're building. Shipping code you don't understand to a client isn't a shortcut, it's a risk. If everyone builds things they can't explain, we're heading somewhere bad. Read the code. Know what it does.`,
 
       projects_title:           'projects',
+      filter_all:               'All',
+      filter_dev:               'Active',
+      filter_hackathon:         'Hackathon',
+      filter_wip:               'WIP',
       project_ludext_desc:      'Self-hosted morning assistant running on a Raspberry Pi. Collects emails, calendar events, tasks and news from your own infrastructure, summarizes everything with a local AI model, and sends a Telegram digest before you start your day.',
       project_aibookmarks_desc: 'My selection of free or freemium AI tools. Tested and recommended.',
       project_teknoa_desc:      'Community platform for electronic music in the Basque Country. One place for all events, venues, vinyl shops, radio stations and DJ collectives from the local scene.',
@@ -46,6 +53,7 @@
       project_skai_desc:        'AI travel companion that turns emotional intent into real, ranked flight options. Vibe-based matching across 11 dimensions, scored by compatibility, price, history, and novelty.',
       project_jaialai_desc:     'AI chatbot with specialized knowledge about Jai Alai sport and culture.',
       project_gluteina_desc:       'Platform focused on people with celiac disease, helping them find safe places to eat when travelling or dining out.',
+      project_secondbrain_desc:    'Personal knowledge management system built with Obsidian and Claude Code. AI-assisted note-taking, linking, and retrieval.',
       project_claudetemplate_desc: 'Boilerplate template to accelerate development workflows with Claude Code.',
       project_playlist_desc:    'Batch download tool for SoundCloud and Spotify playlists via YouTube, outputting WAV files.',
 
@@ -80,6 +88,7 @@
       challenges_title:       'challenges',
       challenge_ikerlan_desc: 'My first CTF. Ended up going solo - tackled a bit of everything across categories. A good intro to the mindset.',
       challenge_hackupc_desc: '36h hackathon at Universitat Politècnica de Catalunya, Barcelona.',
+      challenge_thegame_desc: 'CTF competition held during HackUPC 2026. Writeups for the challenges I solved.',
 
       experience_title: 'studies_&_experience',
       edu_heading:      'Education',
@@ -137,6 +146,9 @@
 
       skills_title:      'habilidades',
       skills_ai:         'IA y ML',
+      skills_research:   'Stack de Investigación y Experimentación',
+      skills_data:       'Análisis y Visualización de Datos',
+      skills_design:     'Diseño y Sistemas Creativos',
       skills_infra:      'Infraestructura & DevOps',
       skills_cyber:      'Ciberseguridad',
       skills_webdev:     'Desarrollo Web',
@@ -153,6 +165,10 @@
       views_ai_text:      'La IA es una de las herramientas más poderosas que tenemos ahora mismo y precisamente por eso necesitamos entender lo que estamos construyendo. Entregar código que no entiendes a un cliente no es un atajo, es un riesgo. Si todo el mundo construye cosas que no puede explicar, vamos por mal camino. Lee el código.',
 
       projects_title:           'proyectos',
+      filter_all:               'Todos',
+      filter_dev:               'Activos',
+      filter_hackathon:         'Hackathon',
+      filter_wip:               'WIP',
       project_ludext_desc:      'Asistente matutino autoalojado que corre en una Raspberry Pi. Recopila correos, eventos del calendario, tareas y noticias desde tu propia infraestructura, resume todo con un modelo de IA local y envía un resumen por Telegram antes de empezar el día.',
       project_aibookmarks_desc: 'Mi selección de herramientas de IA gratuitas o freemium. Probadas y recomendadas.',
       project_teknoa_desc:      'Plataforma comunitaria de música electrónica del País Vasco. Un único lugar para eventos, locales, tiendas de vinilos, radios y colectivos de DJs de la escena local.',
@@ -161,6 +177,7 @@
       project_skai_desc:        'Asistente de viaje con IA que convierte la intención emocional en opciones de vuelo reales y ordenadas. Compatibilidad de vibes en 11 dimensiones, puntuada por afinidad, precio, historial y novedad.',
       project_jaialai_desc:     'Chatbot de IA con conocimiento especializado sobre el deporte y la cultura del Jai Alai.',
       project_gluteina_desc:       'Plataforma enfocada en personas celíacas, ayudándoles a encontrar sitios donde comer de forma segura cuando viajan o comen fuera.',
+      project_secondbrain_desc:    'Sistema personal de gestión del conocimiento construido con Obsidian y Claude Code. Toma de notas, enlazado y recuperación asistidos por IA.',
       project_claudetemplate_desc: 'Plantilla base para acelerar flujos de trabajo de desarrollo con Claude Code.',
       project_playlist_desc:    'Herramienta de descarga masiva de playlists de SoundCloud y Spotify vía YouTube, generando archivos WAV.',
 
@@ -195,6 +212,7 @@
       challenges_title:       'retos',
       challenge_ikerlan_desc: 'Mi primer CTF. Acabé participando en solitario, cubrí un poco de todo entre las categorías. Una buena introducción a los CTF-s.',
       challenge_hackupc_desc: 'Hackathon de 36h en la Universitat Politècnica de Catalunya, Barcelona.',
+      challenge_thegame_desc: 'Competición CTF celebrada durante el HackUPC 2026. Writeups de los retos que resolví.',
 
       experience_title: 'estudios_y_experiencia',
       edu_heading:      'Formación',

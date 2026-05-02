@@ -159,11 +159,37 @@
               <span class="skill-category-label" data-i18n="skills_ai">AI &amp; ML</span>
               <div class="skills-grid">
                 <span class="skill-badge">Python</span>
-                <span class="skill-badge">Jupyter</span>
-                <span class="skill-badge">Anaconda</span>
                 <span class="skill-badge">LangChain</span>
                 <span class="skill-badge">LangGraph</span>
                 <span class="skill-badge">Streamlit</span>
+                <span class="skill-badge">Scikit-Learn</span>
+                <span class="skill-badge">Vector Search</span>
+                <span class="skill-badge">Similarity Search</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <span class="skill-category-label" data-i18n="skills_research">Research &amp; Experimentation Stack</span>
+              <div class="skills-grid">
+                <span class="skill-badge">Jupyter</span>
+                <span class="skill-badge">Anaconda</span>
+                <span class="skill-badge">Google Colab</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <span class="skill-category-label" data-i18n="skills_data">Data Analysis &amp; Visualization</span>
+              <div class="skills-grid">
+                <span class="skill-badge">NumPy</span>
+                <span class="skill-badge">Pandas</span>
+                <span class="skill-badge">Matplotlib</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <span class="skill-category-label" data-i18n="skills_design">Design &amp; Creative Systems</span>
+              <div class="skills-grid">
+                <span class="skill-badge">Figma</span>
               </div>
             </div>
 
@@ -267,6 +293,13 @@
       <div class="container">
         <h2 class="section-title page-title"><span class="accent">//</span> <span data-i18n="projects_title">projects</span></h2>
 
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+          <button class="filter-btn" data-filter="dev" data-i18n="filter_dev">Active</button>
+          <button class="filter-btn" data-filter="hackathon" data-i18n="filter_hackathon">Hackathon</button>
+          <button class="filter-btn" data-filter="wip" data-i18n="filter_wip">WIP</button>
+        </div>
+
         <!-- Projects grid -->
         <div class="projects-grid" id="projects-grid">
 
@@ -361,7 +394,7 @@
             </div>
           </article>
 
-          <article class="project-card" id="project-skai" data-category="dev">
+          <article class="project-card" id="project-skai" data-category="hackathon">
             <div class="project-preview">
               <div class="preview-img-wrap">
                 <img src="img/projects/skai.png" alt="SKAI preview" class="preview-img" loading="lazy" />
@@ -407,7 +440,7 @@
             </div>
           </article>
 
-          <article class="project-card" data-category="dev">
+          <article class="project-card" data-category="wip">
             <div class="project-header">
               <h3 class="project-title">Music Genre Classifier</h3>
               <span class="ctf-badge wip-badge">WIP</span>
@@ -428,7 +461,7 @@
             </div>
           </article>
 
-          <article class="project-card" data-category="dev">
+          <article class="project-card" data-category="wip">
             <div class="project-header">
               <h3 class="project-title">Music Visualizer Generator</h3>
               <span class="ctf-badge wip-badge">WIP</span>
@@ -449,7 +482,7 @@
             </div>
           </article>
 
-          <article class="project-card" data-category="dev">
+          <article class="project-card" data-category="wip">
             <div class="project-header">
               <h3 class="project-title">Jai Alai Bot</h3>
               <span class="ctf-badge wip-badge">WIP</span>
@@ -470,7 +503,7 @@
             </div>
           </article>
 
-          <article class="project-card" data-category="dev">
+          <article class="project-card" data-category="wip">
             <div class="project-header">
               <h3 class="project-title">Claude Code Template</h3>
               <span class="ctf-badge wip-badge">WIP</span>
@@ -490,7 +523,7 @@
             </div>
           </article>
 
-          <article class="project-card" data-category="dev">
+          <article class="project-card" data-category="wip">
             <div class="project-header">
               <h3 class="project-title">Playlist Downloader</h3>
               <span class="ctf-badge wip-badge">WIP</span>
@@ -512,7 +545,23 @@
             </div>
           </article>
 
-          <article class="project-card" data-category="dev">
+          <article class="project-card" data-category="wip">
+            <div class="project-header">
+              <h3 class="project-title">Second Brain</h3>
+              <span class="ctf-badge wip-badge">WIP</span>
+            </div>
+            <p class="project-desc" data-i18n="project_secondbrain_desc">
+              Personal knowledge management system built with Obsidian and Claude Code. AI-assisted note-taking, linking, and retrieval.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Obsidian</span>
+              <span class="tag">Claude Code</span>
+              <span class="tag">AI</span>
+              <span class="tag" data-i18n="tag_devtools">Dev Tools</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="wip">
             <div class="project-header">
               <h3 class="project-title">GluT3ina</h3>
               <span class="ctf-badge wip-badge">WIP</span>
@@ -585,6 +634,30 @@
               <a href="#project-skai" class="project-link">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 <span data-i18n="link_project">Project</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="ctf">
+            <div class="project-header">
+              <h3 class="project-title">TheGame - HackUPC CTF</h3>
+              <span class="ctf-badge">CTF</span>
+            </div>
+            <p class="project-desc" data-i18n="challenge_thegame_desc">
+              CTF competition held during HackUPC 2026. Writeups for the challenges I solved.
+            </p>
+            <div class="project-tags">
+              <span class="tag" data-i18n="tag_forensics">Forensics</span>
+              <span class="tag">Web</span>
+              <span class="tag" data-i18n="tag_crypto">Crypto</span>
+              <span class="tag">Data</span>
+              <span class="tag" data-i18n="tag_misc">Miscellaneous</span>
+              <span class="tag">Steganography</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/iamLudok/TheGame_HackUPC_CTF_Writeups" class="project-link" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                Writeups
               </a>
             </div>
           </article>
