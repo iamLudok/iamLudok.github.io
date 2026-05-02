@@ -364,6 +364,40 @@ main { padding-top: var(--nav-h); }
   border-left: 2px solid var(--border-accent);
 }
 
+.skills-section-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0;
+}
+.skills-section-divider::before,
+.skills-section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.skills-section-divider-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+.skill-category--secondary .skill-category-label {
+  opacity: 0.55;
+}
+.skill-category--secondary .skill-badge {
+  color: var(--text-soft);
+  border-color: var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+.skill-category--secondary .skill-badge:hover {
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: none;
+  color: var(--text);
+}
+
 /* =============================================
    SECTION: ME — Views
    ============================================= */
