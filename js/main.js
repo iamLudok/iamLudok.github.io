@@ -14,26 +14,148 @@
  * Do not reveal the actual source code logic — the challenge is to find them naturally.
  */
 
-// ---- Lightbox ----
-(function initLightbox() {
-  const dialog = document.getElementById('lightbox');
-  const img    = document.getElementById('lightbox-img');
-  const close  = document.getElementById('lightbox-close');
+const ACCENT_COLOR = '#00ff88'; // mirrors --accent CSS variable
+const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
 
-  document.querySelectorAll('.preview-img-wrap .preview-img').forEach(thumb => {
-    thumb.style.cursor = 'zoom-in';
-    thumb.addEventListener('click', () => {
-      img.src = thumb.src;
-      img.alt = thumb.alt;
-      dialog.showModal();
+// ---- Project Drawer ----
+(function initProjectDrawer() {
+  const drawer         = document.getElementById('project-drawer');
+  const overlay        = document.getElementById('drawer-overlay');
+  const closeBtn       = document.getElementById('drawer-close');
+  const imgWrap        = document.getElementById('drawer-img-wrap');
+  const imgEl          = document.getElementById('drawer-img');
+  const titleEl        = document.getElementById('drawer-title');
+  const badgeEl        = document.getElementById('drawer-badge');
+  const descEl         = document.getElementById('drawer-desc');
+  const collabEl       = document.getElementById('drawer-collab');
+  const privateNote    = document.getElementById('drawer-private-note');
+  const storySection   = document.getElementById('drawer-story-section');
+  const storyEl        = document.getElementById('drawer-story');
+  const tagsEl         = document.getElementById('drawer-tags');
+  const linksEl        = document.getElementById('drawer-links');
+
+  if (!drawer) return;
+
+  let currentKey = null;
+
+  function updateDrawerText(key) {
+    const i18n  = globalThis.i18n || { t: k => k };
+    const story = i18n.t(`project_${key}_story`);
+    const hasStory = story && story !== `project_${key}_story`;
+    storyEl.textContent = hasStory ? story : '';
+    storySection.style.display = hasStory ? '' : 'none';
+    const noteEl = privateNote?.querySelector('p');
+    if (noteEl && privateNote?.style.display !== 'none') {
+      noteEl.textContent = i18n.t('private_note');
+    }
+  }
+
+  function openDrawer(card) {
+    currentKey = card.dataset.project;
+
+    // Image
+    const imgSrc = card.dataset.img;
+    if (imgSrc) {
+      imgEl.src = imgSrc;
+      imgEl.alt = card.querySelector('.project-title')?.textContent.trim() || '';
+      imgWrap.style.display = '';
+    } else {
+      imgWrap.style.display = 'none';
+      imgEl.src = '';
+    }
+
+    // Title
+    titleEl.textContent = card.querySelector('.project-title')?.textContent.trim() || '';
+
+    // Badge
+    const cardBadge = card.querySelector('.ctf-badge');
+    if (cardBadge) {
+      badgeEl.className   = cardBadge.className;
+      badgeEl.textContent = cardBadge.textContent;
+      badgeEl.style.display = '';
+    } else {
+      badgeEl.style.display = 'none';
+    }
+
+    // Description
+    descEl.innerHTML = card.querySelector('.project-desc')?.innerHTML.trim() || '';
+
+    // Collab
+    const cardCollab = card.querySelector('.project-collab');
+    if (cardCollab) {
+      collabEl.innerHTML    = cardCollab.innerHTML;
+      collabEl.style.display = '';
+    } else {
+      collabEl.style.display = 'none';
+    }
+
+    // Private note
+    const isPrivate = card.dataset.category === 'private';
+    if (privateNote) {
+      privateNote.style.display = isPrivate ? '' : 'none';
+      const noteEl = privateNote.querySelector('p');
+      if (noteEl) noteEl.textContent = (globalThis.i18n || { t: k => k }).t('private_note');
+    }
+
+    // Story + Learned (language-aware)
+    updateDrawerText(currentKey);
+
+    // Tags & Links (clone from card)
+    tagsEl.innerHTML  = card.querySelector('.project-tags')?.innerHTML  || '';
+    linksEl.innerHTML = card.querySelector('.project-links')?.innerHTML || '';
+
+    drawer.setAttribute('aria-hidden', 'false');
+    drawer.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    currentKey = null;
+    setTimeout(() => { imgEl.src = ''; }, 350);
+  }
+
+  // Lightbox for image zoom
+  const lightbox     = document.getElementById('lightbox');
+  const lightboxImg  = document.getElementById('lightbox-img');
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  if (lightbox) {
+    const closeLightbox = () => { lightbox.close(); lightboxImg.src = ''; };
+    imgEl.addEventListener('click', () => {
+      if (!imgEl.src) return;
+      lightboxImg.src = imgEl.src;
+      lightboxImg.alt = imgEl.alt;
+      lightbox.showModal();
     });
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxImg.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  }
+
+  document.getElementById('projects-grid')?.addEventListener('click', e => {
+    if (e.target.closest('a, button')) return;
+    const card = e.target.closest('.project-card[data-project]');
+    if (card) openDrawer(card);
   });
 
-  const closeLightbox = () => { dialog.close(); img.src = ''; };
-  close.addEventListener('click', closeLightbox);
-  img.addEventListener('click', closeLightbox);
-  dialog.addEventListener('click', e => { if (e.target === dialog) closeLightbox(); });
-  dialog.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      if (lightbox?.open) { lightbox.close(); lightboxImg.src = ''; return; }
+      if (drawer.classList.contains('open')) closeDrawer();
+    }
+  });
+
+  // Re-render text when language changes
+  document.getElementById('lang-toggle')?.addEventListener('click', () => {
+    if (currentKey && drawer.classList.contains('open')) {
+      setTimeout(() => updateDrawerText(currentKey), 0);
+    }
+  });
 })();
 
 // ---- Typing effect ----
@@ -190,6 +312,52 @@
 })();
 
 
+// ---- Dynamic i18n tags on cards ----
+(function initDynamicTags() {
+  function makeSpans(text, className) {
+    return text.split(',').map(t => {
+      const span = document.createElement('span');
+      span.className = className;
+      span.textContent = t.trim();
+      return span;
+    });
+  }
+
+  function renderTechTags(t) {
+    document.querySelectorAll('[data-project]').forEach(el => {
+      const container = el.querySelector('.project-tags');
+      if (!container) return;
+      const val = t(`project_${el.dataset.project}_tags`);
+      if (!val || val.startsWith('project_')) return;
+      container.replaceChildren(...makeSpans(val, 'tag'));
+    });
+  }
+
+  function renderLearnedTags(t) {
+    document.querySelectorAll('.project-card[data-project]').forEach(el => {
+      el.querySelector('.project-skills')?.remove();
+      const val = t(`project_${el.dataset.project}_learned`);
+      if (!val || val.startsWith('project_')) return;
+      const wrap = document.createElement('div');
+      wrap.className = 'project-skills';
+      wrap.append(...makeSpans(val, 'tag tag--learned'));
+      const anchor = el.querySelector('.project-tags') || el.querySelector('.project-links');
+      anchor ? anchor.after(wrap) : el.appendChild(wrap);
+    });
+  }
+
+  function render() {
+    const { t } = globalThis.i18n || { t: k => k };
+    renderTechTags(t);
+    renderLearnedTags(t);
+    document.dispatchEvent(new CustomEvent('tags:rendered'));
+  }
+
+  render();
+  document.getElementById('lang-toggle')?.addEventListener('click', () => setTimeout(render, 0));
+})();
+
+
 // ---- Project filters ----
 (function initFilters() {
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -249,7 +417,7 @@
     const interval = setInterval(() => {
       ctx.fillStyle = 'rgba(0,0,0,0.08)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#00ff88';
+      ctx.fillStyle = ACCENT_COLOR;
       ctx.font      = `${fontSize}px 'JetBrains Mono', monospace`;
 
       drops.forEach((y, i) => {
@@ -319,7 +487,7 @@
     let ip = 'resolving...';
 
     const lines = [
-      { text: i18n.t('tracking_cmd'), color: '#00ff88' },
+      { text: i18n.t('tracking_cmd'), color: ACCENT_COLOR },
       { text: '' },
       { text: i18n.t('tracking_ip') + ip },
       { text: i18n.t('tracking_os') + os },
@@ -329,7 +497,7 @@
       { text: i18n.t('tracking_res') + res },
       { text: '' },
       { text: i18n.t('tracking_footer1') },
-      { text: i18n.t('tracking_footer2'), color: '#cc0000' },
+      { text: i18n.t('tracking_footer2'), color: ERROR_COLOR },
     ];
 
     await typeLines(content, lines);
@@ -635,13 +803,15 @@
   });
 
   // Highlight tags that correspond to a real skill
-  document.querySelectorAll('.project-tags .tag').forEach(tag => {
-    const skill = aliasToSkill.get(tag.textContent.trim().toLowerCase());
-    if (skill) {
-      tag.classList.add('tag--skill');
-      tag.dataset.skillName = skill;
-    }
-  });
+  function highlightTags() {
+    document.querySelectorAll('.project-tags .tag').forEach(tag => {
+      const skill = aliasToSkill.get(tag.textContent.trim().toLowerCase());
+      tag.classList.toggle('tag--skill', !!skill);
+      if (skill) tag.dataset.skillName = skill;
+    });
+  }
+  highlightTags();
+  document.addEventListener('tags:rendered', highlightTags);
 
   // Build skill → [{title, sectionId}] map
   const skillProjects = new Map();
