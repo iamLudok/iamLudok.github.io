@@ -508,6 +508,27 @@ main { padding-top: var(--nav-h); }
 
 .ctf-all-solved.visible { display: block; }
 
+.ctf-reset-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.ctf-reset-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  cursor: pointer;
+  opacity: 0.5;
+  padding: 0;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+.ctf-reset-btn:hover { opacity: 1; color: var(--accent); }
+
 /* =============================================
    SECTION: PROJECTS
    ============================================= */

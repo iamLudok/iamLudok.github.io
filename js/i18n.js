@@ -85,6 +85,7 @@
       ctf_hint_3:      '"$ → ×2"',
       ctf_hint_4:      '"4/4 in the pocket"',
       ctf_all_solved:  '> gg. you found them all.',
+      ctf_reset:       '[ reset ]',
 
       challenges_title:       'challenges',
       challenge_ikerlan_desc: 'My first CTF. Ended up going solo - tackled a bit of everything across categories. A good intro to the mindset.',
@@ -210,6 +211,7 @@
       ctf_hint_3:      '"$ → ×2"',
       ctf_hint_4:      '"4/4 en el bolsillo"',
       ctf_all_solved:  '> gg. los encontraste todos.',
+      ctf_reset:       '[ reiniciar ]',
 
       challenges_title:       'retos',
       challenge_ikerlan_desc: 'Mi primer CTF. Acabé participando en solitario, cubrí un poco de todo entre las categorías. Una buena introducción a los CTF-s.',
