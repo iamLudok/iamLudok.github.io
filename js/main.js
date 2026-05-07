@@ -838,11 +838,6 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
     const projects = skillProjects.get(skill);
     if (!projects?.length) return;
 
-    // Append [n] counter
-    const counter = document.createElement('span');
-    counter.className = 'skill-count';
-    counter.textContent = `[${projects.length}]`;
-    badge.appendChild(counter);
     badge.classList.add('skill-badge--linked');
 
     badge.addEventListener('mouseenter', () => {
