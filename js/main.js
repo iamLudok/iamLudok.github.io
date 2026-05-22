@@ -156,6 +156,90 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
       setTimeout(() => updateDrawerText(currentKey), 0);
     }
   });
+// ---- Lightbox ----
+(function initLightbox() {
+  const dialog  = document.getElementById('lightbox');
+  const img     = document.getElementById('lightbox-img');
+  const close   = document.getElementById('lightbox-close');
+  const prev    = document.getElementById('lightbox-prev');
+  const next    = document.getElementById('lightbox-next');
+  const counter = document.getElementById('lightbox-counter');
+
+  let gallery = [];
+  let current = 0;
+
+  function show(index) {
+    current = index;
+    img.src = gallery[current].src;
+    img.alt = gallery[current].alt;
+    const multi = gallery.length > 1;
+    prev.hidden = !multi;
+    next.hidden = !multi;
+    counter.hidden = !multi;
+    if (multi) counter.textContent = `${current + 1} / ${gallery.length}`;
+  }
+
+  function openGallery(thumbs, startIndex) {
+    gallery = Array.from(thumbs);
+    show(startIndex);
+    dialog.showModal();
+  }
+
+  // Project preview images (single)
+  document.querySelectorAll('.preview-img-wrap .preview-img').forEach(thumb => {
+    thumb.style.cursor = 'zoom-in';
+    thumb.addEventListener('click', () => openGallery([thumb], 0));
+  });
+
+  // Event gallery thumbnails — group by parent .event-photos strip
+  document.querySelectorAll('.event-photos').forEach(strip => {
+    const thumbs = strip.querySelectorAll('.event-thumb:not([data-missing])');
+    thumbs.forEach((thumb, i) => {
+      thumb.addEventListener('click', () => {
+        const visible = strip.querySelectorAll('.event-thumb:not([data-missing])');
+        openGallery(visible, i);
+      });
+    });
+  });
+
+  // Hide thumbnails that fail to load; hide the strip if all fail
+  function markThumbMissing(thumb) {
+    thumb.dataset.missing = '';
+    const strip = thumb.closest('.event-photos');
+    if (strip && strip.querySelectorAll('.event-thumb:not([data-missing])').length === 0) {
+      strip.hidden = true;
+    }
+  }
+  document.querySelectorAll('.event-thumb').forEach(thumb => {
+    thumb.addEventListener('error', () => markThumbMissing(thumb));
+  });
+  // After all resources have loaded, catch any images that silently failed
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.event-thumb:not([data-missing])').forEach(thumb => {
+      if (thumb.naturalWidth === 0) markThumbMissing(thumb);
+    });
+  });
+
+  const closeLightbox = () => {
+    dialog.close();
+    img.src = '';
+    gallery = [];
+    prev.hidden = true;
+    next.hidden = true;
+    counter.hidden = true;
+  };
+
+  prev.addEventListener('click', () => { if (current > 0) show(current - 1); });
+  next.addEventListener('click', () => { if (current < gallery.length - 1) show(current + 1); });
+
+  close.addEventListener('click', closeLightbox);
+  img.addEventListener('click', closeLightbox);
+  dialog.addEventListener('click', e => { if (e.target === dialog) closeLightbox(); });
+  dialog.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft'  && current > 0)                  show(current - 1);
+    if (e.key === 'ArrowRight' && current < gallery.length - 1) show(current + 1);
+  });
 })();
 
 // ---- Typing effect ----
@@ -598,7 +682,7 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
       analyser.getFloatTimeDomainData(dataArray);
 
       let sum = 0;
-      for (let i = 0; i < dataArray.length; i++) sum += dataArray[i] * dataArray[i];
+      for (const v of dataArray) sum += v * v;
       const rms = Math.sqrt(sum / dataArray.length);
 
       const now = Date.now();
