@@ -156,6 +156,8 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
       setTimeout(() => updateDrawerText(currentKey), 0);
     }
   });
+})();
+
 // ---- Lightbox ----
 (function initLightbox() {
   const dialog  = document.getElementById('lightbox');
