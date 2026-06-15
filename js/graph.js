@@ -1,6 +1,4 @@
 (function initSkillGraph() {
-  if (typeof d3 === 'undefined' || typeof GRAPH_DATA === 'undefined') return;
-
   const COLOR = {
     skill:   '#00ff88',
     project: '#ff9f43',
@@ -8,12 +6,10 @@
     study:   '#a29bfe'
   };
 
-  // Normalize skill names for matching (lowercase, alphanumeric only)
   function norm(s) {
     return s.toLowerCase().replace(/[^a-z0-9]/g, '');
   }
 
-  // Aliases: normalized shorthand → normalized canonical badge name
   const ALIAS = {
     'js':         norm('JavaScript'),
     'html':       norm('HTML5'),
@@ -29,9 +25,6 @@
   }
 
   function buildGraph() {
-    const { t } = globalThis.i18n || { t: k => k };
-
-    // Skill nodes from DOM badges
     const skillNodes = [...document.querySelectorAll('.skill-badge')].map(el => {
       const label = el.textContent.trim();
       return { id: 'skill-' + norm(label), label, type: 'skill' };
@@ -42,7 +35,6 @@
       return skillByNorm.get(resolve(name)) ?? null;
     }
 
-    // Project nodes from DOM
     const projectNodes = [...document.querySelectorAll('.project-card[data-project]')].map(card => ({
       id:    'project-' + card.dataset.project,
       label: card.querySelector('.project-title')?.textContent.trim() || card.dataset.project,
@@ -50,7 +42,6 @@
       key:   card.dataset.project
     }));
 
-    // Work nodes from GRAPH_DATA
     const workNodes = GRAPH_DATA.work.map(w => ({
       id:       w.id,
       label:    w.label,
@@ -60,7 +51,6 @@
       _skills:  w.skills
     }));
 
-    // Study nodes from GRAPH_DATA
     const studyNodes = GRAPH_DATA.studies.map(s => ({
       id:       s.id,
       label:    s.label,
@@ -81,7 +71,6 @@
       links.push({ source: sourceId, target: targetId, color });
     }
 
-    // Project → Skill links (read from rendered .tag spans — already normalised by initDynamicTags)
     projectNodes.forEach(pn => {
       const card = document.querySelector(`.project-card[data-project="${pn.key}"]`);
       card?.querySelectorAll('.project-tags .tag').forEach(span => {
@@ -90,7 +79,6 @@
       });
     });
 
-    // Work → Skill links
     workNodes.forEach(wn => {
       wn._skills.forEach(s => {
         const skill = findSkill(s);
@@ -98,7 +86,6 @@
       });
     });
 
-    // Study → Skill links
     studyNodes.forEach(sn => {
       sn._skills.forEach(s => {
         const skill = findSkill(s);
@@ -109,14 +96,12 @@
     return { nodes, links };
   }
 
-  // ---- Render ----
   function render(container) {
     container.innerHTML = '';
     const { nodes, links } = buildGraph();
     const W = container.clientWidth;
     const H = container.clientHeight;
 
-    // Degree for node sizing
     const degree = new Map();
     links.forEach(l => {
       degree.set(l.source, (degree.get(l.source) || 0) + 1);
@@ -135,7 +120,6 @@
       .attr('width', W)
       .attr('height', H);
 
-    // Zoom & pan
     const g = svg.append('g');
     svg.call(
       d3.zoom().scaleExtent([0.2, 4])
@@ -150,7 +134,6 @@
       .force('y',       d3.forceY(H / 2).strength(0.04))
       .force('collide', d3.forceCollide(d => radius(d) + 14));
 
-    // Edges
     const link = g.append('g')
       .selectAll('line')
       .data(links)
@@ -159,7 +142,6 @@
       .attr('stroke-opacity', 0.2)
       .attr('stroke-width', 1.5);
 
-    // Nodes
     const node = g.append('g')
       .selectAll('g')
       .data(nodes)
@@ -167,9 +149,17 @@
       .style('cursor', 'default')
       .call(
         d3.drag()
-          .on('start', (e, d) => { if (!e.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
-          .on('drag',  (e, d) => { d.fx = e.x; d.fy = e.y; })
-          .on('end',   (e, d) => { if (!e.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; })
+          .on('start', (e, d) => {
+            if (!e.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+          })
+          .on('drag', (e, d) => { d.fx = e.x; d.fy = e.y; })
+          .on('end', (e, d) => {
+            if (!e.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+          })
       );
 
     node.append('circle')
@@ -190,14 +180,12 @@
       .style('pointer-events', 'none')
       .style('user-select', 'none');
 
-    // Tooltip for work/study nodes
     const tooltip = d3.select(container)
       .append('div')
       .attr('class', 'sg-tooltip')
       .style('display', 'none');
 
     node.on('mouseover', (e, d) => {
-      // Highlight connected nodes & edges
       const connected = new Set([d.id]);
       links.forEach(l => {
         const src = typeof l.source === 'object' ? l.source.id : l.source;
@@ -213,7 +201,6 @@
         return (src === d.id || tgt === d.id) ? 0.85 : 0.03;
       });
 
-      // Tooltip for work/study
       if (d.sublabel) {
         tooltip
           .style('display', 'block')
@@ -238,7 +225,14 @@
     });
   }
 
-  // ---- Open / Close ----
+  function loadD3(cb) {
+    if (typeof d3 !== 'undefined') { cb(); return; }
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js';
+    s.onload = cb;
+    document.head.appendChild(s);
+  }
+
   const overlay   = document.getElementById('skill-graph-overlay');
   const container = document.getElementById('skill-graph-container');
   const closeBtn  = document.getElementById('skill-graph-close');
@@ -249,7 +243,7 @@
     overlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     if (!container.hasChildNodes()) {
-      requestAnimationFrame(() => render(container));
+      loadD3(() => requestAnimationFrame(() => render(container)));
     }
   }
 
@@ -260,7 +254,6 @@
   }
 
   document.getElementById('navbar-graph-btn')?.addEventListener('click', openGraph);
-
   closeBtn?.addEventListener('click', closeGraph);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeGraph(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeGraph(); });

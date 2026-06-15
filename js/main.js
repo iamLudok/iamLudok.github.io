@@ -193,35 +193,6 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
     thumb.addEventListener('click', () => openGallery([thumb], 0));
   });
 
-  // Event gallery thumbnails — group by parent .event-photos strip
-  document.querySelectorAll('.event-photos').forEach(strip => {
-    const thumbs = strip.querySelectorAll('.event-thumb:not([data-missing])');
-    thumbs.forEach((thumb, i) => {
-      thumb.addEventListener('click', () => {
-        const visible = strip.querySelectorAll('.event-thumb:not([data-missing])');
-        openGallery(visible, i);
-      });
-    });
-  });
-
-  // Hide thumbnails that fail to load; hide the strip if all fail
-  function markThumbMissing(thumb) {
-    thumb.dataset.missing = '';
-    const strip = thumb.closest('.event-photos');
-    if (strip && strip.querySelectorAll('.event-thumb:not([data-missing])').length === 0) {
-      strip.hidden = true;
-    }
-  }
-  document.querySelectorAll('.event-thumb').forEach(thumb => {
-    thumb.addEventListener('error', () => markThumbMissing(thumb));
-  });
-  // After all resources have loaded, catch any images that silently failed
-  window.addEventListener('load', () => {
-    document.querySelectorAll('.event-thumb:not([data-missing])').forEach(thumb => {
-      if (thumb.naturalWidth === 0) markThumbMissing(thumb);
-    });
-  });
-
   const closeLightbox = () => {
     dialog.close();
     img.src = '';
