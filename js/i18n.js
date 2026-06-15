@@ -311,11 +311,184 @@
       tracking_footer1: '  Esto es lo que ve cada página web.',
       tracking_footer2: '  Piénsalo.',
     },
+
+    eu: {
+      nav_me:         'Ni',
+      nav_projects:   'Proiektuak',
+      nav_challenges: 'Erronkak',
+      nav_experience: 'Ikasketak & Esperientzia',
+      nav_links:      'Estekak',
+
+      hero_sub:      'Informatika Ingeniaritza Ikaslea · AI & ML Zalea · DJ & Ekoizlea Ludok gisa',
+      hero_location: 'Markina-Xemein, Euskal Herria',
+
+      about_title: 'ni_buruz',
+      about_text:  `Kaixo! <strong>Luken Iriondo Bilbao</strong> naiz, <strong>iamLudok</strong> izenez ere ezaguna. AIak, pribatutasunak eta gauzak nire kabuz eraikitzeak liluratu egiten naute. AI agentikoak motibazio handia ematen dit eta framework, modelo eta arkitektura berrienekiko etengabeko jakin-mina daukat.`,
+
+      interests_title: 'interesak',
+      interest_dj:     'DJ eta Ekoizlea',
+
+      skills_title:      'trebetasunak',
+      skills_ai:         'AI eta LLMak',
+      skills_research:   'Frameworkak eta Tresnak',
+      skills_eval:       'Ebaluazioa eta Ikusgarritasuna',
+      skills_data:       'Datuak eta Analisia',
+      skills_design:     'Diseinua eta Sormen Sistemak',
+      skills_infra:      'Azpiegitura & DevOps',
+      skills_cyber:      'Zibersegurtasuna',
+      skills_webdev:     'Garapena',
+      skills_db:         'Datu-baseak',
+      skills_relational: 'Erlazionala',
+      skills_nosql:      'NoSQL',
+      skills_graph:      'Grafo',
+      skills_vector:     'Bektoriala',
+
+      views_title:        'iritziak',
+      views_privacy_tag:  'Pribatutasuna & Datuak',
+      views_privacy_text: `Gure datuak gure aktibo baliotsuenetako bat dira, eta korporazioei bigarren buruhausterik gabe ematen dizkiegu. Autoalojamenduan sinesten dut, azpiegitura propioa izatean eta gordetzen duzunaz eta nola gordetzen duzunaz kontziente izatean. Zure datu propioetarako besteengan mendekotasuna ahultasun bat da, ez erosotasun bat.`,
+      views_ai_tag:       'AIrekiko Erantzukizuna',
+      views_ai_text:      `AI orain dugun tresnarik indartsuenetako bat da, eta hori da hain zuzen ere eraikitzen ari garena ulertu behar dugula. Ulertzen ez duzun kodea bezero bati entregatzea ez da lasterbide bat, arriskua baizik. Denek azaldu ezin dituzten gauzak eraikitzen badituzte, norabide txarrera goaz. Irakurri kodea. Jakin zer egiten duen.`,
+
+      projects_title:           'proiektuak',
+      filter_all:               'Guztiak',
+      filter_dev:               'Aktiboak',
+      filter_hackathon:         'Hackathon',
+      filter_wip:               'WIP',
+      filter_private:           'Pribatua',
+      project_ludext_desc:      'Raspberry Pi batean exekutatzen den goizeko autoalojatutako laguntzailea. Zure azpiegituratik mezu elektronikoak, egutegiko gertaerak, zereginak eta albisteak biltzen ditu, dena AI modelo lokal batekin laburtzen du eta Telegram bidez laburpena bidaltzen du eguna hasi aurretik.',
+      project_aibookmarks_desc: 'Nire AI tresna dohaineko edo freemium aukeraketa. Probatu eta gomendatua.',
+      project_teknoa_desc:      'Euskal Herriko musika elektronikoaren komunitate plataforma. Tokiko eszenako gertaera, local, binilo-denda, irrati-kate eta DJ kolektiboen leku bakarra.',
+      project_musicgenre_desc:  'Musika antolaketa sistema automatikoa, kantu-liburutegi handiak generoka sailkatzen eta multzoka biltzen dituena ML eta audio prozesaketa erabiliz.',
+      project_visualizer_desc:  'DJ-entzako eta zuzeneko emanaldietarako denbora errealeko bisual sorgailua, audio sarrerari erreakzionatuta.',
+      project_skai_desc:        'Emozio-asmoari hegazkin aukera erreal eta ordenatuz bihurtzen dien AI bidaiari laguna. 11 dimentsiotako bibe bateragarritasuna, bateragarritasunaren, prezioaren, historiaren eta berritasunaren arabera puntuatua.',
+      project_jaialai_desc:     'Jai Alai kirolari eta kulturari buruzko ezagutza espezializatua duen AI chatbota.',
+      project_gluteina_desc:       'Zeliakia duten pertsonei bideratutako plataforma, bidaiatzerakoan edo kanpoan jaterakoan leku seguruak aurkitzen lagunduz.',
+      project_secondbrain_desc:    'Obsidian eta Claude Code-rekin eraikitako ezagutza kudeaketa sistema pertsonala. AI-laguntzazko ohar hartzea, lotura eta berreskurapena.',
+      project_claudetemplate_desc: 'Claude Code-rekin garapen fluxuak azkartzeko oinarrizko txantiloia.',
+      project_playlist_desc:    'YouTube bidez SoundCloud eta Spotify playlist-ak masiboki deskargatzeko tresna, WAV fitxategiak sortuz.',
+
+      drawer_why:     'Zergatik eraiki nuen',
+      drawer_learned: 'Zer ikasi nuen',
+      private_note:   'Proiektu hau bukatuta dago baina pribatua da. Erabiltzen dituen dokumentuak benetako pertsonen informazio pertsonala dute — haien baimenik gabe publikoki eskuragarri egitea arazo legal eta etiko bat izango litzateke.',
+
+      project_ludext_story:          'Goizean axola zaidan guztia leku bakarrean edukitzea nahi nuen — nire wishlist-a, erosketako zerrenda, botiken gogorarazleak, eguneko gertaerak — Google, Alexa edo hodei-zerbitzu bat erabili gabe. Dena Nextcloud bidez Raspberry Pi batean lokalean dabil. Geratzen den menpekotasun bakarra Gmail da, migrazio zerrendan dagoena oraindik.',
+      project_ludext_tags:           'Python, Raspberry Pi, API, LLMs, Docker, Git, NextCloud, Telegram, Ollama',
+      project_ludext_learned:        'autoalojamendua, AI lokala, efizientzia',
+
+      project_aibookmarks_story:     'Denek gordetzen dituzte beren esteka gogokoenak nabigatzailearen barran, baina AI munduak horretarako azkarregi mugitzen da. Astero ehunka tresna berri agertzen dira — gehiena zarata. Probatu eta gomendatutako, benetan erabilgarria den zerbait aurkitu dezakeen espazio kuratu bat nahi nuen. Gainera, gero eta tresna gehiago gehitzen ari naiz pribatutasunean eta autonomia digitalean zentratuta, nire interesak norantz doazen islatuz.',
+      project_aibookmarks_tags:      'HTML, CSS, JS, Git',
+      project_aibookmarks_learned:   'joera jarraipena',
+
+      project_teknoa_story:          'Konturatu nintzen Euskal Herriko ia kartela guztiak Instagramera igotzen zirela — baina DJ bakoitza bere kontura. Pertsona egokiak jarraitzen ez bazituen, gertaera galtzen zenuen. Instagram orrialde bat sortu nuen Euskal Herriko elektronika gogoko duen edonork aste honetan zer dagoen ikusteko leku bakarra izateko, inork jotzea axola gabe. Gero gehiago egin nahi nuela konturatu nintzen: DJ profileak, lokalak, mezu-alertak, mapak. Instagram ez zen nahikoa, eta webgunea eraiki nuen.',
+      project_teknoa_tags:           'JS, CSS, Git, Astro, TypeScript',
+      project_teknoa_learned:        'komunitatea, eduki kudeaketa, full-stack',
+
+      project_skai_story:            'HackUPC-n, bapatukoak bere erronka aurkeztu zuen. Skyscanner-ena arreta harrapatu zigun: "diseinatu hurrengo belaunaldiko AI bidezko bidaia esperientzia bat, bidaiarien asmoa benetan ulertu, konplexutasuna murriztu eta erabaki seguruak eta informatuak hartzen lagundu." Hutsetik hasi ginen — Skyscanner-en koloreetan oinarritutako React frontend bat, bilatzaile klasikoarekin, chat interfazearekin, mapa interaktiboarekin eta helmuga txartelekin. Handik konplexutasuna gehitzen joan ginen: LangGraph-eko backend agentiko bat, ChromaDB-n gordetako helmuga datuen gaineko RAG, epe laburrerako eta luzeko memoria elkarrizketaren bidez pertsonalizatzeko, eta 11 dimentsio emozionaletako bibe bateragarritasuna, bateragarritasunaren, prezioaren, historiaren eta berritasunaren arabera puntuatua. AI modeloak Azure AI Foundry-n ibili ziren, FastAPI eta MongoDB-rekin atzean. 36 ordu, 3ko taldea, hutsetik.',
+      project_skai_tags:             'Python, FastAPI, LangGraph, API, Git, LangChain, Short-term / Long-term Memory, LLMs, RAG, Azure AI Foundry, MongoDB, ChromaDB, Docker, Git, React',
+      project_skai_learned:          'AI agentikoa, prototipaketa azkarra',
+
+      project_musicgenre_story:      'DJ gisa milaka pista pilatu ditut disko desberdinetan, egitura edo izendapen koherentik gabe. Eskuz antolatzeak asteak hartuko lizkioke. Sistema bat nahi nuen automatikoki egingo zuena.',
+      project_musicgenre_tags:       'Python, Git, ML, Audio',
+      project_musicgenre_learned:    'audio prozesaketa, ML sailkapena',
+
+      project_visualizer_story:      'Live seteak jotzen ditut eta musika denbora errealean erreakzionatzen duen bisualekin nahi nuen — ez aurretik errendatutako begiztak, une bateko energiarekin mugitzen zen zerbait baizik.',
+      project_visualizer_tags:       'Python, Git, ML, Audio, Video',
+      project_visualizer_learned:    'FFT, zuzeneko emanaldia',
+
+      project_jaialai_story:         'Urte asko igaro nituen zesta puntan, baina nire familiako benetako aditua nire aitona da — bizitza osoan zehar kirolagatik sutsua, kirolari buruzko liburuak idatzi dituena ere. Hamarkada hauetan zehar toki inon ez dagoen informazio kantitate izugarria pilatu du: pelotariekin elkarrizketak, erregistro historikoak, urteetako ikerketatik bildutako ohar pertsonalak. RAGean oinarritutako chatbotak eraikitzen hasi nintzenean, ezagutza hori erabilita zer egin nahi nuen exactoki jakin nuen. Bere dokumentuetatik galderak hizkuntza naturalean egin eta erantzunak lor ditzakeen tresna bat eraiki nion — eskuz bilatzeak orduak hartuko lituzkeen ehunka orri.',
+      project_jaialai_tags:          'Python, LLMs, RAG, KG, Short-term / Long-term Memory, LangChain, LangGraph, Git, API, Streamlit, Docker, Docling, Qdrant, Neo4j, MongoDB',
+      project_jaialai_learned:       'AI agentikoa, ezagutza berezia',
+
+      project_claudetemplate_story:  'Claude Code-rekin proiektu berri bat hasten zen aldiro konfigurazio bera errepikatzen nuen. CLAUDE.md, hooks, baimenak, karpeta egitura — beti gauza bera. Txantiloi hau lehen egunetik eduki nahiko nukeena da.',
+      project_claudetemplate_tags:   'Git, Claude Code',
+      project_claudetemplate_learned:'lan-fluxu diseinua, efizientzia',
+
+      project_playlist_story:        'Spotify eta SoundCloud-en playlist-ak dauzkadan arren, DJ seterako WAV fitxategiak behar ditut. Pista pista deskargatzen nekagarria zen. Playlist osoak komando bakar batekin kudeatuko zituen tresna bat nahi nuen.',
+      project_playlist_tags:         'Python, API, Git, SoundCloud, Spotify, YouTube',
+      project_playlist_learned:      'batch prozesaketa, audio konbertsioa',
+
+      project_secondbrain_story:     'Oharrak hainbat aplikaziotan sakabanatuta, inoiz berrikusi ez nituen ideiak, bi aldiz bilatuko nuen ezagutza. Gauzak gordetzeaz gain konektatzen dituen sistema bat eraiki nuen Obsidian-en Claude Code-rekin.',
+      project_secondbrain_tags:      'LLMs, Git, Obsidian, Claude Code',
+      project_secondbrain_learned:   'ezagutza kudeaketa, AI fluxuak',
+
+      project_gluteina_story:        'Gertuko pertsona batek zeliakia du. Bidaiatzen ari zarela jatetxe seguruak bilatzea benetako estresa da — ez dago iturri fidagarririk. Bilaketa hori errazteko proiektu sprint batean eraiki genuen.',
+      project_gluteina_tags:         'PostgreSQL, Docker, CSS, JS, Git, Leaflet',
+      project_gluteina_learned:      'komunitatea, full-stack',
+
+      project_hackupc_tags:          '36h',
+      project_thegame_tags:          'Forensics, Web, Crypto, Data, Miscellaneous, Steganography',
+      project_ikerlan_tags:          'Crypto, Reversing, Web, Forensics, Hardware, Miscellaneous, Operational Technology, Machine Learning',
+
+      project_with: 'Kide',
+
+      link_live:    'Zuzenean',
+      link_project: 'Proiektua',
+
+      visitor_challenge_title: 'zure_txanda',
+      visitor_challenge_desc:  '4 easter egg ezkutatu ditut orrialdearen nonbaiten. Denak aurkitzeko gai al zara?',
+
+      ctf_board_title: 'erronka_sekretoak',
+      ctf_hint_1:      '"hitz batzuek erreakzioak eragiten dituzte"',
+      ctf_hint_2:      '"bisitatu = adostu"',
+      ctf_hint_3:      '"$ → ×2"',
+      ctf_hint_4:      '"4/4 poltsikoan"',
+      ctf_all_solved:  '> gg. denak aurkitu dituzu.',
+      ctf_reset:       '[ berrezarri ]',
+
+      challenges_title:       'erronkak',
+      challenge_ikerlan_date: '2025',
+      challenge_ikerlan_sub:  'Ikerlan · Euskal Herria',
+      challenge_ikerlan_desc: 'Nire lehen CTF-a. Bakarrik bukatu nuen — kategoria guztietako zerbait egin nuen. Sarrera ona mentalitate honetara.',
+      challenge_hackupc_date: 'Api. 2026',
+      challenge_hackupc_sub:  'Universitat Politècnica de Catalunya · Bartzelona',
+      challenge_hackupc_desc: '36 orduko hackathona Universitat Politècnica de Catalunya-n, Bartzelonan.',
+      challenge_thegame_date: 'Api. 2026',
+      challenge_thegame_sub:  'HackUPC 2026 · Bartzelona',
+      challenge_thegame_desc: 'HackUPC 2026an zehar egindako CTF lehiaketa. Konpondutako erronken writeupak.',
+
+      experience_title: 'ikasketak_&_esperientzia',
+      edu_heading:      'Hezkuntza',
+      work_heading:     'Esperientzia',
+
+      edu1_date:  '2026/09 – Laster',
+      edu1_title: 'Adimen Artifizialeko Masterra',
+      edu1_desc:  'Datozen — plaza dagoeneko erreserbatua. Informatika Ingeniaritza Gradua bukatu ondorengo hurrengo urratsa.',
+      edu2_date:  '2022/09 – Gaur egun',
+      edu2_title: 'Informatika Ingeniaritza Gradua',
+      edu2_desc:  '4. urtean nago. Datu-baseak, segurtasuna eta AIan espezializatuta.',
+
+      work1_date:  '2025/09 – Gaur egun',
+      work1_title: 'Ikertzailea',
+      work1_desc:  'Gradu Amaierako Lana. AI bidezko bilaketa sistema kognitibo baten garapena.',
+      work2_date:  '2024/09 – 2025/07',
+      work2_title: 'Ikertzailea',
+      work2_desc:  'LLMetan oinarritutako sistema bat garatu nuen, erabiltzaile ez-teknikoei datu-baseak kontsultatzeko eta ezagutza intuitiboki ateratzeko aukera ematen diena.',
+      work3_date:  '2023/10 – 2024/07',
+      work3_title: 'Proiektu Laguntzailea',
+      work3_desc:  'Bezero industrial batentzako paleta eta edukiontzien biltegi bat automatizatzeko logistika sistema bat garatu nuen.',
+
+      links_title: 'aurkitu_ni',
+      links_intro: 'Konektatu, kolaboratu edo kaixo esan nahi al duzu?',
+      cal_name: 'Bilera Erreserbatu',
+
+      secrets_hint:      '4 sekretu ezkutatuta orrialdearen nonbaiten',
+      paranoid_msg:      '<span class="paranoid-accent">Zure datuak.</span><br>Zure arauak.',
+      tracking_cmd:      '$ ./expose.sh',
+      tracking_ip:       '  IP Helbidea  : ',
+      tracking_os:       '  SE           : ',
+      tracking_browser:  '  Nabigatzailea: ',
+      tracking_lang:     '  Hizkuntza    : ',
+      tracking_tz:       '  Ordu-zona    : ',
+      tracking_res:      '  Bereizmena   : ',
+      tracking_footer1:  '  Hau da webgune bakoitzak ikusten duena.',
+      tracking_footer2:  '  Pentsatu horretan.',
+    },
   };
 
   const saved      = localStorage.getItem('lang');
+  const browserEu  = navigator.language && navigator.language.startsWith('eu');
   const browserEs  = navigator.language && navigator.language.startsWith('es');
-  let currentLang  = saved || (browserEs ? 'es' : 'en');
+  let currentLang  = saved || (browserEu ? 'eu' : browserEs ? 'es' : 'en');
 
   function t(key) {
     return translations[currentLang]?.[key] ?? translations.en?.[key] ?? key;
@@ -344,7 +517,15 @@
   function initToggle() {
     const btn = document.getElementById('lang-toggle');
     if (!btn) return;
-    btn.addEventListener('click', () => apply(currentLang === 'en' ? 'es' : 'en'));
+    btn.addEventListener('click', e => {
+      const opt = e.target.closest('.lang-option');
+      if (opt) {
+        apply(opt.dataset.lang);
+      } else {
+        const langs = ['en', 'es', 'eu'];
+        apply(langs[(langs.indexOf(currentLang) + 1) % langs.length]);
+      }
+    });
     apply(currentLang);
   }
 
