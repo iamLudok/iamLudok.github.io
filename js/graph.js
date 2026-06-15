@@ -217,20 +217,36 @@
       tooltip.style('display', 'none');
     });
 
-    simulation.on('tick', () => {
+    function applyPositions() {
       link
         .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
         .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
       node.attr('transform', d => `translate(${d.x},${d.y})`);
-    });
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      simulation.stop();
+      for (let i = 0; i < 300; ++i) simulation.tick();
+      applyPositions();
+    } else {
+      simulation.on('tick', applyPositions);
+    }
   }
 
-  function loadD3(cb) {
-    if (typeof d3 !== 'undefined') { cb(); return; }
-    const s = document.createElement('script');
-    s.src = 'https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js';
-    s.onload = cb;
-    document.head.appendChild(s);
+  function loadGraph(cb) {
+    if (typeof d3 !== 'undefined' && typeof GRAPH_DATA !== 'undefined') { cb(); return; }
+    let pending = 0;
+    function done() { if (--pending === 0) cb(); }
+    function load(src, check) {
+      if (check()) return;
+      pending++;
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = done;
+      document.head.appendChild(s);
+    }
+    load('js/d3.min.js',      () => typeof d3         !== 'undefined');
+    load('js/graph-data.js',  () => typeof GRAPH_DATA !== 'undefined');
   }
 
   const overlay   = document.getElementById('skill-graph-overlay');
@@ -243,7 +259,7 @@
     overlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     if (!container.hasChildNodes()) {
-      loadD3(() => requestAnimationFrame(() => render(container)));
+      loadGraph(() => requestAnimationFrame(() => render(container)));
     }
   }
 
