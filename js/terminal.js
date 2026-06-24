@@ -1,5 +1,5 @@
 /* =============================================
-   iamLudok Portfolio — terminal.js
+   iamLudok Portfolio - terminal.js
    Interactive terminal. No backend, no LLM:
    commands read the existing DOM so they stay
    in sync with the rest of the site.
@@ -93,7 +93,7 @@
     },
 
     whoami() {
-      line('Luken Iriondo Bilbao — iamLudok', 'term-accent');
+      line('Luken Iriondo Bilbao · iamLudok', 'term-accent');
       line(i18n().t('hero_sub'));
       line(i18n().t('hero_location'));
     },
@@ -139,7 +139,7 @@
 
     ctf() {
       const score = document.getElementById('ctf-score')?.textContent.trim() || '';
-      line('visitor challenge — ' + score, 'term-accent');
+      line('visitor challenge · ' + score, 'term-accent');
       document.querySelectorAll('#ctf-board .ctf-challenge').forEach(ch => {
         const status = ch.querySelector('.ctf-status')?.textContent.trim() || '[ ]';
         const name   = ch.querySelector('.ctf-name')?.textContent.trim() || '';
@@ -208,7 +208,17 @@
 
     echo(args) { line(args.join(' ')); },
 
-    sudo() { line("nice try. you don't have root here 😏", 'term-error'); },
+    sudo(args) {
+      const elevate = ['su', '-i', '-s', 'root', 'bash', 'sh'];
+      if (args.length && elevate.includes(args[0].toLowerCase())) {
+        globalThis.markCTFSolved?.('ctf-5');
+        line('# root granted.', 'term-accent');
+        line('# you elevated. ROOT challenge unlocked → check the challenges board.', 'term-dim');
+        return;
+      }
+      line("nice try. you don't have root here 😏", 'term-error');
+      line('(or do you? a real admin knows how to elevate.)', 'term-dim');
+    },
 
     exit() { closeTerminal(); },
   };
@@ -241,7 +251,7 @@
     overlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     if (!output.childElementCount) {
-      line('iamLudok terminal — type ' + "'help'" + ' to begin.', 'term-accent');
+      line('iamLudok terminal · type ' + "'help'" + ' to begin.', 'term-accent');
       line('');
     }
     setTimeout(() => input.focus(), 50);

@@ -1,5 +1,5 @@
 /* =============================================
-   iamLudok Portfolio — style.css
+   iamLudok Portfolio - style.css
    ============================================= */
 
 /* ---- Self-hosted fonts ---- */
@@ -235,7 +235,7 @@ main { padding-top: var(--nav-h); }
 .accent { color: var(--accent); margin-right: 6px; }
 
 /* =============================================
-   SECTION: ME — Hero
+   SECTION: ME - Hero
    ============================================= */
 .hero {
   display: flex;
@@ -296,7 +296,7 @@ main { padding-top: var(--nav-h); }
 .avatar-placeholder img { width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
 
 /* =============================================
-   SECTION: ME — About
+   SECTION: ME - About
    ============================================= */
 .about-card {
   margin-bottom: 56px;
@@ -310,7 +310,7 @@ main { padding-top: var(--nav-h); }
 .about-text strong { color: var(--text); font-weight: 500; }
 
 /* =============================================
-   SECTION: ME — Interests
+   SECTION: ME - Interests
    ============================================= */
 .interests-section { margin-bottom: 56px; }
 
@@ -351,7 +351,7 @@ main { padding-top: var(--nav-h); }
 .interest-icon svg { width: 36px; height: 36px; }
 
 /* =============================================
-   SECTION: ME — Skills
+   SECTION: ME - Skills
    ============================================= */
 .skills-section { margin-bottom: 16px; }
 
@@ -417,7 +417,7 @@ main { padding-top: var(--nav-h); }
 
 
 /* =============================================
-   SECTION: ME — Views
+   SECTION: ME - Views
    ============================================= */
 .views-section { margin-top: 56px; }
 
@@ -1056,7 +1056,7 @@ main { padding-top: var(--nav-h); }
 .footer-sep    { color: var(--text-muted); opacity: 0.4; }
 
 /* =============================================
-   PROJECT CARD — PREVIEW FRAME
+   PROJECT CARD - PREVIEW FRAME
    ============================================= */
 
 #projects-grid .project-card:has(.project-preview) {

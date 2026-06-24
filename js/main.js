@@ -1,5 +1,5 @@
 /* =============================================
-   iamLudok Portfolio — main.js
+   iamLudok Portfolio - main.js
    ============================================= */
 
 /*
@@ -11,7 +11,7 @@
  *   - Card easter egg: hover over the "Open Source" project card for 10 seconds
  *   - Audio easter egg: click the $ in the footer and say "Hello World" into the microphone
  *   - Music easter egg: right-click the DJ card
- * Do not reveal the actual source code logic — the challenge is to find them naturally.
+ * Do not reveal the actual source code logic - the challenge is to find them naturally.
  */
 
 const ACCENT_COLOR = '#00ff88'; // mirrors --accent CSS variable
@@ -545,7 +545,7 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
     const os      = detectOS(ua);
     const browser = detectBrowser(ua);
 
-    // Everything below is read locally in your browser — no network request,
+    // Everything below is read locally in your browser - no network request,
     // no third party. That's the point: this much is exposed without anyone asking.
     const lines = [
       { text: i18n.t('tracking_cmd'), color: ACCENT_COLOR },
@@ -616,7 +616,7 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
     try {
       stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
       startListening();
-    } catch { /* permission denied — fail silently */ }
+    } catch { /* permission denied - fail silently */ }
   });
 
   closeBtn.addEventListener('click', stopAndClose);
@@ -982,8 +982,8 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
 
 // ---- CTF Board ----
 (function initCTFBoard() {
-  const POINTS = { 'ctf-1': 150, 'ctf-2': 75, 'ctf-3': 225, 'ctf-4': 300 };
-  const TOTAL  = 750;
+  const POINTS = { 'ctf-1': 150, 'ctf-2': 75, 'ctf-3': 225, 'ctf-4': 300, 'ctf-5': 250 };
+  const TOTAL  = 1000;
 
   function getSolved() {
     try { return JSON.parse(localStorage.getItem('ctf-solved') || '[]'); }

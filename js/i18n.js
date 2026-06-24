@@ -62,21 +62,21 @@
 
       drawer_why:     'Why I built it',
       drawer_learned: 'What I learned',
-      private_note:   'This project is finished but kept private. The documents it works with contain personal information from real people — making them publicly accessible without their consent would be both a legal and an ethical problem.',
+      private_note:   'This project is finished but kept private. The documents it works with contain personal information from real people, making them publicly accessible without their consent would be both a legal and an ethical problem.',
 
-      project_ludext_story:          'I wanted one place to pull together everything I care about in the morning — my wishlist, shopping list, medication reminders, today\'s events — without relying on Google, Alexa, or any cloud service. Everything runs locally on a Raspberry Pi through Nextcloud. The only remaining dependency is Gmail, which is still on the migration list.',
+      project_ludext_story:          'I wanted one place to pull together everything I care about in the morning, my wishlist, shopping list, medication reminders, today\'s events, without relying on Google, Alexa, or any cloud service. Everything runs locally on a Raspberry Pi through Nextcloud. The only remaining dependency is Gmail, which is still on the migration list.',
       project_ludext_tags:           'Python, Raspberry Pi, API, LLMs, Docker, Git, NextCloud, Telegram, Ollama',
       project_ludext_learned:        'self-hosting, local ai, efficiency',
 
-      project_aibookmarks_story:     'Everyone saves their go-to links in the browser bar, but the AI space moves too fast for that to work. There are hundreds of tools launching every week — most of them noise. I wanted a curated space where people could actually find something useful for what they need, tested and recommended by me. I\'m also increasingly adding tools focused on privacy and digital autonomy, which reflects where my own interests are heading.',
+      project_aibookmarks_story:     'Everyone saves their go-to links in the browser bar, but the AI space moves too fast for that to work. There are hundreds of tools launching every week, most of them noise. I wanted a curated space where people could actually find something useful for what they need, tested and recommended by me. I\'m also increasingly adding tools focused on privacy and digital autonomy, which reflects where my own interests are heading.',
       project_aibookmarks_tags:      'HTML, CSS, JS, Git',
       project_aibookmarks_learned:   'trend tracking',
 
-      project_teknoa_story:          'I noticed that almost every event poster in the Basque Country was being uploaded to Instagram — but each DJ to their own account. If you didn\'t follow the right people, you\'d simply miss the event. I created an Instagram page so that anyone into electronic music in the Basque Country could have one place to check what\'s on this weekend, no matter who\'s playing. Then I realised I wanted to do more — DJ profiles, venues, email alerts, maps. Instagram wasn\'t built for that, so I built the website.',
+      project_teknoa_story:          'I noticed that almost every event poster in the Basque Country was being uploaded to Instagram, but each DJ to their own account. If you didn\'t follow the right people, you\'d simply miss the event. I created an Instagram page so that anyone into electronic music in the Basque Country could have one place to check what\'s on this weekend, no matter who\'s playing. Then I realised I wanted to do more, DJ profiles, venues, email alerts, maps. Instagram wasn\'t built for that, so I built the website.',
       project_teknoa_tags:           'JS, CSS, Git, Astro, TypeScript',
       project_teknoa_learned:        'community, content management, full-stack',
 
-      project_skai_story:            'At HackUPC, each sponsor presented their challenge. Skyscanner\'s caught our attention: "design a next-generation, AI-powered travel experience that truly understands traveller intent, cuts through complexity, and helps people make confident, informed decisions." We started from scratch — a React frontend styled after Skyscanner\'s own colours, with the classic search bar, a chat interface, an interactive map, and destination cards. From there we kept layering complexity: a LangGraph agentic backend, RAG over destination data stored in ChromaDB, short and long-term memory to personalise across the conversation, vibe-based matching across 11 emotional dimensions scored by compatibility, price, travel history and novelty. The AI models ran on Azure AI Foundry, with FastAPI and MongoDB powering the rest. 36 hours, 3-person team, built from zero.',
+      project_skai_story:            'At HackUPC, each sponsor presented their challenge. Skyscanner\'s caught our attention: "design a next-generation, AI-powered travel experience that truly understands traveller intent, cuts through complexity, and helps people make confident, informed decisions." We started from scratch, a React frontend styled after Skyscanner\'s own colours, with the classic search bar, a chat interface, an interactive map, and destination cards. From there we kept layering complexity: a LangGraph agentic backend, RAG over destination data stored in ChromaDB, short and long-term memory to personalise across the conversation, vibe-based matching across 11 emotional dimensions scored by compatibility, price, travel history and novelty. The AI models ran on Azure AI Foundry, with FastAPI and MongoDB powering the rest. 36 hours, 3-person team, built from zero.',
       project_skai_tags:             'Python, FastAPI, LangGraph, API, Git, LangChain, Short-term / Long-term Memory, LLMs, RAG, Azure AI Foundry, MongoDB, ChromaDB, Docker, Git, React',
       project_skai_learned:          'agentic ai, rapid prototyping',
 
@@ -84,15 +84,15 @@
       project_musicgenre_tags:       'Python, Git, ML, Audio',
       project_musicgenre_learned:    'audio processing, ml classification',
 
-      project_visualizer_story:      'I play live sets and wanted visuals that actually react to the music in real time — not pre-rendered loops, but something that moves with the energy of the moment.',
+      project_visualizer_story:      'I play live sets and wanted visuals that actually react to the music in real time, not pre-rendered loops, but something that moves with the energy of the moment.',
       project_visualizer_tags:       'Python, Git, ML, Audio, Video',
       project_visualizer_learned:    'fft, live performance',
 
-      project_jaialai_story:         'I played cesta punta for years, but the real expert in my family is my grandfather — a lifelong fanatic who has even written books about the sport. Over the decades he\'s collected an enormous amount of information that exists nowhere else: interviews with players, historical records, personal notes gathered through years of research. When I started building RAG-based chatbots, I knew exactly what I wanted to do with that knowledge. I built him a tool where he can ask questions in plain language and get answers from his own documents — hundreds of pages that would otherwise take hours to search through manually.',
+      project_jaialai_story:         'I played cesta punta for years, but the real expert in my family is my grandfather, a lifelong fanatic who has even written books about the sport. Over the decades he\'s collected an enormous amount of information that exists nowhere else: interviews with players, historical records, personal notes gathered through years of research. When I started building RAG-based chatbots, I knew exactly what I wanted to do with that knowledge. I built him a tool where he can ask questions in plain language and get answers from his own documents, hundreds of pages that would otherwise take hours to search through manually.',
       project_jaialai_tags:          'Python, LLMs, RAG, KG, Short-term / Long-term Memory, LangChain, LangGraph, Git, API, Streamlit, Docker, Docling, Qdrant, Neo4j, MongoDB',
       project_jaialai_learned:       'agentic ai, unique knowledge',
 
-      project_claudetemplate_story:  'Every time I started a new project with Claude Code I was repeating the same setup. CLAUDE.md, hooks, permissions, folder structure — always the same. This template is what I wish had existed from day one.',
+      project_claudetemplate_story:  'Every time I started a new project with Claude Code I was repeating the same setup. CLAUDE.md, hooks, permissions, folder structure, always the same. This template is what I wish had existed from day one.',
       project_claudetemplate_tags:   'Git, Claude Code',
       project_claudetemplate_learned:'workflow design, efficiency',
 
@@ -104,7 +104,7 @@
       project_secondbrain_tags:      'LLMs, Git, Obsidian, Claude Code',
       project_secondbrain_learned:   'knowledge management, ai workflows',
 
-      project_gluteina_story:        'A close friend has celiac disease. Finding safe restaurants while travelling is genuinely stressful — no reliable source exists. We built this during a project sprint to make that search easier.',
+      project_gluteina_story:        'A close friend has celiac disease. Finding safe restaurants while travelling is genuinely stressful, no reliable source exists. We built this during a project sprint to make that search easier.',
       project_gluteina_tags:         'PostgreSQL, Docker, CSS, JS, Git, Leaflet',
       project_gluteina_learned:      'community, full-stack',
 
@@ -125,6 +125,7 @@
       ctf_hint_2:      '"visit = consent"',
       ctf_hint_3:      '"$ → ×2"',
       ctf_hint_4:      '"4/4 in the pocket"',
+      ctf_hint_5:      '"the shell answers to root"',
       ctf_all_solved:  '> gg. you found them all.',
       ctf_reset:       '[ reset ]',
 
@@ -143,20 +144,20 @@
       edu_heading:      'Education',
       work_heading:     'Experience',
 
-      edu1_date:  '2026/09 – Soon',
+      edu1_date:  '2026/09 - Soon',
       edu1_title: "Master's Degree on Artificial Intelligence",
       edu1_desc:  'Incoming - spot already reserved. Next step after finishing my Computer Engineering degree.',
-      edu2_date:  '2022/09 – Present',
+      edu2_date:  '2022/09 - Present',
       edu2_title: 'Computer Engineering Degree',
       edu2_desc:  'Currently in my 4th year. Focused on databases, security and AI.',
 
-      work1_date:  '2025/09 – Present',
+      work1_date:  '2025/09 - Present',
       work1_title: 'Researcher',
       work1_desc:  "Bachelor's thesis. Development of a cognitive AI-powered search system.",
-      work2_date:  '2024/09 – 2025/07',
+      work2_date:  '2024/09 - 2025/07',
       work2_title: 'Researcher',
       work2_desc:  'Built an LLM-based system allowing non-technical users to query databases and extract knowledge intuitively.',
-      work3_date:  '2023/10 – 2024/07',
+      work3_date:  '2023/10 - 2024/07',
       work3_title: 'Project Assistant',
       work3_desc:  'Developed a logistics system to automate a pallet and container warehouse for an industrial client.',
 
@@ -234,19 +235,19 @@
 
       drawer_why:     'Por qué lo hice',
       drawer_learned: 'Qué aprendí',
-      private_note:   'Este proyecto está terminado pero es privado. Los documentos con los que trabaja contienen información personal de personas reales — hacerlos públicamente accesibles sin su consentimiento sería un problema legal y ético.',
+      private_note:   'Este proyecto está terminado pero es privado. Los documentos con los que trabaja contienen información personal de personas reales, hacerlos públicamente accesibles sin su consentimiento sería un problema legal y ético.',
 
-      project_ludext_story:          'Quería tener en un solo sitio todo lo que me importa por la mañana — mi wishlist, lista de la compra, recordatorios de medicación, eventos del día — sin depender de Google, Alexa ni ningún servicio en la nube. Todo corre en local sobre una Raspberry Pi a través de Nextcloud. La única dependencia que queda pendiente es Gmail, que sigue en la lista de migración.',
-      project_aibookmarks_story:     'Todo el mundo guarda sus enlaces favoritos en la barra del navegador, pero el mundo de la IA se mueve demasiado rápido para que eso funcione. Cada semana aparecen cientos de herramientas nuevas — la mayoría ruido. Quería un espacio curado donde la gente pudiera encontrar algo realmente útil para lo que necesita, probado y recomendado por mí. Además, cada vez añado más herramientas enfocadas en privacidad y autonomía digital, que es hacia donde van mis propios intereses.',
-      project_teknoa_story:          'Me di cuenta de que casi todos los carteles de eventos del País Vasco se subían a Instagram — pero cada DJ al suyo. Si no seguías a las personas adecuadas, simplemente no te enterabas. Creé una cuenta de Instagram para que cualquiera al que le guste la electrónica en Euskal Herria tuviera un sitio donde ver qué hay este finde, independientemente de quién pinche. Luego quise hacer más cosas: perfiles de DJs, recintos, avisos al correo, mapas. Instagram se quedaba corto, así que creé la página web.',
-      project_skai_story:            'En la HackUPC, cada sponsor presentó su reto. El de Skyscanner nos enganchó: "diseña una experiencia de viaje de nueva generación con IA que entienda de verdad la intención del viajero, reduzca la complejidad y ayude a tomar decisiones con confianza." Empezamos desde cero — un frontend en React inspirado en los propios colores de Skyscanner, con el buscador clásico, un chat, un mapa interactivo y tarjetas de destinos. A partir de ahí fuimos añadiendo complejidad: un backend agéntico con LangGraph, RAG sobre datos de destinos almacenados en ChromaDB, memoria a corto y largo plazo para personalizar la conversación, y compatibilidad de vibes en 11 dimensiones emocionales puntuada por afinidad, precio, historial y novedad. Los modelos de IA corrían sobre Azure AI Foundry, con FastAPI y MongoDB detrás. 36 horas, equipo de 3, desde cero.',
+      project_ludext_story:          'Quería tener en un solo sitio todo lo que me importa por la mañana, mi wishlist, lista de la compra, recordatorios de medicación, eventos del día, sin depender de Google, Alexa ni ningún servicio en la nube. Todo corre en local sobre una Raspberry Pi a través de Nextcloud. La única dependencia que queda pendiente es Gmail, que sigue en la lista de migración.',
+      project_aibookmarks_story:     'Todo el mundo guarda sus enlaces favoritos en la barra del navegador, pero el mundo de la IA se mueve demasiado rápido para que eso funcione. Cada semana aparecen cientos de herramientas nuevas, la mayoría ruido. Quería un espacio curado donde la gente pudiera encontrar algo realmente útil para lo que necesita, probado y recomendado por mí. Además, cada vez añado más herramientas enfocadas en privacidad y autonomía digital, que es hacia donde van mis propios intereses.',
+      project_teknoa_story:          'Me di cuenta de que casi todos los carteles de eventos del País Vasco se subían a Instagram, pero cada DJ al suyo. Si no seguías a las personas adecuadas, simplemente no te enterabas. Creé una cuenta de Instagram para que cualquiera al que le guste la electrónica en Euskal Herria tuviera un sitio donde ver qué hay este finde, independientemente de quién pinche. Luego quise hacer más cosas: perfiles de DJs, recintos, avisos al correo, mapas. Instagram se quedaba corto, así que creé la página web.',
+      project_skai_story:            'En la HackUPC, cada sponsor presentó su reto. El de Skyscanner nos enganchó: "diseña una experiencia de viaje de nueva generación con IA que entienda de verdad la intención del viajero, reduzca la complejidad y ayude a tomar decisiones con confianza." Empezamos desde cero, un frontend en React inspirado en los propios colores de Skyscanner, con el buscador clásico, un chat, un mapa interactivo y tarjetas de destinos. A partir de ahí fuimos añadiendo complejidad: un backend agéntico con LangGraph, RAG sobre datos de destinos almacenados en ChromaDB, memoria a corto y largo plazo para personalizar la conversación, y compatibilidad de vibes en 11 dimensiones emocionales puntuada por afinidad, precio, historial y novedad. Los modelos de IA corrían sobre Azure AI Foundry, con FastAPI y MongoDB detrás. 36 horas, equipo de 3, desde cero.',
       project_musicgenre_story:      'Como DJ he acumulado miles de canciones en diferentes discos sin estructura ni nombre consistente. Organizarlas a mano llevaría semanas. Quería un sistema que lo hiciera solo.',
-      project_visualizer_story:      'Toco sets en directo y quería visuales que reaccionaran a la música en tiempo real — no loops pregrabados, sino algo que se moviera con la energía del momento.',
-      project_jaialai_story:         'Yo jugué a cesta punta durante muchos años, pero el verdadero experto en mi familia es mi abuelo — un fanático de toda la vida que incluso ha escrito libros sobre el deporte. A lo largo de décadas ha recopilado una cantidad enorme de información que no existe en ningún otro sitio: entrevistas con pelotaris, registros históricos, notas personales fruto de años de investigación. Cuando empecé a construir chatbots basados en RAG, supe exactamente qué quería hacer con ese conocimiento. Le construí una herramienta donde puede preguntar en lenguaje natural y obtener respuestas de sus propios documentos — cientos de páginas que de otra forma llevarían horas de búsqueda manual.',
-      project_claudetemplate_story:  'Cada vez que empezaba un proyecto nuevo con Claude Code repetía la misma configuración. CLAUDE.md, hooks, permisos, estructura de carpetas — siempre lo mismo. Esta plantilla es lo que me hubiera gustado tener desde el primer día.',
+      project_visualizer_story:      'Toco sets en directo y quería visuales que reaccionaran a la música en tiempo real, no loops pregrabados, sino algo que se moviera con la energía del momento.',
+      project_jaialai_story:         'Yo jugué a cesta punta durante muchos años, pero el verdadero experto en mi familia es mi abuelo, un fanático de toda la vida que incluso ha escrito libros sobre el deporte. A lo largo de décadas ha recopilado una cantidad enorme de información que no existe en ningún otro sitio: entrevistas con pelotaris, registros históricos, notas personales fruto de años de investigación. Cuando empecé a construir chatbots basados en RAG, supe exactamente qué quería hacer con ese conocimiento. Le construí una herramienta donde puede preguntar en lenguaje natural y obtener respuestas de sus propios documentos, cientos de páginas que de otra forma llevarían horas de búsqueda manual.',
+      project_claudetemplate_story:  'Cada vez que empezaba un proyecto nuevo con Claude Code repetía la misma configuración. CLAUDE.md, hooks, permisos, estructura de carpetas, siempre lo mismo. Esta plantilla es lo que me hubiera gustado tener desde el primer día.',
       project_playlist_story:        'Tengo playlists en Spotify y SoundCloud pero necesito archivos WAV para los sets. Descargar pista a pista era tedioso. Quería una herramienta que gestionara playlists enteras con un solo comando.',
       project_secondbrain_story:     'Notas dispersas en varias apps, ideas que nunca revisitaría, conocimiento que buscaría dos veces. Construí un sistema en Obsidian con Claude Code que conecta las cosas en lugar de simplemente almacenarlas.',
-      project_gluteina_story:        'Una persona cercana tiene celiaquía. Encontrar restaurantes seguros viajando es un estrés real — no existe una fuente fiable. Lo construimos durante un sprint de proyecto para hacer esa búsqueda más fácil.',
+      project_gluteina_story:        'Una persona cercana tiene celiaquía. Encontrar restaurantes seguros viajando es un estrés real, no existe una fuente fiable. Lo construimos durante un sprint de proyecto para hacer esa búsqueda más fácil.',
 
       project_with: 'con',
 
@@ -261,6 +262,7 @@
       ctf_hint_2:      '"visitar = consentir"',
       ctf_hint_3:      '"$ → ×2"',
       ctf_hint_4:      '"4/4 en el bolsillo"',
+      ctf_hint_5:      '"la shell obedece a root"',
       ctf_all_solved:  '> gg. los encontraste todos.',
       ctf_reset:       '[ reiniciar ]',
 
@@ -279,20 +281,20 @@
       edu_heading:      'Formación',
       work_heading:     'Experiencia',
 
-      edu1_date:  '2026/09 – Próximamente',
+      edu1_date:  '2026/09 - Próximamente',
       edu1_title: 'Máster en Inteligencia Artificial',
       edu1_desc:  'Próximo - plaza ya reservada. Siguiente paso tras terminar el Grado en Ingeniería Informática.',
-      edu2_date:  '2022/09 – Actualidad',
+      edu2_date:  '2022/09 - Actualidad',
       edu2_title: 'Grado en Ingeniería Informática',
       edu2_desc:  'Actualmente en 4.º año. Especializado en bases de datos, seguridad e IA.',
 
-      work1_date:  '2025/09 – Actualidad',
+      work1_date:  '2025/09 - Actualidad',
       work1_title: 'Investigador',
       work1_desc:  'Trabajo de fin de grado. Desarrollo de un sistema de búsqueda cognitivo impulsado por IA.',
-      work2_date:  '2024/09 – 2025/07',
+      work2_date:  '2024/09 - 2025/07',
       work2_title: 'Investigador',
       work2_desc:  'Desarrollé un sistema basado en LLM que permite a usuarios no técnicos consultar bases de datos y extraer conocimiento de forma intuitiva.',
-      work3_date:  '2023/10 – 2024/07',
+      work3_date:  '2023/10 - 2024/07',
       work3_title: 'Asistente de Proyectos',
       work3_desc:  'Desarrollé un sistema logístico para automatizar un almacén de palés y contenedores para un cliente industrial.',
 
@@ -370,21 +372,21 @@
 
       drawer_why:     'Zergatik eraiki nuen',
       drawer_learned: 'Zer ikasi nuen',
-      private_note:   'Proiektu hau bukatuta dago baina pribatua da. Erabiltzen dituen dokumentuak benetako pertsonen informazio pertsonala dute — haien baimenik gabe publikoki eskuragarri egitea arazo legal eta etiko bat izango litzateke.',
+      private_note:   'Proiektu hau bukatuta dago baina pribatua da. Erabiltzen dituen dokumentuak benetako pertsonen informazio pertsonala dute, haien baimenik gabe publikoki eskuragarri egitea arazo legal eta etiko bat izango litzateke.',
 
-      project_ludext_story:          'Goizean axola zaidan guztia leku bakarrean edukitzea nahi nuen — nire wishlist-a, erosketako zerrenda, botiken gogorarazleak, eguneko gertaerak — Google, Alexa edo hodei-zerbitzu bat erabili gabe. Dena Nextcloud bidez Raspberry Pi batean lokalean dabil. Geratzen den menpekotasun bakarra Gmail da, migrazio zerrendan dagoena oraindik.',
+      project_ludext_story:          'Goizean axola zaidan guztia leku bakarrean edukitzea nahi nuen, nire wishlist-a, erosketako zerrenda, botiken gogorarazleak, eguneko gertaerak, Google, Alexa edo hodei-zerbitzu bat erabili gabe. Dena Nextcloud bidez Raspberry Pi batean lokalean dabil. Geratzen den menpekotasun bakarra Gmail da, migrazio zerrendan dagoena oraindik.',
       project_ludext_tags:           'Python, Raspberry Pi, API, LLMs, Docker, Git, NextCloud, Telegram, Ollama',
       project_ludext_learned:        'autoalojamendua, AI lokala, efizientzia',
 
-      project_aibookmarks_story:     'Denek gordetzen dituzte beren esteka gogokoenak nabigatzailearen barran, baina AI munduak horretarako azkarregi mugitzen da. Astero ehunka tresna berri agertzen dira — gehiena zarata. Probatu eta gomendatutako, benetan erabilgarria den zerbait aurkitu dezakeen espazio kuratu bat nahi nuen. Gainera, gero eta tresna gehiago gehitzen ari naiz pribatutasunean eta autonomia digitalean zentratuta, nire interesak norantz doazen islatuz.',
+      project_aibookmarks_story:     'Denek gordetzen dituzte beren esteka gogokoenak nabigatzailearen barran, baina AI munduak horretarako azkarregi mugitzen da. Astero ehunka tresna berri agertzen dira, gehiena zarata. Probatu eta gomendatutako, benetan erabilgarria den zerbait aurkitu dezakeen espazio kuratu bat nahi nuen. Gainera, gero eta tresna gehiago gehitzen ari naiz pribatutasunean eta autonomia digitalean zentratuta, nire interesak norantz doazen islatuz.',
       project_aibookmarks_tags:      'HTML, CSS, JS, Git',
       project_aibookmarks_learned:   'joera jarraipena',
 
-      project_teknoa_story:          'Konturatu nintzen Euskal Herriko ia kartela guztiak Instagramera igotzen zirela — baina DJ bakoitza bere kontura. Pertsona egokiak jarraitzen ez bazituen, gertaera galtzen zenuen. Instagram orrialde bat sortu nuen Euskal Herriko elektronika gogoko duen edonork aste honetan zer dagoen ikusteko leku bakarra izateko, inork jotzea axola gabe. Gero gehiago egin nahi nuela konturatu nintzen: DJ profileak, lokalak, mezu-alertak, mapak. Instagram ez zen nahikoa, eta webgunea eraiki nuen.',
+      project_teknoa_story:          'Konturatu nintzen Euskal Herriko ia kartela guztiak Instagramera igotzen zirela, baina DJ bakoitza bere kontura. Pertsona egokiak jarraitzen ez bazituen, gertaera galtzen zenuen. Instagram orrialde bat sortu nuen Euskal Herriko elektronika gogoko duen edonork aste honetan zer dagoen ikusteko leku bakarra izateko, inork jotzea axola gabe. Gero gehiago egin nahi nuela konturatu nintzen: DJ profileak, lokalak, mezu-alertak, mapak. Instagram ez zen nahikoa, eta webgunea eraiki nuen.',
       project_teknoa_tags:           'JS, CSS, Git, Astro, TypeScript',
       project_teknoa_learned:        'komunitatea, eduki kudeaketa, full-stack',
 
-      project_skai_story:            'HackUPC-n, bapatukoak bere erronka aurkeztu zuen. Skyscanner-ena arreta harrapatu zigun: "diseinatu hurrengo belaunaldiko AI bidezko bidaia esperientzia bat, bidaiarien asmoa benetan ulertu, konplexutasuna murriztu eta erabaki seguruak eta informatuak hartzen lagundu." Hutsetik hasi ginen — Skyscanner-en koloreetan oinarritutako React frontend bat, bilatzaile klasikoarekin, chat interfazearekin, mapa interaktiboarekin eta helmuga txartelekin. Handik konplexutasuna gehitzen joan ginen: LangGraph-eko backend agentiko bat, ChromaDB-n gordetako helmuga datuen gaineko RAG, epe laburrerako eta luzeko memoria elkarrizketaren bidez pertsonalizatzeko, eta 11 dimentsio emozionaletako bibe bateragarritasuna, bateragarritasunaren, prezioaren, historiaren eta berritasunaren arabera puntuatua. AI modeloak Azure AI Foundry-n ibili ziren, FastAPI eta MongoDB-rekin atzean. 36 ordu, 3ko taldea, hutsetik.',
+      project_skai_story:            'HackUPC-n, bapatukoak bere erronka aurkeztu zuen. Skyscanner-ena arreta harrapatu zigun: "diseinatu hurrengo belaunaldiko AI bidezko bidaia esperientzia bat, bidaiarien asmoa benetan ulertu, konplexutasuna murriztu eta erabaki seguruak eta informatuak hartzen lagundu." Hutsetik hasi ginen, Skyscanner-en koloreetan oinarritutako React frontend bat, bilatzaile klasikoarekin, chat interfazearekin, mapa interaktiboarekin eta helmuga txartelekin. Handik konplexutasuna gehitzen joan ginen: LangGraph-eko backend agentiko bat, ChromaDB-n gordetako helmuga datuen gaineko RAG, epe laburrerako eta luzeko memoria elkarrizketaren bidez pertsonalizatzeko, eta 11 dimentsio emozionaletako bibe bateragarritasuna, bateragarritasunaren, prezioaren, historiaren eta berritasunaren arabera puntuatua. AI modeloak Azure AI Foundry-n ibili ziren, FastAPI eta MongoDB-rekin atzean. 36 ordu, 3ko taldea, hutsetik.',
       project_skai_tags:             'Python, FastAPI, LangGraph, API, Git, LangChain, Short-term / Long-term Memory, LLMs, RAG, Azure AI Foundry, MongoDB, ChromaDB, Docker, Git, React',
       project_skai_learned:          'AI agentikoa, prototipaketa azkarra',
 
@@ -392,15 +394,15 @@
       project_musicgenre_tags:       'Python, Git, ML, Audio',
       project_musicgenre_learned:    'audio prozesaketa, ML sailkapena',
 
-      project_visualizer_story:      'Live seteak jotzen ditut eta musika denbora errealean erreakzionatzen duen bisualekin nahi nuen — ez aurretik errendatutako begiztak, une bateko energiarekin mugitzen zen zerbait baizik.',
+      project_visualizer_story:      'Live seteak jotzen ditut eta musika denbora errealean erreakzionatzen duen bisualekin nahi nuen, ez aurretik errendatutako begiztak, une bateko energiarekin mugitzen zen zerbait baizik.',
       project_visualizer_tags:       'Python, Git, ML, Audio, Video',
       project_visualizer_learned:    'FFT, zuzeneko emanaldia',
 
-      project_jaialai_story:         'Urte asko igaro nituen zesta puntan, baina nire familiako benetako aditua nire aitona da — bizitza osoan zehar kirolagatik sutsua, kirolari buruzko liburuak idatzi dituena ere. Hamarkada hauetan zehar toki inon ez dagoen informazio kantitate izugarria pilatu du: pelotariekin elkarrizketak, erregistro historikoak, urteetako ikerketatik bildutako ohar pertsonalak. RAGean oinarritutako chatbotak eraikitzen hasi nintzenean, ezagutza hori erabilita zer egin nahi nuen exactoki jakin nuen. Bere dokumentuetatik galderak hizkuntza naturalean egin eta erantzunak lor ditzakeen tresna bat eraiki nion — eskuz bilatzeak orduak hartuko lituzkeen ehunka orri.',
+      project_jaialai_story:         'Urte asko igaro nituen zesta puntan, baina nire familiako benetako aditua nire aitona da, bizitza osoan zehar kirolagatik sutsua, kirolari buruzko liburuak idatzi dituena ere. Hamarkada hauetan zehar toki inon ez dagoen informazio kantitate izugarria pilatu du: pelotariekin elkarrizketak, erregistro historikoak, urteetako ikerketatik bildutako ohar pertsonalak. RAGean oinarritutako chatbotak eraikitzen hasi nintzenean, ezagutza hori erabilita zer egin nahi nuen exactoki jakin nuen. Bere dokumentuetatik galderak hizkuntza naturalean egin eta erantzunak lor ditzakeen tresna bat eraiki nion, eskuz bilatzeak orduak hartuko lituzkeen ehunka orri.',
       project_jaialai_tags:          'Python, LLMs, RAG, KG, Short-term / Long-term Memory, LangChain, LangGraph, Git, API, Streamlit, Docker, Docling, Qdrant, Neo4j, MongoDB',
       project_jaialai_learned:       'AI agentikoa, ezagutza berezia',
 
-      project_claudetemplate_story:  'Claude Code-rekin proiektu berri bat hasten zen aldiro konfigurazio bera errepikatzen nuen. CLAUDE.md, hooks, baimenak, karpeta egitura — beti gauza bera. Txantiloi hau lehen egunetik eduki nahiko nukeena da.',
+      project_claudetemplate_story:  'Claude Code-rekin proiektu berri bat hasten zen aldiro konfigurazio bera errepikatzen nuen. CLAUDE.md, hooks, baimenak, karpeta egitura, beti gauza bera. Txantiloi hau lehen egunetik eduki nahiko nukeena da.',
       project_claudetemplate_tags:   'Git, Claude Code',
       project_claudetemplate_learned:'lan-fluxu diseinua, efizientzia',
 
@@ -412,7 +414,7 @@
       project_secondbrain_tags:      'LLMs, Git, Obsidian, Claude Code',
       project_secondbrain_learned:   'ezagutza kudeaketa, AI fluxuak',
 
-      project_gluteina_story:        'Gertuko pertsona batek zeliakia du. Bidaiatzen ari zarela jatetxe seguruak bilatzea benetako estresa da — ez dago iturri fidagarririk. Bilaketa hori errazteko proiektu sprint batean eraiki genuen.',
+      project_gluteina_story:        'Gertuko pertsona batek zeliakia du. Bidaiatzen ari zarela jatetxe seguruak bilatzea benetako estresa da, ez dago iturri fidagarririk. Bilaketa hori errazteko proiektu sprint batean eraiki genuen.',
       project_gluteina_tags:         'PostgreSQL, Docker, CSS, JS, Git, Leaflet',
       project_gluteina_learned:      'komunitatea, full-stack',
 
@@ -433,13 +435,14 @@
       ctf_hint_2:      '"bisitatu = adostu"',
       ctf_hint_3:      '"$ → ×2"',
       ctf_hint_4:      '"4/4 poltsikoan"',
+      ctf_hint_5:      '"shell-ak root-i obeditzen dio"',
       ctf_all_solved:  '> gg. denak aurkitu dituzu.',
       ctf_reset:       '[ berrezarri ]',
 
       challenges_title:       'erronkak',
       challenge_ikerlan_date: '2025',
       challenge_ikerlan_sub:  'Ikerlan · Euskal Herria',
-      challenge_ikerlan_desc: 'Nire lehen CTF-a. Bakarrik bukatu nuen — kategoria guztietako zerbait egin nuen. Sarrera ona mentalitate honetara.',
+      challenge_ikerlan_desc: 'Nire lehen CTF-a. Bakarrik bukatu nuen, kategoria guztietako zerbait egin nuen. Sarrera ona mentalitate honetara.',
       challenge_hackupc_date: 'Api. 2026',
       challenge_hackupc_sub:  'Universitat Politècnica de Catalunya · Bartzelona',
       challenge_hackupc_desc: '36 orduko hackathona Universitat Politècnica de Catalunya-n, Bartzelonan.',
@@ -451,20 +454,20 @@
       edu_heading:      'Hezkuntza',
       work_heading:     'Esperientzia',
 
-      edu1_date:  '2026/09 – Laster',
+      edu1_date:  '2026/09 - Laster',
       edu1_title: 'Adimen Artifizialeko Masterra',
-      edu1_desc:  'Datozen — plaza dagoeneko erreserbatua. Informatika Ingeniaritza Gradua bukatu ondorengo hurrengo urratsa.',
-      edu2_date:  '2022/09 – Gaur egun',
+      edu1_desc:  'Datozen, plaza dagoeneko erreserbatua. Informatika Ingeniaritza Gradua bukatu ondorengo hurrengo urratsa.',
+      edu2_date:  '2022/09 - Gaur egun',
       edu2_title: 'Informatika Ingeniaritza Gradua',
       edu2_desc:  '4. urtean nago. Datu-baseak, segurtasuna eta AIan espezializatuta.',
 
-      work1_date:  '2025/09 – Gaur egun',
+      work1_date:  '2025/09 - Gaur egun',
       work1_title: 'Ikertzailea',
       work1_desc:  'Gradu Amaierako Lana. AI bidezko bilaketa sistema kognitibo baten garapena.',
-      work2_date:  '2024/09 – 2025/07',
+      work2_date:  '2024/09 - 2025/07',
       work2_title: 'Ikertzailea',
       work2_desc:  'LLMetan oinarritutako sistema bat garatu nuen, erabiltzaile ez-teknikoei datu-baseak kontsultatzeko eta ezagutza intuitiboki ateratzeko aukera ematen diena.',
-      work3_date:  '2023/10 – 2024/07',
+      work3_date:  '2023/10 - 2024/07',
       work3_title: 'Proiektu Laguntzailea',
       work3_desc:  'Bezero industrial batentzako paleta eta edukiontzien biltegi bat automatizatzeko logistika sistema bat garatu nuen.',
 

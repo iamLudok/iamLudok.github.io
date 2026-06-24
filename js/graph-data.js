@@ -4,14 +4,14 @@ const GRAPH_DATA = {
       id: 'work-assistant',
       label: 'Project Assistant',
       org: 'ULMA Handling Systems',
-      period: '10/2023 – 07/2024',
+      period: '10/2023 - 07/2024',
       skills: ['Java', 'Oracle', 'Spring', 'Git']
     },
     {
       id: 'work-researcher-1',
       label: 'Researcher',
       org: 'ULMA + Mondragon Unibertsitatea',
-      period: '09/2024 – 07/2025',
+      period: '09/2024 - 07/2025',
       skills: [
         'LLMs', 'RAG', 'Short-term / Long-term Memory',
         'Python', 'LangChain', 'Streamlit', 'Azure AI Foundry',
@@ -23,7 +23,7 @@ const GRAPH_DATA = {
       id: 'work-researcher-2',
       label: 'Researcher',
       org: 'ULMA + Mondragon Unibertsitatea',
-      period: '09/2025 – Present',
+      period: '09/2025 - Present',
       skills: [
         'LLMs', 'RAG', 'VLMs', 'KG', 'MCP',
         'Short-term / Long-term Memory', 'Python', 'LangChain',
@@ -40,14 +40,14 @@ const GRAPH_DATA = {
       id: 'study-y2',
       label: 'Year 2',
       org: 'Computer Engineering · MU',
-      period: '09/2023 – 06/2024',
+      period: '09/2023 - 06/2024',
       skills: ['Java', 'Oracle', 'MySQL', 'Spring', 'Git', 'HTML5', 'CSS3', 'JavaScript']
     },
     {
       id: 'study-y3',
       label: 'Year 3',
       org: 'Computer Engineering · MU',
-      period: '09/2024 – 06/2025',
+      period: '09/2024 - 06/2025',
       skills: [
         'LLMs', 'RAG', 'Short-term / Long-term Memory',
         'Python', 'LangChain', 'Streamlit', 'Azure AI Foundry',
@@ -59,7 +59,7 @@ const GRAPH_DATA = {
       id: 'study-y4',
       label: 'Year 4',
       org: 'Computer Engineering · MU',
-      period: '09/2025 – Present',
+      period: '09/2025 - Present',
       skills: [
         'LLMs', 'RAG', 'VLMs', 'KG', 'MCP',
         'Short-term / Long-term Memory', 'Python', 'LangChain',

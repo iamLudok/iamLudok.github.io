@@ -1,5 +1,5 @@
 /* =============================================
-   iamLudok Portfolio — service worker
+   iamLudok Portfolio - service worker
    Cache-first with background refresh. Lets the
    site load offline / installable as a PWA.
    Bump CACHE when assets change to invalidate.
