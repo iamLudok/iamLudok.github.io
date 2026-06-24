@@ -16,6 +16,41 @@
   <meta property="og:description" content="Computer Engineering Student & AI/ML enthusiast from the Basque Country. Building things around AI, privacy, and music." />
   <meta property="og:image"       content="https://iamludok.github.io/img/avatar.png" />
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content="Luken Iriondo Bilbao · iamLudok" />
+  <meta name="twitter:description" content="Computer Engineering Student & AI/ML enthusiast from the Basque Country. Building things around AI, privacy, and music." />
+  <meta name="twitter:image"       content="https://iamludok.github.io/img/avatar.png" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Luken Iriondo Bilbao",
+    "alternateName": "iamLudok",
+    "url": "https://iamludok.github.io/",
+    "image": "https://iamludok.github.io/img/avatar.png",
+    "jobTitle": "Computer Engineering Student · AI & ML Enthusiast",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Markina-Xemein",
+      "addressRegion": "Basque Country",
+      "addressCountry": "ES"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Mondragon University"
+    },
+    "knowsAbout": ["Artificial Intelligence", "Large Language Models", "RAG", "Agentic AI", "Privacy", "Self-hosting", "Music Production"],
+    "sameAs": [
+      "https://www.linkedin.com/in/luken-iriondo-bilbao/",
+      "https://github.com/iamludok",
+      "https://devpost.com/iamLudok"
+    ]
+  }
+  </script>
+
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -93,9 +128,7 @@
         <!-- About -->
         <div class="about-card">
           <h2 class="section-title"><span class="accent">//</span> <span data-i18n="about_title"></span></h2>
-          <p class="about-text" data-i18n-html="about_text"></strong>, also known as <strong>iamLudok</strong>.
-            I'm passionate about AI, privacy and building things on my own.
-          </p>
+          <p class="about-text" data-i18n-html="about_text"></p>
         </div>
 
         <!-- Interests -->
@@ -170,11 +203,11 @@
             <div class="skill-category">
               <span class="skill-category-label" data-i18n="skills_ai"></span>
               <div class="skills-grid">
-                <span class="skill-badge">LLMs</span>
-                <span class="skill-badge">RAG</span>
-                <span class="skill-badge">VLMs</span>
-                <span class="skill-badge">KG</span>
-                <span class="skill-badge">MCP</span>
+                <span class="skill-badge" title="Large Language Models">LLMs</span>
+                <span class="skill-badge" title="Retrieval-Augmented Generation">RAG</span>
+                <span class="skill-badge" title="Vision-Language Models">VLMs</span>
+                <span class="skill-badge" title="Knowledge Graphs">KG</span>
+                <span class="skill-badge" title="Model Context Protocol">MCP</span>
                 <span class="skill-badge">Short-term / Long-term Memory</span>
               </div>
             </div>
@@ -195,8 +228,8 @@
             <div class="skill-category">
               <span class="skill-category-label" data-i18n="skills_eval"></span>
               <div class="skills-grid">
-                <span class="skill-badge">RAGAS</span>
-                <span class="skill-badge">LLM-as-Judge</span>
+                <span class="skill-badge" title="RAG Assessment — evaluation framework">RAGAS</span>
+                <span class="skill-badge" title="Using an LLM to evaluate model outputs">LLM-as-Judge</span>
                 <span class="skill-badge">LangSmith</span>
                 <span class="skill-badge">Langfuse</span>
               </div>
@@ -714,6 +747,7 @@
 
         </div>
 
+      </div>
     </section>
 
     <!-- ========== SECTION: LINKS ========== -->
@@ -813,7 +847,7 @@
 
   <!-- ===== EASTER EGG: PARANOID MODE ===== -->
   <div id="paranoid-overlay" class="paranoid-overlay" aria-hidden="true">
-    <p class="paranoid-msg" data-i18n-html="paranoid_msg"></span><br>Your rules.</p>
+    <p class="paranoid-msg" data-i18n-html="paranoid_msg"></p>
   </div>
 
   <!-- ===== EASTER EGG: YOU ARE TRACKABLE ===== -->

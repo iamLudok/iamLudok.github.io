@@ -1037,3 +1037,53 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
 
   updateBoard();
 })();
+
+
+// ---- Accessibility: focus trap for custom overlays ----
+// Native <dialog> (lightbox) already traps focus on its own; this covers the
+// custom overlays that toggle `aria-hidden` to open/close.
+(function initFocusTrap() {
+  const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])';
+  const SELECTORS = ['project-drawer', 'skill-graph-overlay', 'tracking-modal', 'clap-overlay'];
+
+  function focusable(container) {
+    return [...container.querySelectorAll(FOCUSABLE)]
+      .filter(el => el.offsetParent !== null || el === document.activeElement);
+  }
+
+  SELECTORS.forEach(id => {
+    const overlay = document.getElementById(id);
+    if (!overlay) return;
+
+    let lastFocused = null;
+
+    function onKeydown(e) {
+      if (e.key !== 'Tab') return;
+      const items = focusable(overlay);
+      if (!items.length) { e.preventDefault(); return; }
+      const first = items[0];
+      const last  = items.at(-1);
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    }
+
+    function open() {
+      lastFocused = document.activeElement;
+      overlay.addEventListener('keydown', onKeydown);
+      requestAnimationFrame(() => focusable(overlay)[0]?.focus());
+    }
+
+    function close() {
+      overlay.removeEventListener('keydown', onKeydown);
+      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+      lastFocused = null;
+    }
+
+    new MutationObserver(() => {
+      overlay.getAttribute('aria-hidden') === 'false' ? open() : close();
+    }).observe(overlay, { attributes: true, attributeFilter: ['aria-hidden'] });
+  });
+})();
