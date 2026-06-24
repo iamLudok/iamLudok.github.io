@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 · iamLudok</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .nf {
+      width: min(560px, 100%);
+      background: var(--bg-2);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius);
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.12);
+      overflow: hidden;
+      font-family: var(--font-mono);
+    }
+    .nf-bar {
+      background: var(--bg-3);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nf-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); opacity: 0.7; }
+    .nf-title { flex: 1; text-align: center; font-size: 0.72rem; color: var(--text-muted); }
+    .nf-body { padding: 24px; font-size: 0.85rem; line-height: 2; color: var(--text-soft); }
+    .nf-body .accent { color: var(--accent); margin: 0; }
+    .nf-code { color: var(--color-error); }
+    .nf-home {
+      display: inline-block;
+      margin-top: 16px;
+      color: var(--accent);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius);
+      padding: 8px 16px;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .nf-home:hover { background: var(--bg-3); border-color: var(--accent); }
+  </style>
+</head>
+<body>
+  <main class="nf">
+    <div class="nf-bar">
+      <span class="nf-dot"></span><span class="nf-dot"></span><span class="nf-dot"></span>
+      <span class="nf-title">~/404 · bash</span>
+    </div>
+    <div class="nf-body">
+      <div><span class="accent">$</span> cd ~/the-page-you-wanted</div>
+      <div class="nf-code">bash: cd: no such file or directory (404)</div>
+      <div><span class="accent">$</span> _</div>
+      <a class="nf-home" href="/">cd ~ &nbsp;&rarr;&nbsp; back home</a>
+    </div>
+  </main>
+</body>
+</html>

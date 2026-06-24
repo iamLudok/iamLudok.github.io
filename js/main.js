@@ -225,6 +225,12 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
     'iamLudok',
   ];
 
+  // Respect the user's "reduce motion" setting: show the name statically.
+  if (globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+    el.textContent = lines[0];
+    return;
+  }
+
   let lineIndex = 0;
   let charIndex = 0;
   let deleting  = false;
