@@ -316,7 +316,10 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
     const tabs = document.querySelector('.navbar-tabs');
     const toggle = document.querySelector('.menu-toggle');
     if (tabs) tabs.classList.remove('open');
-    if (toggle) toggle.classList.remove('open');
+    if (toggle) {
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
   }
 
   tabBtns.forEach(btn => {
@@ -363,8 +366,9 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
   if (!toggle || !tabs) return;
 
   toggle.addEventListener('click', () => {
-    toggle.classList.toggle('open');
+    const isOpen = toggle.classList.toggle('open');
     tabs.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
   });
 })();
 
@@ -541,12 +545,11 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
     const os      = detectOS(ua);
     const browser = detectBrowser(ua);
 
-    let ip = 'resolving...';
-
+    // Everything below is read locally in your browser — no network request,
+    // no third party. That's the point: this much is exposed without anyone asking.
     const lines = [
       { text: i18n.t('tracking_cmd'), color: ACCENT_COLOR },
       { text: '' },
-      { text: i18n.t('tracking_ip') + ip },
       { text: i18n.t('tracking_os') + os },
       { text: i18n.t('tracking_browser') + browser },
       { text: i18n.t('tracking_lang') + lang },
@@ -558,18 +561,6 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
     ];
 
     await typeLines(content, lines);
-
-    // Now fetch real IP and replace placeholder
-    try {
-      const r    = await fetch('https://api.ipify.org?format=json');
-      const data = await r.json();
-      ip = data.ip;
-    } catch {
-      ip = 'blocked (good instinct)';
-    }
-
-    // Update IP line in rendered text
-    content.textContent = content.textContent.replace('resolving...', ip);
   }
 
   function typeLines(el, lines) {
@@ -1086,4 +1077,18 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
       overlay.getAttribute('aria-hidden') === 'false' ? open() : close();
     }).observe(overlay, { attributes: true, attributeFilter: ['aria-hidden'] });
   });
+})();
+
+
+// ---- Privacy: assemble email at runtime (keeps it out of static HTML) ----
+(function initEmailObfuscation() {
+  const card = document.getElementById('email-card');
+  if (!card) return;
+  const { user, domain } = card.dataset;
+  if (!user || !domain) return;
+
+  const address = `${user}@${domain}`;
+  card.href = `mailto:${address}`;
+  const handle = document.getElementById('email-handle');
+  if (handle) handle.textContent = address;
 })();

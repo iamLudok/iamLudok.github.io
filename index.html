@@ -14,13 +14,13 @@
   <meta property="og:url"         content="https://iamludok.github.io/" />
   <meta property="og:title"       content="Luken Iriondo Bilbao · iamLudok" />
   <meta property="og:description" content="Computer Engineering Student & AI/ML enthusiast from the Basque Country. Building things around AI, privacy, and music." />
-  <meta property="og:image"       content="https://iamludok.github.io/img/avatar.png" />
+  <meta property="og:image"       content="https://iamludok.github.io/img/avatar-og.jpg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary" />
   <meta name="twitter:title"       content="Luken Iriondo Bilbao · iamLudok" />
   <meta name="twitter:description" content="Computer Engineering Student & AI/ML enthusiast from the Basque Country. Building things around AI, privacy, and music." />
-  <meta name="twitter:image"       content="https://iamludok.github.io/img/avatar.png" />
+  <meta name="twitter:image"       content="https://iamludok.github.io/img/avatar-og.jpg" />
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -30,7 +30,7 @@
     "name": "Luken Iriondo Bilbao",
     "alternateName": "iamLudok",
     "url": "https://iamludok.github.io/",
-    "image": "https://iamludok.github.io/img/avatar.png",
+    "image": "https://iamludok.github.io/img/avatar-og.jpg",
     "jobTitle": "Computer Engineering Student · AI & ML Enthusiast",
     "address": {
       "@type": "PostalAddress",
@@ -92,7 +92,7 @@
       <span class="lang-sep">/</span>
       <span class="lang-option" data-lang="eu">EU</span>
     </button>
-    <button class="menu-toggle" aria-label="Toggle menu">
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </header>
@@ -120,7 +120,10 @@
           </div>
           <div class="hero-avatar">
             <div class="avatar-placeholder">
-              <img src="img/avatar.png" alt="Luken Iriondo Bilbao" />
+              <picture>
+                <source srcset="img/avatar.webp" type="image/webp" />
+                <img src="img/avatar.png" alt="Luken Iriondo Bilbao" width="500" height="667" />
+              </picture>
             </div>
           </div>
         </div>
@@ -783,7 +786,7 @@
             <svg class="social-arrow" width="20" height="20"><use href="#icon-external"/></svg>
           </a>
 
-          <a href="mailto:lukeniri@gmail.com" class="social-card" id="email-card">
+          <a href="#" class="social-card" id="email-card" data-user="lukeniri" data-domain="gmail.com">
             <div class="social-icon">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
@@ -792,7 +795,7 @@
             </div>
             <div class="social-info">
               <span class="social-name">Email</span>
-              <span class="social-handle">lukeniri@gmail.com</span>
+              <span class="social-handle" id="email-handle"></span>
             </div>
             <svg class="social-arrow" width="20" height="20"><use href="#icon-external"/></svg>
           </a>
