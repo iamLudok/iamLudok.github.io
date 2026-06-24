@@ -1092,3 +1092,12 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
   const handle = document.getElementById('email-handle');
   if (handle) handle.textContent = address;
 })();
+
+
+// ---- PWA: register service worker (offline + installable) ----
+(function initServiceWorker() {
+  if (!('serviceWorker' in navigator)) return;
+  globalThis.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => { /* offline support unavailable */ });
+  });
+})();

@@ -10,6 +10,7 @@
       nav_challenges: 'Challenges',
       nav_experience: 'Studies & Experience',
       nav_links:      'Links',
+      skip_link:      'Skip to content',
 
       hero_sub:      'Computer Engineering Student · AI & ML Enthusiast · DJ & Producer as Ludok',
       hero_location: 'Markina-Xemein, Basque Country',
@@ -181,6 +182,7 @@
       nav_challenges: 'Retos',
       nav_experience: 'Estudios & Experiencia',
       nav_links:      'Enlaces',
+      skip_link:      'Saltar al contenido',
 
       hero_sub:      'Estudiante de Ingeniería Informática · Entusiasta de IA & ML · DJ & Productor como Ludok',
       hero_location: 'Markina-Xemein, País Vasco',
@@ -316,6 +318,7 @@
       nav_challenges: 'Erronkak',
       nav_experience: 'Ikasketak & Esperientzia',
       nav_links:      'Estekak',
+      skip_link:      'Edukira jauzi',
 
       hero_sub:      'Informatika Ingeniaritza Ikaslea · AI & ML Zalea · DJ & Ekoizlea Ludok gisa',
       hero_location: 'Markina-Xemein, Euskal Herria',
