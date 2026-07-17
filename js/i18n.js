@@ -55,10 +55,12 @@
       project_visualizer_desc:  'Real-time visual generator for DJs and live performances, reacting to audio input.',
       project_skai_desc:        'AI travel companion that turns emotional intent into real, ranked flight options. Vibe-based matching across 11 dimensions, scored by compatibility, price, history, and novelty.',
       project_jaialai_desc:     'AI chatbot with specialized knowledge about Jai Alai sport and culture.',
-      project_gluteina_desc:       'Platform focused on people with celiac disease, helping them find safe places to eat when travelling or dining out.',
       project_secondbrain_desc:    'Personal knowledge management system built with Obsidian and Claude Code. AI-assisted note-taking, linking, and retrieval.',
-      project_claudetemplate_desc: 'Boilerplate template to accelerate development workflows with Claude Code.',
       project_playlist_desc:    'Batch download tool for SoundCloud and Spotify playlists via YouTube, outputting WAV files.',
+      project_usageoverlay_desc: 'Floating, click-through Windows overlay that tracks AI coding quota in real time. Shows color-coded usage bars and reset countdowns for Claude Code, Codex, Cursor, Copilot and OpenCode, reading each tool\'s local credentials with no separate login.',
+      project_ludovis_desc:      'Personal wallet app built with Flutter. GrapheneOS has no Google Wallet, so this keeps tickets with QR codes and restaurant cards on your own device.',
+      project_ludrest_desc:      'Personal restaurant diary as an offline-first PWA. Log the dishes you try at each place, rate them, add photos and notes, and track how much of a menu you have completed. Includes a "what should I order today?" suggestion and JSON backup. All data stays on your device via IndexedDB, no servers.',
+      project_habewiki_desc:     'Study wiki for the HABE C1 Basque exam, focused on the writing section. Collects structural frameworks, discourse markers, model essays, commonly confused words, and an AI prompt that grades a text on appropriateness, coherence, cohesion, richness and correctness.',
 
       drawer_why:     'Why I built it',
       drawer_learned: 'What I learned',
@@ -92,10 +94,6 @@
       project_jaialai_tags:          'Python, LLMs, RAG, KG, Short-term / Long-term Memory, LangChain, LangGraph, Git, API, Streamlit, Docker, Docling, Qdrant, Neo4j, MongoDB',
       project_jaialai_learned:       'agentic ai, unique knowledge',
 
-      project_claudetemplate_story:  'Every time I started a new project with Claude Code I was repeating the same setup. CLAUDE.md, hooks, permissions, folder structure, always the same. This template is what I wish had existed from day one.',
-      project_claudetemplate_tags:   'Git, Claude Code',
-      project_claudetemplate_learned:'workflow design, efficiency',
-
       project_playlist_story:        'I keep playlists on both Spotify and SoundCloud but I need WAV files for DJ sets. Downloading track by track was tedious. I wanted a tool that handled entire playlists in one command.',
       project_playlist_tags:         'Python, API, Git, SoundCloud, Spotify, YouTube',
       project_playlist_learned:      'batch processing, audio conversion',
@@ -104,9 +102,21 @@
       project_secondbrain_tags:      'LLMs, Git, Obsidian, Claude Code',
       project_secondbrain_learned:   'knowledge management, ai workflows',
 
-      project_gluteina_story:        'A close friend has celiac disease. Finding safe restaurants while travelling is genuinely stressful, no reliable source exists. We built this during a project sprint to make that search easier.',
-      project_gluteina_tags:         'PostgreSQL, Docker, CSS, JS, Git, Leaflet',
-      project_gluteina_learned:      'community, full-stack',
+      project_usageoverlay_story:    'I use several AI coding tools at the same time and kept hitting the quota limit without noticing. I wanted a small number always on screen telling me how much I had left.',
+      project_usageoverlay_tags:     'PowerShell, JS, Windows, API',
+      project_usageoverlay_learned:  'windows overlays, api integration',
+
+      project_ludovis_story:         'I run GrapheneOS, so I have no Google Wallet. I built my own to keep tickets with QR codes and restaurant cards on my own device, part need, part because I felt like building it.',
+      project_ludovis_tags:          'Flutter, Dart',
+      project_ludovis_learned:       'cross-platform, mobile',
+
+      project_ludrest_story:         'I wanted to keep track of what I eat and what I actually like from each restaurant\'s menu, so I stop ordering blind the next time I go back.',
+      project_ludrest_tags:          'JS, CSS, PWA, IndexedDB, Service Workers',
+      project_ludrest_learned:       'offline-first, pwa design',
+
+      project_habewiki_story:        'I put this together while preparing the HABE C1 Basque exam, focused on the writing section. I passed.',
+      project_habewiki_tags:         'Markdown, AI',
+      project_habewiki_learned:      'technical writing, basque C1',
 
       project_hackupc_tags:          '36h',
       project_thegame_tags:          'Forensics, Web, Crypto, Data, Miscellaneous, Steganography',
@@ -228,10 +238,12 @@
       project_visualizer_desc:  'Generador de visuales en tiempo real para DJs y actuaciones en directo, reactivo al audio.',
       project_skai_desc:        'Asistente de viaje con IA que convierte la intención emocional en opciones de vuelo reales y ordenadas. Compatibilidad de vibes en 11 dimensiones, puntuada por afinidad, precio, historial y novedad.',
       project_jaialai_desc:     'Chatbot de IA con conocimiento especializado sobre el deporte y la cultura del Jai Alai.',
-      project_gluteina_desc:       'Plataforma enfocada en personas celíacas, ayudándoles a encontrar sitios donde comer de forma segura cuando viajan o comen fuera.',
       project_secondbrain_desc:    'Sistema personal de gestión del conocimiento construido con Obsidian y Claude Code. Toma de notas, enlazado y recuperación asistidos por IA.',
-      project_claudetemplate_desc: 'Plantilla base para acelerar flujos de trabajo de desarrollo con Claude Code.',
       project_playlist_desc:    'Herramienta de descarga masiva de playlists de SoundCloud y Spotify vía YouTube, generando archivos WAV.',
+      project_usageoverlay_desc: 'Overlay flotante y click-through para Windows que monitoriza el consumo de cuota de herramientas de IA en tiempo real. Muestra barras de uso con código de color y cuentas atrás hasta el reinicio para Claude Code, Codex, Cursor, Copilot y OpenCode, leyendo las credenciales locales de cada herramienta sin iniciar sesión aparte.',
+      project_ludovis_desc:      'App de wallet personal construida con Flutter. GrapheneOS no tiene Google Wallet, así que esta guarda entradas con códigos QR y tarjetas de restaurantes en tu propio dispositivo.',
+      project_ludrest_desc:      'Diario de restaurantes personal como PWA offline-first. Registra los platos que pruebas en cada sitio, puntúalos, añade fotos y notas, y controla cuánto de cada carta llevas completado. Incluye una sugerencia de "¿qué pido hoy?" y copias de seguridad en JSON. Todos los datos se quedan en tu dispositivo con IndexedDB, sin servidores.',
+      project_habewiki_desc:     'Wiki de estudio para el examen HABE C1 de euskera, centrada en la parte escrita. Reúne esquemas de estructura, marcadores del discurso, redacciones modelo, palabras que se confunden con frecuencia y un prompt de IA que evalúa un texto por adecuación, coherencia, cohesión, riqueza y corrección.',
 
       drawer_why:     'Por qué lo hice',
       drawer_learned: 'Qué aprendí',
@@ -244,10 +256,12 @@
       project_musicgenre_story:      'Como DJ he acumulado miles de canciones en diferentes discos sin estructura ni nombre consistente. Organizarlas a mano llevaría semanas. Quería un sistema que lo hiciera solo.',
       project_visualizer_story:      'Toco sets en directo y quería visuales que reaccionaran a la música en tiempo real, no loops pregrabados, sino algo que se moviera con la energía del momento.',
       project_jaialai_story:         'Yo jugué a cesta punta durante muchos años, pero el verdadero experto en mi familia es mi abuelo, un fanático de toda la vida que incluso ha escrito libros sobre el deporte. A lo largo de décadas ha recopilado una cantidad enorme de información que no existe en ningún otro sitio: entrevistas con pelotaris, registros históricos, notas personales fruto de años de investigación. Cuando empecé a construir chatbots basados en RAG, supe exactamente qué quería hacer con ese conocimiento. Le construí una herramienta donde puede preguntar en lenguaje natural y obtener respuestas de sus propios documentos, cientos de páginas que de otra forma llevarían horas de búsqueda manual.',
-      project_claudetemplate_story:  'Cada vez que empezaba un proyecto nuevo con Claude Code repetía la misma configuración. CLAUDE.md, hooks, permisos, estructura de carpetas, siempre lo mismo. Esta plantilla es lo que me hubiera gustado tener desde el primer día.',
       project_playlist_story:        'Tengo playlists en Spotify y SoundCloud pero necesito archivos WAV para los sets. Descargar pista a pista era tedioso. Quería una herramienta que gestionara playlists enteras con un solo comando.',
       project_secondbrain_story:     'Notas dispersas en varias apps, ideas que nunca revisitaría, conocimiento que buscaría dos veces. Construí un sistema en Obsidian con Claude Code que conecta las cosas en lugar de simplemente almacenarlas.',
-      project_gluteina_story:        'Una persona cercana tiene celiaquía. Encontrar restaurantes seguros viajando es un estrés real, no existe una fuente fiable. Lo construimos durante un sprint de proyecto para hacer esa búsqueda más fácil.',
+      project_usageoverlay_story:    'Uso varias herramientas de IA a la vez y me quedaba sin cuota sin darme cuenta. Quería un número pequeño siempre en pantalla que me dijera cuánto me quedaba.',
+      project_ludovis_story:         'Uso GrapheneOS, así que no tengo Google Wallet. Me construí la mía para guardar entradas con códigos QR y tarjetas de restaurantes en mi propio dispositivo, en parte por necesidad y en parte porque me apetecía.',
+      project_ludrest_story:         'Quería ir apuntando lo que como y lo que de verdad me gusta de la carta de cada restaurante, para dejar de pedir a ciegas la próxima vez que vuelvo.',
+      project_habewiki_story:        'Lo monté mientras preparaba el examen HABE C1 de euskera, centrado en la parte escrita. Lo aprobé.',
 
       project_with: 'con',
 
@@ -365,10 +379,12 @@
       project_visualizer_desc:  'DJ-entzako eta zuzeneko emanaldietarako denbora errealeko bisual sorgailua, audio sarrerari erreakzionatuta.',
       project_skai_desc:        'Emozio-asmoari hegazkin aukera erreal eta ordenatuz bihurtzen dien AI bidaiari laguna. 11 dimentsiotako bibe bateragarritasuna, bateragarritasunaren, prezioaren, historiaren eta berritasunaren arabera puntuatua.',
       project_jaialai_desc:     'Jai Alai kirolari eta kulturari buruzko ezagutza espezializatua duen AI chatbota.',
-      project_gluteina_desc:       'Zeliakia duten pertsonei bideratutako plataforma, bidaiatzerakoan edo kanpoan jaterakoan leku seguruak aurkitzen lagunduz.',
       project_secondbrain_desc:    'Obsidian eta Claude Code-rekin eraikitako ezagutza kudeaketa sistema pertsonala. AI-laguntzazko ohar hartzea, lotura eta berreskurapena.',
-      project_claudetemplate_desc: 'Claude Code-rekin garapen fluxuak azkartzeko oinarrizko txantiloia.',
       project_playlist_desc:    'YouTube bidez SoundCloud eta Spotify playlist-ak masiboki deskargatzeko tresna, WAV fitxategiak sortuz.',
+      project_usageoverlay_desc: 'Windows-erako gainjarpen malgua eta klik-iragazgarria, IA kodetze-tresnen kuota denbora errealean jarraitzen duena. Kolore-kodedun erabilera-barrak eta berrezartze-atzerako kontaketak erakusten ditu Claude Code, Codex, Cursor, Copilot eta OpenCode-rentzat, tresna bakoitzaren tokiko kredentzialak irakurriz saioa aparte hasi gabe.',
+      project_ludovis_desc:      'Flutter-ekin eraikitako wallet pertsonala. GrapheneOS-ek ez du Google Wallet, beraz honek QR kodedun sarrerak eta jatetxe-txartelak zure gailuan gordetzen ditu.',
+      project_ludrest_desc:      'Jatetxe-egunkari pertsonala offline-first PWA gisa. Leku bakoitzean probatzen dituzun platerak erregistratu, baloratu, argazkiak eta oharrak gehitu, eta karta bakoitzetik zenbat osatu duzun jarraitu. "Zer eskatu gaur?" iradokizuna eta JSON babeskopiak ditu. Datu guztiak zure gailuan geratzen dira IndexedDB bidez, zerbitzaririk gabe.',
+      project_habewiki_desc:     'HABE C1 euskara azterketa prestatzeko ikasketa-wikia, idazlan atalean zentratua. Egitura-eskemak, diskurtso-markatzaileak, eredu-idazlanak, sarritan nahasten diren hitzak eta testu bat egokitasun, koherentzia, kohesio, aberastasun eta zuzentasunaren arabera ebaluatzen duen IA prompt bat biltzen ditu.',
 
       drawer_why:     'Zergatik eraiki nuen',
       drawer_learned: 'Zer ikasi nuen',
@@ -402,10 +418,6 @@
       project_jaialai_tags:          'Python, LLMs, RAG, KG, Short-term / Long-term Memory, LangChain, LangGraph, Git, API, Streamlit, Docker, Docling, Qdrant, Neo4j, MongoDB',
       project_jaialai_learned:       'AI agentikoa, ezagutza berezia',
 
-      project_claudetemplate_story:  'Claude Code-rekin proiektu berri bat hasten zen aldiro konfigurazio bera errepikatzen nuen. CLAUDE.md, hooks, baimenak, karpeta egitura, beti gauza bera. Txantiloi hau lehen egunetik eduki nahiko nukeena da.',
-      project_claudetemplate_tags:   'Git, Claude Code',
-      project_claudetemplate_learned:'lan-fluxu diseinua, efizientzia',
-
       project_playlist_story:        'Spotify eta SoundCloud-en playlist-ak dauzkadan arren, DJ seterako WAV fitxategiak behar ditut. Pista pista deskargatzen nekagarria zen. Playlist osoak komando bakar batekin kudeatuko zituen tresna bat nahi nuen.',
       project_playlist_tags:         'Python, API, Git, SoundCloud, Spotify, YouTube',
       project_playlist_learned:      'batch prozesaketa, audio konbertsioa',
@@ -414,9 +426,21 @@
       project_secondbrain_tags:      'LLMs, Git, Obsidian, Claude Code',
       project_secondbrain_learned:   'ezagutza kudeaketa, AI fluxuak',
 
-      project_gluteina_story:        'Gertuko pertsona batek zeliakia du. Bidaiatzen ari zarela jatetxe seguruak bilatzea benetako estresa da, ez dago iturri fidagarririk. Bilaketa hori errazteko proiektu sprint batean eraiki genuen.',
-      project_gluteina_tags:         'PostgreSQL, Docker, CSS, JS, Git, Leaflet',
-      project_gluteina_learned:      'komunitatea, full-stack',
+      project_usageoverlay_story:    'IA tresna batzuk aldi berean erabiltzen ditut eta kuota mugara iristen nintzen konturatu gabe. Pantailan beti zenbaki txiki bat nahi nuen, zenbat geratzen zitzaidan esaten zidana.',
+      project_usageoverlay_tags:     'PowerShell, JS, Windows, API',
+      project_usageoverlay_learned:  'windows gainjarpenak, API integrazioa',
+
+      project_ludovis_story:         'GrapheneOS erabiltzen dut, beraz ez daukat Google Wallet. Neurea eraiki nuen QR kodedun sarrerak eta jatetxe-txartelak nire gailuan gordetzeko, alde batetik beharragatik eta bestetik gogoa nuelako.',
+      project_ludovis_tags:          'Flutter, Dart',
+      project_ludovis_learned:       'plataforma anitza, mugikorra',
+
+      project_ludrest_story:         'Jatetxe bakoitzeko kartatik jaten dudana eta benetan gustatzen zaidana apuntatu nahi nuen, hurrengoan itzultzean itsu-itsuan ez eskatzeko.',
+      project_ludrest_tags:          'JS, CSS, PWA, IndexedDB, Service Workers',
+      project_ludrest_learned:       'offline-first, PWA diseinua',
+
+      project_habewiki_story:        'HABE C1 euskara azterketa prestatzen ari nintzela osatu nuen, idazlan atalean zentratua. Gainditu nuen.',
+      project_habewiki_tags:         'Markdown, AI',
+      project_habewiki_learned:      'idazketa teknikoa, euskara C1',
 
       project_hackupc_tags:          '36h',
       project_thegame_tags:          'Forensics, Web, Crypto, Data, Miscellaneous, Steganography',
