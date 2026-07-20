@@ -1641,3 +1641,76 @@ main { padding-top: var(--nav-h); }
   font-size: 0.85rem;
   caret-color: var(--accent);
 }
+
+/* =============================================
+   OPEN SOURCE CONTRIBUTIONS (inside Projects)
+   ============================================= */
+.oss-heading { margin-top: 56px; }
+
+.oss-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.oss-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 24px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+.oss-card:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateX(4px);
+}
+
+.oss-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.oss-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.oss-repo {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.oss-desc {
+  color: var(--text-soft);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.oss-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+.oss-stat { font-weight: 600; }
+.oss-add { color: var(--accent); }
+.oss-del { color: #ff6b6b; }
+.oss-pr { color: var(--text-muted); }
+.oss-meta .social-arrow { margin-left: auto; color: var(--text-muted); }
+.oss-card:hover .social-arrow {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}

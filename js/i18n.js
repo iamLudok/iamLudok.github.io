@@ -43,6 +43,8 @@
       views_ai_text:      `AI is one of the most powerful tools we have right now and that's exactly why we need to understand what we're building. Shipping code you don't understand to a client isn't a shortcut, it's a risk. If everyone builds things they can't explain, we're heading somewhere bad. Read the code. Know what it does.`,
 
       projects_title:           'projects',
+      oss_heading:              'open_source',
+      oss_usageoverlay_desc:    'Contributor to usage-overlay, a floating click-through Windows overlay that tracks Claude, Codex, Cursor & OpenCode usage. Merged a large PR: configurable overlay, a Copilot section, a provider/threading refactor, bug fixes and UI polish.',
       filter_all:               'All',
       filter_dev:               'Active',
       filter_hackathon:         'Hackathon',
@@ -226,6 +228,8 @@
       views_ai_text:      'La IA es una de las herramientas más poderosas que tenemos ahora mismo y precisamente por eso necesitamos entender lo que estamos construyendo. Entregar código que no entiendes a un cliente no es un atajo, es un riesgo. Si todo el mundo construye cosas que no puede explicar, vamos por mal camino. Lee el código.',
 
       projects_title:           'proyectos',
+      oss_heading:              'open_source',
+      oss_usageoverlay_desc:    'Colaborador en usage-overlay, un overlay flotante para Windows que muestra el uso de Claude, Codex, Cursor y OpenCode. PR grande fusionado: overlay configurable, sección de Copilot, refactor de proveedores e hilos, corrección de bugs y mejoras de interfaz.',
       filter_all:               'Todos',
       filter_dev:               'Activos',
       filter_hackathon:         'Hackathon',
@@ -367,6 +371,8 @@
       views_ai_text:      `AI orain dugun tresnarik indartsuenetako bat da, eta hori da hain zuzen ere eraikitzen ari garena ulertu behar dugula. Ulertzen ez duzun kodea bezero bati entregatzea ez da lasterbide bat, arriskua baizik. Denek azaldu ezin dituzten gauzak eraikitzen badituzte, norabide txarrera goaz. Irakurri kodea. Jakin zer egiten duen.`,
 
       projects_title:           'proiektuak',
+      oss_heading:              'open_source',
+      oss_usageoverlay_desc:    'usage-overlay proiektuko laguntzailea: Claude, Codex, Cursor eta OpenCode-ren erabilera erakusten duen Windows-eko overlay gainerakor bat. PR handi bat fusionatuta: overlay konfiguragarria, Copilot atala, hornitzaile eta harien refaktorizazioa, akatsen konponketak eta interfazearen hobekuntzak.',
       filter_all:               'Guztiak',
       filter_dev:               'Aktiboak',
       filter_hackathon:         'Hackathon',
