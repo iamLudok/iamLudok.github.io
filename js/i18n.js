@@ -12,7 +12,7 @@
       nav_links:      'Links',
       skip_link:      'Skip to content',
 
-      hero_sub:      'Computer Engineering Student · AI & ML Enthusiast · DJ & Producer as Ludok',
+      hero_sub:      'Computer Engineer · AI & ML Enthusiast · DJ & Producer as Ludok',
       hero_location: 'Markina-Xemein, Basque Country',
 
       about_title: 'about_me',
@@ -195,7 +195,7 @@
       nav_links:      'Enlaces',
       skip_link:      'Saltar al contenido',
 
-      hero_sub:      'Estudiante de Ingeniería Informática · Entusiasta de IA & ML · DJ & Productor como Ludok',
+      hero_sub:      'Ingeniero Informático · Entusiasta de IA & ML · DJ & Productor como Ludok',
       hero_location: 'Markina-Xemein, País Vasco',
 
       about_title: 'sobre_mí',
@@ -336,7 +336,7 @@
       nav_links:      'Estekak',
       skip_link:      'Edukira jauzi',
 
-      hero_sub:      'Informatika Ingeniaritza Ikaslea · AI & ML Zalea · DJ & Ekoizlea Ludok gisa',
+      hero_sub:      'Informatika Ingeniaria · AI & ML Zalea · DJ & Ekoizlea Ludok gisa',
       hero_location: 'Markina-Xemein, Euskal Herria',
 
       about_title: 'ni_buruz',
