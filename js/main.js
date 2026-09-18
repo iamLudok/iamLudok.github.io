@@ -38,6 +38,11 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
 
   let currentKey = null;
 
+  function getPrivateNote(key, i18n) {
+    const specific = i18n.t(`project_${key}_private_note`);
+    return specific !== `project_${key}_private_note` ? specific : i18n.t('private_note');
+  }
+
   function updateDrawerText(key) {
     const i18n  = globalThis.i18n || { t: k => k };
     const story = i18n.t(`project_${key}_story`);
@@ -46,7 +51,7 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
     storySection.style.display = hasStory ? '' : 'none';
     const noteEl = privateNote?.querySelector('p');
     if (noteEl && privateNote?.style.display !== 'none') {
-      noteEl.textContent = i18n.t('private_note');
+      noteEl.textContent = getPrivateNote(key, i18n);
     }
   }
 
@@ -94,7 +99,7 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
     if (privateNote) {
       privateNote.style.display = isPrivate ? '' : 'none';
       const noteEl = privateNote.querySelector('p');
-      if (noteEl) noteEl.textContent = (globalThis.i18n || { t: k => k }).t('private_note');
+      if (noteEl) noteEl.textContent = getPrivateNote(currentKey, globalThis.i18n || { t: k => k });
     }
 
     // Story + Learned (language-aware)
