@@ -1323,6 +1323,102 @@ main { padding-top: var(--nav-h); }
 }
 
 /* =============================================
+   PHONE MOCKUPS (mobile-app screenshots)
+   ============================================= */
+.phone {
+  position: relative;
+  aspect-ratio: 921 / 2048; /* matches the screenshots */
+  background: #000;
+  border: 5px solid #1a1a1a;
+  border-radius: 20px;
+  outline: 1px solid #2c2c2c;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6), 0 0 28px rgba(0, 255, 136, 0.08);
+}
+/* Punch-hole camera */
+.phone::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  margin-left: -3.5px;
+  border-radius: 50%;
+  background: #050505;
+  z-index: 2;
+}
+
+/* Card: phone peeking up from the bottom edge */
+.phone-stage {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 22px;
+  background:
+    radial-gradient(circle at 50% 80%, rgba(0, 255, 136, 0.10), transparent 60%),
+    var(--bg-3);
+}
+.phone-stage .phone {
+  width: min(150px, 34%);
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1);
+}
+.project-card:hover .phone-stage .phone { transform: translateY(-12px); }
+.phone .preview-img {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease, filter 0.4s ease;
+}
+.phone .preview-img.is-active { opacity: 1; }
+
+/* Drawer: 3D fan, JS sets --o (offset from the front phone) and --a (|offset|) */
+.drawer-img-wrap { position: relative; }
+.drawer-phones { display: none; }
+.drawer-img-wrap.shot-mobile {
+  cursor: default;
+  background:
+    radial-gradient(circle at 50% 70%, rgba(0, 255, 136, 0.10), transparent 60%),
+    var(--bg-3);
+}
+.drawer-img-wrap.shot-mobile .drawer-img { display: none; }
+.drawer-img-wrap.shot-mobile .drawer-phones {
+  display: block;
+  position: absolute;
+  inset: 0;
+  perspective: 1000px;
+  touch-action: pan-y;
+  user-select: none;
+}
+.drawer-phones .phone {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  height: 88%;
+  border-width: 4px;
+  border-radius: 16px;
+  cursor: pointer;
+  transform:
+    translateX(-50%)
+    translateX(calc(var(--o, 0) * 70%))
+    rotateY(calc(var(--o, 0) * -24deg))
+    scale(calc(1 - var(--a, 0) * 0.14));
+  opacity: calc(1 - var(--a, 0) * 0.3);
+  transition: transform 0.45s cubic-bezier(0.2, 0, 0, 1), opacity 0.3s ease;
+}
+.drawer-phones .phone.is-front { cursor: zoom-in; }
+.drawer-phones .phone.is-far { opacity: 0; pointer-events: none; }
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+/* =============================================
    LIGHTBOX
    ============================================= */
 .lightbox {

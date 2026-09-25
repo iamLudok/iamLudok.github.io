@@ -87,6 +87,66 @@ function withViewTransition(update) {
     });
   }
 
+  function openGalleryAt(index) {
+    if (!currentImages.length) return;
+    globalThis.__openLightbox?.(
+      currentImages.map((src, i) => ({ src, alt: `${imgEl.alt || ''} ${i + 1}`.trim() })),
+      index
+    );
+  }
+
+  // ---- Phone fan (mobile app screenshots) ----
+  const phonesEl = document.createElement('div');
+  phonesEl.className = 'drawer-phones';
+  imgWrap.appendChild(phonesEl);
+
+  function showPhone(index) {
+    const phones = phonesEl.children;
+    if (index < 0 || index >= phones.length) return;
+    currentImgIndex = index;
+    [...phones].forEach((phone, i) => {
+      const offset = i - index;
+      const dist   = Math.abs(offset);
+      phone.style.setProperty('--o', offset);
+      phone.style.setProperty('--a', dist);
+      phone.style.zIndex = 10 - dist;
+      phone.classList.toggle('is-front', dist === 0);
+      phone.classList.toggle('is-far', dist > 2);
+    });
+  }
+
+  function renderPhones(srcs, alt) {
+    phonesEl.replaceChildren(...srcs.map((src, i) => {
+      const phone = document.createElement('div');
+      phone.className = 'phone';
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = `${alt} ${i + 1}`;
+      img.className = 'phone-screen';
+      phone.appendChild(img);
+      phone.addEventListener('click', () => {
+        if (swiped) return;
+        i === currentImgIndex ? openGalleryAt(i) : showPhone(i);
+      });
+      return phone;
+    }));
+    showPhone(0);
+  }
+
+  let swipeX = null;
+  let swiped = false;
+  phonesEl.addEventListener('pointerdown', e => { swipeX = e.clientX; swiped = false; });
+  phonesEl.addEventListener('pointerup', e => {
+    if (swipeX === null) return;
+    const dx = e.clientX - swipeX;
+    swipeX = null;
+    if (Math.abs(dx) < 40) return;
+    swiped = true;
+    showPhone(currentImgIndex + (dx < 0 ? 1 : -1));
+  });
+
+  const drawerPanel = drawer.querySelector('.drawer-panel');
+
   function getPrivateNote(key, i18n) {
     const specific = i18n.t(`project_${key}_private_note`);
     return specific !== `project_${key}_private_note` ? specific : i18n.t('private_note');
@@ -107,9 +167,12 @@ function withViewTransition(update) {
   function fillDrawer(card) {
     currentKey = card.dataset.project;
 
+    drawerPanel.scrollTop = 0;
+
     // Image(s)
     const altText = card.querySelector('.project-title')?.textContent.trim() || '';
-    imgWrap.classList.toggle('shot-mobile', card.dataset.shot === 'mobile');
+    const isMobileShot = card.dataset.shot === 'mobile';
+    imgWrap.classList.toggle('shot-mobile', isMobileShot);
     const imgsAttr = card.dataset.imgs;
     currentImages = imgsAttr
       ? imgsAttr.split(',').map(s => s.trim()).filter(Boolean)
@@ -127,7 +190,8 @@ function withViewTransition(update) {
 
     if (thumbsEl) {
       thumbsEl.innerHTML = '';
-      if (currentImages.length > 1) {
+      // Mobile screenshots are browsed in the phone fan instead of thumbnails
+      if (currentImages.length > 1 && !isMobileShot) {
         currentImages.forEach((src, i) => {
           const thumb = document.createElement('img');
           thumb.src = src;
@@ -146,6 +210,8 @@ function withViewTransition(update) {
         thumbsEl.style.display = 'none';
       }
     }
+
+    renderPhones(isMobileShot ? currentImages : [], altText);
 
     // Title
     titleEl.textContent = card.querySelector('.project-title')?.textContent.trim() || '';
@@ -225,13 +291,7 @@ function withViewTransition(update) {
   // Lightbox for image zoom (delegates to the shared gallery lightbox)
   const lightbox = document.getElementById('lightbox');
 
-  imgEl.addEventListener('click', () => {
-    if (!currentImages.length) return;
-    globalThis.__openLightbox?.(
-      currentImages.map((src, i) => ({ src, alt: `${imgEl.alt || ''} ${i + 1}`.trim() })),
-      currentImgIndex
-    );
-  });
+  imgEl.addEventListener('click', () => openGalleryAt(currentImgIndex));
 
   document.getElementById('projects-grid')?.addEventListener('click', e => {
     if (e.target.closest('a, button')) return;
@@ -247,7 +307,11 @@ function withViewTransition(update) {
       // openCard (not the .open class) because the class is only applied
       // once the View Transition runs its update, a frame later.
       if (openCard) closeDrawer();
+      return;
     }
+    if (!openCard || lightbox?.open) return;
+    if (e.key === 'ArrowLeft')  showPhone(currentImgIndex - 1);
+    if (e.key === 'ArrowRight') showPhone(currentImgIndex + 1);
   });
 
   // Re-render text when language changes
@@ -288,8 +352,9 @@ function withViewTransition(update) {
   }
   globalThis.__openLightbox = openGallery;
 
-  // Project preview images (single)
-  document.querySelectorAll('.preview-img-wrap .preview-img').forEach(thumb => {
+  // Project preview images (single). Mobile-app cards open the drawer's
+  // phone fan instead.
+  document.querySelectorAll('.project-card:not([data-shot="mobile"]) .preview-img-wrap .preview-img').forEach(thumb => {
     thumb.style.cursor = 'zoom-in';
     thumb.addEventListener('click', () => openGallery([thumb], 0));
   });
@@ -524,6 +589,71 @@ function withViewTransition(update) {
 
   render();
   document.getElementById('lang-toggle')?.addEventListener('click', () => setTimeout(render, 0));
+})();
+
+
+// ---- Phone mockups on mobile-app project cards ----
+// Wraps the preview in a CSS phone frame and, on hover (or while visible
+// on touch screens), cycles through the app's screenshots.
+(function initPhoneCards() {
+  const CAN_HOVER = !!globalThis.matchMedia?.('(hover: hover)').matches;
+  const CYCLE_MS  = 1200;
+
+  document.querySelectorAll('.project-card[data-shot="mobile"] .preview-img-wrap').forEach(wrap => {
+    const card  = wrap.closest('.project-card');
+    const first = wrap.querySelector('.preview-img');
+    if (!first) return;
+
+    const phone = document.createElement('div');
+    phone.className = 'phone';
+    first.classList.add('is-active');
+    phone.appendChild(first);
+    wrap.appendChild(phone);
+    wrap.classList.add('phone-stage');
+
+    const srcs = (card.dataset.imgs || '').split(',').map(s => s.trim()).filter(Boolean);
+    if (REDUCED_MOTION || srcs.length < 2) return;
+
+    let timer  = null;
+    let index  = 0;
+    let loaded = false;
+
+    function show(i) {
+      index = i;
+      phone.querySelectorAll('.preview-img').forEach((s, n) => s.classList.toggle('is-active', n === i));
+    }
+
+    function start() {
+      // Extra screenshots are only downloaded the first time they're needed
+      if (!loaded) {
+        loaded = true;
+        srcs.slice(1).forEach(src => {
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = first.alt;
+          img.className = 'preview-img';
+          img.decoding = 'async';
+          phone.appendChild(img);
+        });
+      }
+      clearInterval(timer);
+      timer = setInterval(() => show((index + 1) % srcs.length), CYCLE_MS);
+    }
+
+    function stop() {
+      clearInterval(timer);
+      timer = null;
+      show(0);
+    }
+
+    if (CAN_HOVER) {
+      card.addEventListener('mouseenter', start);
+      card.addEventListener('mouseleave', stop);
+    } else {
+      new IntersectionObserver(([entry]) => (entry.isIntersecting ? start() : stop()), { threshold: 0.6 })
+        .observe(card);
+    }
+  });
 })();
 
 
