@@ -17,6 +17,24 @@
 const ACCENT_COLOR = '#00ff88'; // mirrors --accent CSS variable
 const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
 
+const REDUCED_MOTION = !!globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+// Runs `update` inside a View Transition when the browser supports it,
+// otherwise just runs it. Resolves once the animation (if any) is over.
+function withViewTransition(update) {
+  if (REDUCED_MOTION || !document.startViewTransition) {
+    update();
+    return Promise.resolve();
+  }
+  const root = document.documentElement;
+  root.classList.add('vt-running');
+  const vt = document.startViewTransition(update);
+  vt.ready.catch(() => {}); // rejects when a newer transition interrupts this one
+  return vt.finished
+    .catch(() => {})
+    .finally(() => root.classList.remove('vt-running'));
+}
+
 // ---- Project Drawer ----
 (function initProjectDrawer() {
   const drawer         = document.getElementById('project-drawer');
@@ -40,6 +58,34 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
   let currentKey = null;
   let currentImages = [];
   let currentImgIndex = 0;
+  let openCard = null;
+  let transitionId = 0;
+
+  // Card and drawer share these View Transition names so the card's
+  // image, title and box morph into the drawer's (and back on close).
+  const VT_PARTS = ['panel', 'img', 'title'];
+
+  function cardParts(card) {
+    return {
+      panel: card,
+      img:   card.querySelector('.preview-img-wrap'),
+      title: card.querySelector('.project-title'),
+    };
+  }
+
+  function drawerParts() {
+    return {
+      panel: drawer.querySelector('.drawer-panel'),
+      img:   currentImages.length ? imgWrap : null,
+      title: titleEl,
+    };
+  }
+
+  function setPartNames(parts, on) {
+    VT_PARTS.forEach(k => {
+      if (parts[k]) parts[k].style.viewTransitionName = on ? `project-${k}` : '';
+    });
+  }
 
   function getPrivateNote(key, i18n) {
     const specific = i18n.t(`project_${key}_private_note`);
@@ -58,7 +104,7 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
     }
   }
 
-  function openDrawer(card) {
+  function fillDrawer(card) {
     currentKey = card.dataset.project;
 
     // Image(s)
@@ -140,17 +186,39 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
     // Tags & Links (clone from card)
     tagsEl.innerHTML  = card.querySelector('.project-tags')?.innerHTML  || '';
     linksEl.innerHTML = card.querySelector('.project-links')?.innerHTML || '';
+  }
 
-    drawer.setAttribute('aria-hidden', 'false');
-    drawer.classList.add('open');
-    document.body.style.overflow = 'hidden';
+  function openDrawer(card) {
+    const id = ++transitionId;
+    openCard = card;
+    setPartNames(cardParts(card), true);
+    withViewTransition(() => {
+      setPartNames(cardParts(card), false);
+      fillDrawer(card);
+      drawer.setAttribute('aria-hidden', 'false');
+      drawer.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setPartNames(drawerParts(), true);
+    }).then(() => {
+      if (id === transitionId) setPartNames(drawerParts(), false);
+    });
   }
 
   function closeDrawer() {
-    drawer.classList.remove('open');
-    drawer.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    currentKey = null;
+    const id = ++transitionId;
+    const card = openCard;
+    openCard = null;
+    setPartNames(drawerParts(), true);
+    withViewTransition(() => {
+      setPartNames(drawerParts(), false);
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      currentKey = null;
+      if (card) setPartNames(cardParts(card), true);
+    }).then(() => {
+      if (id === transitionId && card) setPartNames(cardParts(card), false);
+    });
     setTimeout(() => { imgEl.src = ''; }, 350);
   }
 
@@ -176,7 +244,9 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       if (lightbox?.open) return;
-      if (drawer.classList.contains('open')) closeDrawer();
+      // openCard (not the .open class) because the class is only applied
+      // once the View Transition runs its update, a frame later.
+      if (openCard) closeDrawer();
     }
   });
 
@@ -349,6 +419,7 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
     tabBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.target === target));
     sections.forEach(sec => sec.classList.toggle('active', sec.id === target));
     history.replaceState(null, '', '#' + target);
+    document.dispatchEvent(new CustomEvent('section:activated', { detail: target }));
     // Close mobile menu if open
     const tabs = document.querySelector('.navbar-tabs');
     const toggle = document.querySelector('.menu-toggle');
@@ -461,17 +532,66 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
   const filterBtns = document.querySelectorAll('.filter-btn');
   const cards      = document.querySelectorAll('.project-card');
 
+  // Everything that moves when the grid changes height gets its own
+  // View Transition name. Fixed UI is named too so the animating cards
+  // don't paint over it.
+  const movers = [
+    ...[...cards].map(card => [card, `card-${card.dataset.project}`]),
+    [document.querySelector('.oss-heading'), 'oss-heading'],
+    [document.querySelector('.oss-grid'),    'oss-grid'],
+    [document.querySelector('.navbar'),      'navbar'],
+    [document.getElementById('navbar-graph-btn'), 'fab-graph'],
+    [document.getElementById('terminal-btn'),     'fab-terminal'],
+  ].filter(([el]) => el);
+
+  function setMoverNames(on) {
+    movers.forEach(([el, name]) => { el.style.viewTransitionName = on ? name : ''; });
+  }
+
   function applyFilter(filter) {
-    filterBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.filter === filter));
-    cards.forEach(card => {
-      const match = filter === 'all' || card.dataset.category === filter;
-      card.classList.toggle('hidden', !match);
-    });
+    setMoverNames(true);
+    withViewTransition(() => {
+      filterBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.filter === filter));
+      cards.forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('hidden', !match);
+      });
+    }).then(() => setMoverNames(false));
   }
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
   });
+})();
+
+
+// ---- Staggered entrance when a section is shown ----
+(function initStagger() {
+  if (REDUCED_MOTION) return;
+
+  const ITEMS = {
+    me:         '.interest-card, .skill-badge, .view-card',
+    projects:   '.project-card:not(.hidden), .oss-card',
+    challenges: '.timeline-item, .ctf-board',
+    experience: '.timeline-item',
+    links:      '.social-card',
+  };
+  const MAX_STEPS = 16; // later items all share the last delay
+
+  function play(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section || !ITEMS[sectionId]) return;
+    const items = section.querySelectorAll(ITEMS[sectionId]);
+    items.forEach((el, i) => {
+      el.classList.remove('stagger-in');
+      el.style.setProperty('--i', Math.min(i, MAX_STEPS));
+    });
+    void section.offsetWidth; // restart the animation
+    items.forEach(el => el.classList.add('stagger-in'));
+  }
+
+  document.addEventListener('section:activated', e => play(e.detail));
+  play(document.querySelector('.section.active')?.id);
 })();
 
 

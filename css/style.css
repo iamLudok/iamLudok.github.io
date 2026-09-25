@@ -224,6 +224,38 @@ main { padding-top: var(--nav-h); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Staggered entrance: JS sets --i per item when a section is shown.
+   `backwards` so the animation doesn't hold transform after it ends
+   (hover effects keep working). */
+.stagger-in {
+  animation: staggerIn 0.4s ease backwards;
+  animation-delay: calc(var(--i, 0) * 30ms);
+}
+@keyframes staggerIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================================
+   VIEW TRANSITIONS (card → drawer, filters)
+   ============================================= */
+::view-transition-group(*) {
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+/* Elements that only exist before (leaving) or after (entering) */
+::view-transition-old(*):only-child { animation: vtOut 0.25s ease both; }
+::view-transition-new(*):only-child { animation: vtIn 0.3s ease 0.1s both; }
+/* Fade the card's contents out fast so its text doesn't ghost over the drawer's */
+::view-transition-old(project-panel) { animation-duration: 0.12s; }
+@keyframes vtOut { to   { opacity: 0; transform: scale(0.92); } }
+@keyframes vtIn  { from { opacity: 0; transform: scale(0.92); } }
+
+/* The View Transition animates the drawer, so its own CSS fade must not
+   run at the same time (the "after" snapshot would be half-transparent). */
+.vt-running .drawer-panel,
+.vt-running .drawer-overlay { transition: none; }
+
 .section-title {
   font-family: var(--font-mono);
   font-size: 1.15rem;
@@ -1578,6 +1610,7 @@ main { padding-top: var(--nav-h); }
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .stagger-in { animation: none; }
 }
 
 /* =============================================
