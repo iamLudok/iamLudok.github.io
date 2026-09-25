@@ -60,6 +60,7 @@
       project_ludokbeen_desc:   'Personal "been"-style app for the countries you\'ve visited. Free, no account, local-first: tap a country on an interactive map, track visited vs. want-to-go, and see your % of the world.',
       project_ludokwallet_desc: 'Personal wallet app for any kind of card (restaurants, people, shops, hotels) and event tickets. Photograph a card and OCR fills in phone, email and address; photograph or share a ticket and it reads the QR/barcode and prefills the form. Rewritten from scratch as a native app, replacing the old Flutter version.',
       project_ludoktaste_desc:  'Personal restaurant diary, native now. Log the dishes you try at each place, rate them, add photos and notes, and track how much of a menu you have completed, with a "what should I order today?" suggestion.',
+      project_ludoksound_desc:  'Android app to stream music from my own home server, no Spotify, no cloud. Keeps a local cache for instant search, plays in the background with lock-screen controls, and backs up favorites and history automatically to my own Nextcloud.',
       project_jaialai_desc:     'AI chatbot with specialized knowledge about Jai Alai sport and culture.',
       project_playlist_desc:    'Batch download tool for SoundCloud and Spotify playlists via YouTube, outputting WAV files.',
       project_habewiki_desc:     'Study wiki for the HABE C1 Basque exam, focused on the writing section. Collects structural frameworks, discourse markers, model essays, commonly confused words, and an AI prompt that grades a text on appropriateness, coherence, cohesion, richness and correctness.',
@@ -117,6 +118,11 @@
       project_ludoktaste_learned:    'native rewrite, photo-in-backup design',
       project_ludoktaste_private_note: 'The repo is private simply because it\'s a personal app I never got around to publishing, there\'s nothing sensitive in the code itself. Ask me if you want to see it.',
 
+      project_ludoksound_story:      'My whole music library lives on a Raspberry Pi running SoundVault, a FastAPI server I built with mutagen for metadata and librosa for BPM and key. Ludok Sound is the client: it streams straight from the server over home WiFi or my own Tailscale network, keeping only a cache of the library on the phone for instant local search. Favorites, history and settings live in SQLite, backed up to JSON and pushed automatically to my own Nextcloud once a day over WiFi, so none of that depends on the server staying up. Background playback survives with lock-screen and notification controls, and the data layer gets verified against a desktop SQLite before it ever ships. No accent color anywhere in the UI, a dark monochrome player where the only splash of color is each song\'s own cover art.',
+      project_ludoksound_tags:       'Expo, React Native, TypeScript, SQLite, Drizzle, expo-audio, Nextcloud, Git',
+      project_ludoksound_learned:    'streaming clients, background audio playback',
+      project_ludoksound_private_note: 'The repo is private simply because it\'s a personal app I never got around to publishing, there\'s nothing sensitive in the code itself. Ask me if you want to see it.',
+
       project_playlist_story:        'I keep playlists on both Spotify and SoundCloud but I need WAV files for DJ sets. Downloading track by track was tedious. I wanted a tool that handled entire playlists in one command.',
       project_playlist_tags:         'Python, API, Git, SoundCloud, Spotify, YouTube',
       project_playlist_learned:      'batch processing, audio conversion',
@@ -125,7 +131,7 @@
       project_habewiki_tags:         'Markdown, AI',
       project_habewiki_learned:      'technical writing, basque C1',
 
-      project_hackspain_tags:        'Fri-Sun',
+      project_hackspain_tags:        '36h',
       project_hackupc_tags:          '36h',
       project_thegame_tags:          'Forensics, Web, Crypto, Data, Miscellaneous, Steganography',
       project_ikerlan_tags:          'Crypto, Reversing, Web, Forensics, Hardware, Miscellaneous, Operational Technology, Machine Learning',
@@ -152,7 +158,7 @@
       challenges_title:       'challenges',
       challenge_hackspain_date: 'Sep 2026',
       challenge_hackspain_sub:  'ETSIT UPM, Madrid',
-      challenge_hackspain_desc: 'In-person hackathon in Madrid, Friday evening to Sunday late morning, for young builders across five startup-led tracks. Built Elkano, a financial-stress scoring platform, for Embat\'s challenge.',
+      challenge_hackspain_desc: 'In-person hackathon in Madrid, 36 hours straight, for young builders across five startup-led tracks. Built Elkano, a financial-stress scoring platform, for Embat\'s challenge.',
       challenge_ikerlan_date: '2025',
       challenge_ikerlan_sub:  'Online',
       challenge_ikerlan_desc: 'My first CTF. Ended up going solo - tackled a bit of everything across categories. A good intro to the mindset.',
@@ -256,6 +262,7 @@
       project_ludokbeen_desc:   'App personal tipo "been" para los países que has visitado. Gratis, sin cuentas, local-first: marca países en un mapa interactivo, distingue visitados de "quiero ir" y consulta tu % del mundo.',
       project_ludokwallet_desc: 'App personal de cartera para cualquier tipo de tarjeta (restaurantes, personas, tiendas, hoteles) y entradas de eventos. Fotografías una tarjeta y el OCR rellena teléfono, email y dirección; fotografías o compartes una entrada y lee el QR/código de barras y rellena el formulario. Reescrita desde cero como app nativa, sustituyendo a la antigua versión en Flutter.',
       project_ludoktaste_desc:  'Diario de restaurantes personal, ahora nativo. Registra los platos que pruebas en cada sitio, puntúalos, añade fotos y notas, y controla cuánto de cada carta llevas completado, con una sugerencia de "¿qué pido hoy?".',
+      project_ludoksound_desc:  'App Android para escuchar, desde el móvil, la música de mi propio servidor casero, sin Spotify ni nube ajena. Guarda una caché local para buscar al instante, reproduce en segundo plano con controles en pantalla bloqueada, y hace copia automática de favoritas e historial en mi propio Nextcloud.',
       project_jaialai_desc:     'Chatbot de IA con conocimiento especializado sobre el deporte y la cultura del Jai Alai.',
       project_playlist_desc:    'Herramienta de descarga masiva de playlists de SoundCloud y Spotify vía YouTube, generando archivos WAV.',
       project_habewiki_desc:     'Wiki de estudio para el examen HABE C1 de euskera, centrada en la parte escrita. Reúne esquemas de estructura, marcadores del discurso, redacciones modelo, palabras que se confunden con frecuencia y un prompt de IA que evalúa un texto por adecuación, coherencia, cohesión, riqueza y corrección.',
@@ -284,6 +291,9 @@
       project_ludoktaste_tags:       'Expo, React Native, TypeScript, SQLite, Drizzle, Git',
       project_ludoktaste_learned:    'reescritura a nativo, fotos dentro del backup',
       project_ludoktaste_private_note: 'El repo es privado sin más motivo que no haberlo publicado nunca, no hay nada delicado en el código en sí. Pregúntame si quieres verlo.',
+
+      project_ludoksound_story:      'Toda mi biblioteca musical vive en una Raspberry Pi con SoundVault, un servidor FastAPI que monté con mutagen para los metadatos y librosa para el BPM y la tonalidad. Ludok Sound es el cliente: transmite directamente desde el servidor por WiFi de casa o por mi propia red de Tailscale, guardando solo una caché de la biblioteca en el móvil para buscar al instante sin depender de la red. Favoritas, historial y ajustes viven en SQLite, con copia de seguridad en JSON que se sube sola a mi Nextcloud una vez al día por WiFi, así que nada de eso depende de que el servidor esté encendido. La reproducción en segundo plano aguanta con controles en pantalla bloqueada y notificación, y la capa de datos se verifica contra un SQLite de escritorio antes de tocar un móvil. Sin color de acento en la interfaz, un reproductor monocromo donde lo único que pone color es la portada de cada canción.',
+      project_ludoksound_private_note: 'El repo es privado sin más motivo que no haberlo publicado nunca, no hay nada delicado en el código en sí. Pregúntame si quieres verlo.',
       project_playlist_story:        'Tengo playlists en Spotify y SoundCloud pero necesito archivos WAV para los sets. Descargar pista a pista era tedioso. Quería una herramienta que gestionara playlists enteras con un solo comando.',
       project_habewiki_story:        'Lo monté mientras preparaba el examen HABE C1 de euskera, centrado en la parte escrita. Lo aprobé.',
 
@@ -309,7 +319,7 @@
       challenges_title:       'retos',
       challenge_hackspain_date: 'Sep 2026',
       challenge_hackspain_sub:  'ETSIT UPM, Madrid',
-      challenge_hackspain_desc: 'Hackathon presencial en Madrid, desde la tarde del viernes hasta la mañana del domingo, para jóvenes builders, con cinco retos propuestos por startups. Construimos Elkano, una plataforma de puntuación de estrés financiero, para el reto de Embat.',
+      challenge_hackspain_desc: 'Hackathon presencial en Madrid, 36 horas seguidas, para jóvenes builders, con cinco retos propuestos por startups. Construimos Elkano, una plataforma de puntuación de estrés financiero, para el reto de Embat.',
       challenge_ikerlan_date: '2025',
       challenge_ikerlan_sub:  'Online',
       challenge_ikerlan_desc: 'Mi primer CTF. Acabé participando en solitario, cubrí un poco de todo entre las categorías. Una buena introducción a los CTF-s.',
@@ -414,6 +424,7 @@
       project_ludokbeen_desc:   'Bisitatu dituzun herrialdeentzako "been" motako app pertsonala. Doakoa, konturik gabe, local-first: mapa interaktibo batean herrialdeak markatu, bisitatuak eta "joan nahi dut"-ak bereizi, eta munduaren zenbat % ezagutu duzun ikusi.',
       project_ludokwallet_desc: 'Edozein motatako txartel (jatetxeak, pertsonak, dendak, hotelak) eta gertaeren sarreretarako wallet app pertsonala. Txartel bat argazkitu eta OCR-ak telefonoa, emaila eta helbidea betetzen ditu; sarrera bat argazkitu edo partekatu eta QR/barra-kodea irakurri eta formularioa betetzen du. Hutsetik berridatzia app natibo gisa, Flutter bertsio zaharra ordezkatuz.',
       project_ludoktaste_desc:  'Jatetxe-egunkari pertsonala, orain natiboa. Leku bakoitzean probatzen dituzun platerak erregistratu, baloratu, argazkiak eta oharrak gehitu, eta karta bakoitzetik zenbat osatu duzun jarraitu, "zer eskatu gaur?" iradokizunarekin.',
+      project_ludoksound_desc:  'Nire etxeko zerbitzaritik, mugikorretik, musika entzuteko Android app-a, Spotify-rik eta hodeirik gabe. Bilaketa unean egiteko cache lokal bat gordetzen du, bigarren planoan erreproduzitzen du pantaila blokeatuko kontrolekin, eta gogokoen eta historialaren babeskopia automatikoa egiten du nire Nextcloud propiora.',
       project_playlist_desc:    'YouTube bidez SoundCloud eta Spotify playlist-ak masiboki deskargatzeko tresna, WAV fitxategiak sortuz.',
       project_habewiki_desc:     'HABE C1 euskara azterketa prestatzeko ikasketa-wikia, idazlan atalean zentratua. Egitura-eskemak, diskurtso-markatzaileak, eredu-idazlanak, sarritan nahasten diren hitzak eta testu bat egokitasun, koherentzia, kohesio, aberastasun eta zuzentasunaren arabera ebaluatzen duen IA prompt bat biltzen ditu.',
 
@@ -469,6 +480,9 @@
       project_ludoktaste_learned:    'berridazketa natibora, argazkiak backup barruan',
       project_ludoktaste_private_note: 'Errepositorioa pribatua da argitaratu ez dudalako, ez besterik; kodean berean ez dago ezer sentikorrik. Galdetu ikusi nahi baduzu.',
 
+      project_ludoksound_story:      'Nire musika-liburutegi osoa Raspberry Pi batean bizi da, SoundVault exekutatzen, mutagen metadatuetarako eta librosa BPM eta tonalitaterako erabiliz eraiki nuen FastAPI zerbitzari batean. Ludok Sound bezeroa da: zerbitzaritik zuzenean transmititzen du etxeko WiFitik edo nire Tailscale sarearen bidez, liburutegiaren cache bat bakarrik gordez mugikorrean bilaketa lokal unekoa izateko. Gogokoak, historiala eta ezarpenak SQLiten bizi dira, JSON babeskopiarekin, egunean behin WiFian dagoenean nire Nextcloud-era automatikoki igotzen dena, ezer ere zerbitzaria martxan egotearen mende egon gabe. Bigarren planoko erreprodukzioak pantaila blokeatuko eta jakinarazpeneko kontrolekin irauten du, eta datu-geruza mahaigaineko SQLite baten kontra egiaztatzen da mugikor bati ukitu baino lehen. Interfazean kolore-azenturik ez, erreproduzigailu monokromo bat non kantu bakoitzaren azalak bakarrik jartzen duen kolorea.',
+      project_ludoksound_private_note: 'Errepositorioa pribatua da argitaratu ez dudalako, ez besterik; kodean berean ez dago ezer sentikorrik. Galdetu ikusi nahi baduzu.',
+
       project_playlist_story:        'Spotify eta SoundCloud-en playlist-ak dauzkadan arren, DJ seterako WAV fitxategiak behar ditut. Pista pista deskargatzen nekagarria zen. Playlist osoak komando bakar batekin kudeatuko zituen tresna bat nahi nuen.',
       project_playlist_tags:         'Python, API, Git, SoundCloud, Spotify, YouTube',
       project_playlist_learned:      'batch prozesaketa, audio konbertsioa',
@@ -477,7 +491,7 @@
       project_habewiki_tags:         'Markdown, AI',
       project_habewiki_learned:      'idazketa teknikoa, euskara C1',
 
-      project_hackspain_tags:        'Or.-Ig.',
+      project_hackspain_tags:        '36h',
       project_hackupc_tags:          '36h',
       project_thegame_tags:          'Forensics, Web, Crypto, Data, Miscellaneous, Steganography',
       project_ikerlan_tags:          'Crypto, Reversing, Web, Forensics, Hardware, Miscellaneous, Operational Technology, Machine Learning',
@@ -504,7 +518,7 @@
       challenges_title:       'erronkak',
       challenge_hackspain_date: '2026 Iraila',
       challenge_hackspain_sub:  'ETSIT UPM, Madril',
-      challenge_hackspain_desc: 'Hackathon presentziala Madrilen, ostiral arratsaldetik igande goizera arte, gazte builder-entzat, startupek proposatutako bost erronkarekin. Elkano eraiki genuen, estres finantzarioaren puntuazio-plataforma bat, Embat-en erronkarako.',
+      challenge_hackspain_desc: 'Hackathon presentziala Madrilen, 36 ordu jarraian, gazte builder-entzat, startupek proposatutako bost erronkarekin. Elkano eraiki genuen, estres finantzarioaren puntuazio-plataforma bat, Embat-en erronkarako.',
       challenge_ikerlan_date: '2025',
       challenge_ikerlan_sub:  'Online',
       challenge_ikerlan_desc: 'Nire lehen CTF-a. Bakarrik bukatu nuen, kategoria guztietako zerbait egin nuen. Sarrera ona mentalitate honetara.',

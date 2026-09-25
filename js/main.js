@@ -24,6 +24,7 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
   const closeBtn       = document.getElementById('drawer-close');
   const imgWrap        = document.getElementById('drawer-img-wrap');
   const imgEl          = document.getElementById('drawer-img');
+  const thumbsEl       = document.getElementById('drawer-thumbs');
   const titleEl        = document.getElementById('drawer-title');
   const badgeEl        = document.getElementById('drawer-badge');
   const descEl         = document.getElementById('drawer-desc');
@@ -37,6 +38,8 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
   if (!drawer) return;
 
   let currentKey = null;
+  let currentImages = [];
+  let currentImgIndex = 0;
 
   function getPrivateNote(key, i18n) {
     const specific = i18n.t(`project_${key}_private_note`);
@@ -58,15 +61,44 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
   function openDrawer(card) {
     currentKey = card.dataset.project;
 
-    // Image
-    const imgSrc = card.dataset.img;
-    if (imgSrc) {
-      imgEl.src = imgSrc;
-      imgEl.alt = card.querySelector('.project-title')?.textContent.trim() || '';
+    // Image(s)
+    const altText = card.querySelector('.project-title')?.textContent.trim() || '';
+    imgWrap.classList.toggle('shot-mobile', card.dataset.shot === 'mobile');
+    const imgsAttr = card.dataset.imgs;
+    currentImages = imgsAttr
+      ? imgsAttr.split(',').map(s => s.trim()).filter(Boolean)
+      : (card.dataset.img ? [card.dataset.img] : []);
+    currentImgIndex = 0;
+
+    if (currentImages.length) {
+      imgEl.src = currentImages[0];
+      imgEl.alt = altText;
       imgWrap.style.display = '';
     } else {
       imgWrap.style.display = 'none';
       imgEl.src = '';
+    }
+
+    if (thumbsEl) {
+      thumbsEl.innerHTML = '';
+      if (currentImages.length > 1) {
+        currentImages.forEach((src, i) => {
+          const thumb = document.createElement('img');
+          thumb.src = src;
+          thumb.alt = `${altText} ${i + 1}`;
+          thumb.className = 'drawer-thumb' + (i === 0 ? ' active' : '');
+          thumb.addEventListener('click', () => {
+            currentImgIndex = i;
+            imgEl.src = src;
+            imgEl.alt = thumb.alt;
+            thumbsEl.querySelectorAll('.drawer-thumb').forEach(el => el.classList.toggle('active', el === thumb));
+          });
+          thumbsEl.appendChild(thumb);
+        });
+        thumbsEl.style.display = '';
+      } else {
+        thumbsEl.style.display = 'none';
+      }
     }
 
     // Title
@@ -122,23 +154,16 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
     setTimeout(() => { imgEl.src = ''; }, 350);
   }
 
-  // Lightbox for image zoom
-  const lightbox     = document.getElementById('lightbox');
-  const lightboxImg  = document.getElementById('lightbox-img');
-  const lightboxClose = document.getElementById('lightbox-close');
+  // Lightbox for image zoom (delegates to the shared gallery lightbox)
+  const lightbox = document.getElementById('lightbox');
 
-  if (lightbox) {
-    const closeLightbox = () => { lightbox.close(); lightboxImg.src = ''; };
-    imgEl.addEventListener('click', () => {
-      if (!imgEl.src) return;
-      lightboxImg.src = imgEl.src;
-      lightboxImg.alt = imgEl.alt;
-      lightbox.showModal();
-    });
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightboxImg.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-  }
+  imgEl.addEventListener('click', () => {
+    if (!currentImages.length) return;
+    globalThis.__openLightbox?.(
+      currentImages.map((src, i) => ({ src, alt: `${imgEl.alt || ''} ${i + 1}`.trim() })),
+      currentImgIndex
+    );
+  });
 
   document.getElementById('projects-grid')?.addEventListener('click', e => {
     if (e.target.closest('a, button')) return;
@@ -150,7 +175,7 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
   overlay.addEventListener('click', closeDrawer);
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
-      if (lightbox?.open) { lightbox.close(); lightboxImg.src = ''; return; }
+      if (lightbox?.open) return;
       if (drawer.classList.contains('open')) closeDrawer();
     }
   });
@@ -191,6 +216,7 @@ const ERROR_COLOR  = '#cc0000'; // mirrors --color-error CSS variable
     show(startIndex);
     dialog.showModal();
   }
+  globalThis.__openLightbox = openGallery;
 
   // Project preview images (single)
   document.querySelectorAll('.preview-img-wrap .preview-img').forEach(thumb => {
