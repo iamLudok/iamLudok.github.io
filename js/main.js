@@ -725,6 +725,46 @@ function withViewTransition(update) {
 })();
 
 
+// ---- Timelines draw themselves when they scroll into view ----
+(function initTimelineDraw() {
+  if (REDUCED_MOTION || !('IntersectionObserver' in globalThis)) return;
+
+  const LINE_MS = 900;
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      observer.unobserve(entry.target);
+      draw(entry.target);
+    });
+  }, { threshold: 0.2 });
+
+  function draw(timeline) {
+    // Each dot lights up when the growing line reaches it
+    const height = timeline.offsetHeight || 1;
+    timeline.querySelectorAll('.timeline-dot').forEach(dot => {
+      const y = dot.closest('.timeline-item').offsetTop + dot.offsetTop;
+      dot.style.setProperty('--dot-delay', `${Math.round((y / height) * LINE_MS)}ms`);
+    });
+    timeline.classList.remove('tl-pending');
+    timeline.classList.add('tl-draw');
+  }
+
+  function prepare(sectionId) {
+    const section = document.getElementById(sectionId);
+    section?.querySelectorAll('.timeline').forEach(timeline => {
+      observer.unobserve(timeline);
+      timeline.classList.remove('tl-draw');
+      timeline.classList.add('tl-pending');
+      observer.observe(timeline);
+    });
+  }
+
+  document.addEventListener('section:activated', e => prepare(e.detail));
+  prepare(document.querySelector('.section.active')?.id);
+})();
+
+
 // ---- Footer year ----
 (function initFooter() {
   const el = document.getElementById('footer-year');

@@ -757,6 +757,23 @@ main { padding-top: var(--nav-h); }
   opacity: 0.3;
 }
 
+/* Draw-in: JS adds .tl-pending on section show, then .tl-draw once the
+   timeline is on screen, and sets --dot-delay so each dot lights up when
+   the line reaches it. */
+.timeline::before { transform-origin: top; }
+.timeline.tl-pending::before { transform: scaleY(0); }
+.timeline.tl-pending .timeline-dot { border-color: var(--border); box-shadow: none; }
+.timeline.tl-draw::before { animation: tlLine 0.9s cubic-bezier(0.4, 0, 0.2, 1) backwards; }
+.timeline.tl-draw .timeline-dot {
+  animation: tlDot 0.5s ease backwards;
+  animation-delay: var(--dot-delay, 0ms);
+}
+@keyframes tlLine { from { transform: scaleY(0); } }
+@keyframes tlDot {
+  from { border-color: var(--border); box-shadow: none; transform: scale(0.6); }
+  50%  { transform: scale(1.4); box-shadow: 0 0 0 5px rgba(0, 255, 136, 0.2), 0 0 14px rgba(0, 255, 136, 0.5); }
+}
+
 .timeline-item {
   position: relative;
   padding: 0 0 32px 20px;
