@@ -22,6 +22,7 @@
       interest_dj:     'DJ & Producer',
 
       skills_title:      'skills',
+      skills_graph_link: 'view as graph →',
       skills_ai:         'AI & LLMs',
       skills_research:   'Frameworks & Tools',
       skills_eval:       'Evaluation & Observability',
@@ -224,6 +225,7 @@
       interest_dj:     'DJ y Productor',
 
       skills_title:      'habilidades',
+      skills_graph_link: 'ver como grafo →',
       skills_ai:         'IA y LLMs',
       skills_research:   'Frameworks y Herramientas',
       skills_eval:       'Evaluación y Observabilidad',
@@ -385,6 +387,7 @@
       interest_dj:     'DJ eta Ekoizlea',
 
       skills_title:      'trebetasunak',
+      skills_graph_link: 'grafo gisa ikusi →',
       skills_ai:         'AI eta LLMak',
       skills_research:   'Frameworkak eta Tresnak',
       skills_eval:       'Ebaluazioa eta Ikusgarritasuna',

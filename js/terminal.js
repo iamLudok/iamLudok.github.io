@@ -88,6 +88,8 @@
         ['cd <section>',    'go to ' + SECTIONS.join(' | ')],
         ['lang <code>',     'switch language (en | es | eu)'],
         ['neofetch',        'system info'],
+        ['crt [on|off]',    'old monitor mode'],
+        ['graph',           'open the skill graph'],
         ['clear',           'clear the screen'],
       ].forEach(([cmd, desc]) => line(`  ${cmd.padEnd(18)} ${desc}`));
     },
@@ -202,6 +204,20 @@
       for (let i = 0; i < rows; i++) {
         line((logo[i] || '').padEnd(22) + (info[i] || ''), 'term-accent');
       }
+    },
+
+    crt(args) {
+      const mode = (args[0] || '').toLowerCase();
+      const isOn = document.documentElement.classList.contains('crt');
+      const on = mode === 'on' ? true : mode === 'off' ? false : !isOn;
+      globalThis.setCRT?.(on);
+      line(on ? 'crt mode: on. welcome to 1985.' : 'crt mode: off. back to the future.', 'term-accent');
+    },
+
+    graph() {
+      line('opening skill graph...', 'term-accent');
+      document.getElementById('navbar-graph-btn')?.click();
+      setTimeout(closeTerminal, 250);
     },
 
     clear() { output.innerHTML = ''; },

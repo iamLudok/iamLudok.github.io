@@ -1357,6 +1357,163 @@ function withViewTransition(update) {
 })();
 
 
+// ---- Avatar: ASCII version that resolves into the photo ----
+(function initAsciiAvatar() {
+  const box = document.querySelector('.avatar-placeholder');
+  const img = box?.querySelector('img');
+  if (!box || !img) return;
+
+  // Light → dark: the photo has a white background, so dark areas (hair,
+  // glasses, shirt) get the dense characters and the background stays empty.
+  const RAMP  = ' .:-=+*#%@';
+  const FONT  = '"JetBrains Mono", monospace';
+  const canvas = document.createElement('canvas');
+  canvas.className = 'avatar-ascii';
+  canvas.setAttribute('aria-hidden', 'true');
+  box.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  let cells = null; // { cols, rows, charW, lineH, data: [[char, brightness]] }
+
+  // Samples the photo (cropped like object-fit: cover) at one pixel per
+  // character cell and maps brightness to the ramp.
+  function build() {
+    const W = box.clientWidth;
+    const H = box.clientHeight;
+    const dpr = globalThis.devicePixelRatio || 1;
+    canvas.width  = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const cols  = Math.round(W / 3.6);
+    const charW = W / cols;
+    ctx.font = `10px ${FONT}`;
+    const lineH = charW / (ctx.measureText('M').width / 10);
+    const rows  = Math.floor(H / lineH);
+
+    const sample = document.createElement('canvas');
+    sample.width = cols;
+    sample.height = rows;
+    const sctx = sample.getContext('2d', { willReadFrequently: true });
+    const iw = img.naturalWidth, ih = img.naturalHeight;
+    const scale = Math.max(W / iw, H / ih);
+    const sw = W / scale, sh = H / scale;
+    sctx.drawImage(img, (iw - sw) / 2, (ih - sh) / 2, sw, sh, 0, 0, cols, rows);
+    const px = sctx.getImageData(0, 0, cols, rows).data;
+
+    const lum = [];
+    for (let i = 0; i < px.length; i += 4) lum.push(0.2126 * px[i] + 0.7152 * px[i + 1] + 0.0722 * px[i + 2]);
+    const min = Math.min(...lum);
+    const range = (Math.max(...lum) - min) || 1;
+    const data = lum.map(l => {
+      const n = 1 - (l - min) / range;
+      return [RAMP[Math.round(n * (RAMP.length - 1))], n];
+    });
+    cells = { cols, rows, charW, lineH, data };
+  }
+
+  function draw(visibleRows = Infinity) {
+    if (!cells) return;
+    const { cols, rows, charW, lineH, data } = cells;
+    ctx.fillStyle = '#111111';
+    ctx.fillRect(0, 0, box.clientWidth, box.clientHeight);
+    ctx.font = `${lineH}px ${FONT}`;
+    ctx.textBaseline = 'top';
+    for (let r = 0; r < Math.min(rows, visibleRows); r++) {
+      for (let c = 0; c < cols; c++) {
+        const [ch, n] = data[r * cols + c];
+        if (ch === ' ') continue;
+        ctx.fillStyle = `rgba(0, 255, 136, ${0.3 + n * 0.7})`;
+        ctx.fillText(ch, c * charW, r * lineH);
+      }
+    }
+  }
+
+  // Intro: rows appear top to bottom, hold, then crossfade to the photo
+  function intro() {
+    box.classList.add('ascii-intro');
+    const SCAN_MS = 700;
+    const start = performance.now();
+    (function step(now) {
+      const t = Math.min((now - start) / SCAN_MS, 1);
+      draw(Math.ceil(t * cells.rows));
+      if (t < 1) requestAnimationFrame(step);
+      else setTimeout(() => box.classList.remove('ascii-intro'), 600);
+    })(start);
+  }
+
+  async function init() {
+    if (!img.complete) await new Promise(r => img.addEventListener('load', r, { once: true }));
+    if (!img.naturalWidth) return;
+    try { await document.fonts?.load(`10px ${FONT}`); } catch { /* fall back to monospace */ }
+    build();
+    if (REDUCED_MOTION) draw(); else intro();
+
+    // Avatar size changes at the mobile breakpoint
+    let lastW = box.clientWidth;
+    new ResizeObserver(() => {
+      if (box.clientWidth === lastW || !box.clientWidth) return;
+      lastW = box.clientWidth;
+      build();
+      draw();
+    }).observe(box);
+  }
+
+  init();
+})();
+
+
+// ---- CRT mode (toggled from the terminal: `crt`) ----
+(function initCRT() {
+  const root = document.documentElement;
+  let overlay = null;
+
+  function readSaved() {
+    try { return localStorage.getItem('crt') === '1'; } catch { return false; }
+  }
+  function save(on) {
+    try { on ? localStorage.setItem('crt', '1') : localStorage.removeItem('crt'); } catch { /* not persisted */ }
+  }
+
+  // Old-TV power on/off: a bright line that opens up / the picture collapsing into one
+  function powerEffect(kind) {
+    if (REDUCED_MOTION) return Promise.resolve();
+    const fx = document.createElement('div');
+    fx.className = `crt-power crt-power--${kind}`;
+    document.body.appendChild(fx);
+    return new Promise(resolve => {
+      fx.addEventListener('animationend', () => { fx.remove(); resolve(); }, { once: true });
+    });
+  }
+
+  function apply(on) {
+    root.classList.toggle('crt', on);
+    if (on && !overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'crt-overlay';
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(overlay);
+    } else if (!on && overlay) {
+      overlay.remove();
+      overlay = null;
+    }
+  }
+
+  globalThis.setCRT = async function (on) {
+    if (on === root.classList.contains('crt')) return;
+    save(on);
+    if (on) {
+      apply(true);
+      await powerEffect('on');
+    } else {
+      await powerEffect('off');
+      apply(false);
+    }
+  };
+
+  if (readSaved()) apply(true);
+})();
+
+
 // ---- Accessibility: focus trap for custom overlays ----
 // Native <dialog> (lightbox) already traps focus on its own; this covers the
 // custom overlays that toggle `aria-hidden` to open/close.
