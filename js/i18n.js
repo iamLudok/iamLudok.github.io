@@ -107,17 +107,14 @@
       project_ludokbeen_story:       'I wanted a "been" style app for the countries I\'ve visited, but free, without an account, and without my travel history sitting on someone else\'s server. It was a PWA first, then rewritten as a native Android app for real system scroll and gestures, and storage that only disappears if I uninstall it myself. Tap a country on the map to mark it, tap again to switch between visited and want-to-go, and share a card with your percentage of the world.',
       project_ludokbeen_tags:        'Expo, React Native, TypeScript, SQLite, Drizzle, D3, Git',
       project_ludokbeen_learned:     'offline-first, custom map interaction',
-      project_ludokbeen_private_note: 'The repo is private simply because it\'s a personal app I never got around to publishing, there\'s nothing sensitive in the code itself. Ask me if you want to see it.',
 
       project_ludokwallet_story:     'It started as Ludovis, a Flutter app for keeping tickets and restaurant cards since GrapheneOS has no Google Wallet. I rewrote it from scratch in Expo/React Native to match the rest of my apps, and used the rewrite to go much further: any kind of card, not just restaurants, with OCR that reads phone, email and address off a photo of the card itself. Tickets now come from a photo, a PDF or Android\'s share menu, reading the barcode and prefilling the form in one pass. A migration script pulls the old Flutter SQLite database and photos across so nothing gets lost in the switch.',
       project_ludokwallet_tags:      'Expo, React Native, TypeScript, SQLite, Drizzle, ML Kit OCR, Git',
       project_ludokwallet_learned:   'ocr pipelines, barcode/QR generation',
-      project_ludokwallet_private_note: 'The repo is private simply because it\'s a personal app I never got around to publishing, there\'s nothing sensitive in the code itself. Ask me if you want to see it.',
 
       project_ludoktaste_story:      'I wanted to keep track of what I eat and what I actually like from each restaurant\'s menu, so I stop ordering blind the next time I go back. It was an offline-first PWA at first; rewritten as a native app to match Ludok Time and Ludok Been, with photos bundled straight into the JSON backup.',
       project_ludoktaste_tags:       'Expo, React Native, TypeScript, SQLite, Drizzle, Git',
       project_ludoktaste_learned:    'native rewrite, photo-in-backup design',
-      project_ludoktaste_private_note: 'The repo is private simply because it\'s a personal app I never got around to publishing, there\'s nothing sensitive in the code itself. Ask me if you want to see it.',
 
       project_ludoksound_story:      'My whole music library lives on a Raspberry Pi running SoundVault, a FastAPI server I built with mutagen for metadata and librosa for BPM and key. Ludok Sound is the client: it streams straight from the server over home WiFi or my own Tailscale network, keeping only a cache of the library on the phone for instant local search. Favorites, history and settings live in SQLite, backed up to JSON and pushed automatically to my own Nextcloud once a day over WiFi, so none of that depends on the server staying up. Background playback survives with lock-screen and notification controls, and the data layer gets verified against a desktop SQLite before it ever ships. No accent color anywhere in the UI, a dark monochrome player where the only splash of color is each song\'s own cover art.',
       project_ludoksound_tags:       'Expo, React Native, TypeScript, SQLite, Drizzle, expo-audio, Nextcloud, Git',
@@ -143,6 +140,7 @@
       link_project: 'Project',
       link_deck:    'Deck',
       link_video:   'Video',
+      link_apk:     'Download APK',
 
       visitor_challenge_title: 'your_turn',
       visitor_challenge_desc:  "I've hidden 4 easter eggs somewhere on this page. Think you can find them all?",
@@ -284,15 +282,12 @@
       project_ludoktime_story:       'TV Time se cayó unas horas y me entró el pánico al darme cuenta de que todo mi historial vivía en el servidor de otro. La reconstruí como app Android nativa: series, películas, libros y manga en un solo sitio, con seguimiento episodio a episodio o capítulo a capítulo, y copia automática diaria a mi propio Nextcloud. Antes era una PWA, pero GrapheneOS no puede instalar WebAPKs, así que se reescribió desde cero como app nativa de verdad. La capa de datos se prueba contra un SQLite de escritorio antes de tocar un móvil, porque perder años de historial una vez ya fue suficiente.',
       project_ludoktime_private_note: 'El repo es privado sin más motivo que no haberlo publicado nunca, no hay nada delicado en el código en sí. Pregúntame si quieres verlo.',
       project_ludokbeen_story:       'Quería una app tipo "been" para los países que he visitado, pero gratis, sin cuenta y sin que mi historial de viajes viva en el servidor de otro. Primero fue una PWA, luego la reescribí como app Android nativa para tener el scroll y los gestos reales del sistema, y un almacenamiento que solo desaparece si la desinstalo yo mismo. Tocas un país en el mapa para marcarlo, vuelves a tocar para cambiar entre visitado y quiero ir, y compartes una tarjeta con tu porcentaje del mundo.',
-      project_ludokbeen_private_note: 'El repo es privado sin más motivo que no haberlo publicado nunca, no hay nada delicado en el código en sí. Pregúntame si quieres verlo.',
       project_ludokwallet_story:     'Empezó como Ludovis, una app en Flutter para guardar entradas y tarjetas de restaurantes porque GrapheneOS no tiene Google Wallet. La reescribí desde cero en Expo/React Native para seguir el mismo patrón que mis otras apps, y aproveché la reescritura para ir mucho más lejos: cualquier tipo de tarjeta, no solo restaurantes, con un OCR que saca teléfono, email y dirección de una foto de la propia tarjeta. Las entradas ahora se importan desde una foto, un PDF o el menú de compartir de Android, leyendo el código de barras y rellenando el formulario en un solo paso. Un script de migración trae la base de datos SQLite y las fotos de la vieja versión en Flutter para que nada se pierda en el cambio.',
       project_ludokwallet_tags:      'Expo, React Native, TypeScript, SQLite, Drizzle, ML Kit OCR, Git',
       project_ludokwallet_learned:   'pipelines de OCR, generación de códigos de barras/QR',
-      project_ludokwallet_private_note: 'El repo es privado sin más motivo que no haberlo publicado nunca, no hay nada delicado en el código en sí. Pregúntame si quieres verlo.',
       project_ludoktaste_story:      'Quería ir apuntando lo que como y lo que de verdad me gusta de la carta de cada restaurante, para dejar de pedir a ciegas la próxima vez que vuelvo. Antes era una PWA offline-first; la reescribí como app nativa para seguir el mismo patrón que Ludok Time y Ludok Been, con las fotos metidas directamente en la copia de seguridad JSON.',
       project_ludoktaste_tags:       'Expo, React Native, TypeScript, SQLite, Drizzle, Git',
       project_ludoktaste_learned:    'reescritura a nativo, fotos dentro del backup',
-      project_ludoktaste_private_note: 'El repo es privado sin más motivo que no haberlo publicado nunca, no hay nada delicado en el código en sí. Pregúntame si quieres verlo.',
 
       project_ludoksound_story:      'Toda mi biblioteca musical vive en una Raspberry Pi con SoundVault, un servidor FastAPI que monté con mutagen para los metadatos y librosa para el BPM y la tonalidad. Ludok Sound es el cliente: transmite directamente desde el servidor por WiFi de casa o por mi propia red de Tailscale, guardando solo una caché de la biblioteca en el móvil para buscar al instante sin depender de la red. Favoritas, historial y ajustes viven en SQLite, con copia de seguridad en JSON que se sube sola a mi Nextcloud una vez al día por WiFi, así que nada de eso depende de que el servidor esté encendido. La reproducción en segundo plano aguanta con controles en pantalla bloqueada y notificación, y la capa de datos se verifica contra un SQLite de escritorio antes de tocar un móvil. Sin color de acento en la interfaz, un reproductor monocromo donde lo único que pone color es la portada de cada canción.',
       project_ludoksound_private_note: 'El repo es privado sin más motivo que no haberlo publicado nunca, no hay nada delicado en el código en sí. Pregúntame si quieres verlo.',
@@ -305,6 +300,7 @@
       link_project: 'Proyecto',
       link_deck:    'Presentación',
       link_video:   'Vídeo',
+      link_apk:     'Descargar APK',
 
       visitor_challenge_title: 'tu_turno',
       visitor_challenge_desc:  'He escondido 4 easter eggs en algún lugar de esta página. ¿Crees que puedes encontrarlos todos?',
@@ -471,17 +467,14 @@
       project_ludokbeen_story:       'Bisitatu ditudan herrialdeentzako "been" motako app bat nahi nuen, baina doakoa, konturik gabe eta nire bidaia-historiala beste baten zerbitzarian bizi gabe. Lehenengo PWA bat izan zen, gero Android app natibo gisa berridatzi nuen sistemaren benetako scroll eta keinuak izateko, eta nik neuk desinstalatzen dudanean bakarrik desagertzen den biltegiratzea izateko. Herrialde bat ukitu mapan markatzeko, berriro ukitu bisitatuaren eta joan-nahi-dudanaren artean aldatzeko, eta munduaren zure ehunekoarekin txartel bat partekatzeko.',
       project_ludokbeen_tags:        'Expo, React Native, TypeScript, SQLite, Drizzle, D3, Git',
       project_ludokbeen_learned:     'offline-first, mapa-interakzio pertsonalizatua',
-      project_ludokbeen_private_note: 'Errepositorioa pribatua da argitaratu ez dudalako, ez besterik; kodean berean ez dago ezer sentikorrik. Galdetu ikusi nahi baduzu.',
 
       project_ludokwallet_story:     'Ludovis izenarekin hasi zen, Flutter-eko app bat sarrerak eta jatetxe-txartelak gordetzeko, GrapheneOS-ek ez baitu Google Wallet. Hutsetik berridatzi nuen Expo/React Native-n nire beste app-en patroi berari jarraitzeko, eta berridazketa aprobetxatu nuen askoz urrunago joateko: edozein motatako txartela, ez soilik jatetxeak, txartelaren argazki batetik telefonoa, emaila eta helbidea ateratzen dituen OCR batekin. Sarrerak orain argazki batetik, PDF batetik edo Androiden partekatze-menutik inportatzen dira, barra-kodea irakurriz eta formularioa pauso bakarrean betez. Migrazio-script batek Flutter bertsio zaharreko SQLite datu-basea eta argazkiak ekartzen ditu, aldaketan ezer galdu ez dadin.',
       project_ludokwallet_tags:      'Expo, React Native, TypeScript, SQLite, Drizzle, ML Kit OCR, Git',
       project_ludokwallet_learned:   'OCR pipelineak, barra-kode/QR sorkuntza',
-      project_ludokwallet_private_note: 'Errepositorioa pribatua da argitaratu ez dudalako, ez besterik; kodean berean ez dago ezer sentikorrik. Galdetu ikusi nahi baduzu.',
 
       project_ludoktaste_story:      'Jatetxe bakoitzeko kartatik jaten dudana eta benetan gustatzen zaidana apuntatu nahi nuen, hurrengoan itzultzean itsu-itsuan ez eskatzeko. Lehen offline-first PWA bat zen; app natibo gisa berridatzi nuen Ludok Time eta Ludok Been-en patroi berari jarraitzeko, argazkiak zuzenean JSON babeskopian sartuta.',
       project_ludoktaste_tags:       'Expo, React Native, TypeScript, SQLite, Drizzle, Git',
       project_ludoktaste_learned:    'berridazketa natibora, argazkiak backup barruan',
-      project_ludoktaste_private_note: 'Errepositorioa pribatua da argitaratu ez dudalako, ez besterik; kodean berean ez dago ezer sentikorrik. Galdetu ikusi nahi baduzu.',
 
       project_ludoksound_story:      'Nire musika-liburutegi osoa Raspberry Pi batean bizi da, SoundVault exekutatzen, mutagen metadatuetarako eta librosa BPM eta tonalitaterako erabiliz eraiki nuen FastAPI zerbitzari batean. Ludok Sound bezeroa da: zerbitzaritik zuzenean transmititzen du etxeko WiFitik edo nire Tailscale sarearen bidez, liburutegiaren cache bat bakarrik gordez mugikorrean bilaketa lokal unekoa izateko. Gogokoak, historiala eta ezarpenak SQLiten bizi dira, JSON babeskopiarekin, egunean behin WiFian dagoenean nire Nextcloud-era automatikoki igotzen dena, ezer ere zerbitzaria martxan egotearen mende egon gabe. Bigarren planoko erreprodukzioak pantaila blokeatuko eta jakinarazpeneko kontrolekin irauten du, eta datu-geruza mahaigaineko SQLite baten kontra egiaztatzen da mugikor bati ukitu baino lehen. Interfazean kolore-azenturik ez, erreproduzigailu monokromo bat non kantu bakoitzaren azalak bakarrik jartzen duen kolorea.',
       project_ludoksound_private_note: 'Errepositorioa pribatua da argitaratu ez dudalako, ez besterik; kodean berean ez dago ezer sentikorrik. Galdetu ikusi nahi baduzu.',
@@ -505,6 +498,7 @@
       link_project: 'Proiektua',
       link_deck:    'Aurkezpena',
       link_video:   'Bideoa',
+      link_apk:     'APKa deskargatu',
 
       visitor_challenge_title: 'zure_txanda',
       visitor_challenge_desc:  '4 easter egg ezkutatu ditut orrialdearen nonbaiten. Denak aurkitzeko gai al zara?',
