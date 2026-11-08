@@ -5,7 +5,7 @@
    Bump CACHE when assets change to invalidate.
    ============================================= */
 
-const CACHE = 'iamludok-v10';
+const CACHE = 'iamludok-v11';
 
 const CORE = [
   '/',

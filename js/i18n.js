@@ -62,6 +62,9 @@
       project_ludokwallet_desc: 'Personal wallet app for any kind of card (restaurants, people, shops, hotels) and event tickets. Photograph a card and OCR fills in phone, email and address; photograph or share a ticket and it reads the QR/barcode and prefills the form. Rewritten from scratch as a native app, replacing the old Flutter version.',
       project_ludoktaste_desc:  'Personal restaurant diary, native now. Log the dishes you try at each place, rate them, add photos and notes, and track how much of a menu you have completed, with a "what should I order today?" suggestion.',
       project_ludoksound_desc:  'Android app to stream music from my own home server, no Spotify, no cloud. Keeps a local cache for instant search, plays in the background with lock-screen controls, and backs up favorites and history automatically to my own Nextcloud.',
+      project_ludokhome_desc: 'Home organizer made of an Android app and my own Raspberry Pi: today\'s tasks and events, medicines with offline reminders, car expenses, lists, links to check later, the day\'s news as audio, and the Pi\'s Docker containers. Everything on my own hardware, no subscriptions, no cloud AI.',
+      project_ludokcount_desc: 'Android app for my group of friends: how many pieces of sushi each one eats at the buffet, who drinks the most each round, the mus scoreboard and who owes whom, Tricount-style. One person runs it on their phone and logs for everyone.',
+      project_ludokmonster_desc: 'Fan app to track the Monster Energy cans you\'ve tried: rating, comment, where you bought them and for how much. Every can is a 3D model you can spin and zoom, and the ones you try build up your own tower.',
       project_jaialai_desc:     'AI chatbot with specialized knowledge about Jai Alai sport and culture.',
       project_playlist_desc:    'Batch download tool for SoundCloud and Spotify playlists via YouTube, outputting WAV files.',
       project_habewiki_desc:     'Study wiki for the HABE C1 Basque exam, focused on the writing section. Collects structural frameworks, discourse markers, model essays, commonly confused words, and an AI prompt that grades a text on appropriateness, coherence, cohesion, richness and correctness.',
@@ -102,7 +105,6 @@
       project_ludoktime_story:       'TV Time went down for a few hours and I panicked realising my entire watch history lived on someone else\'s server. I rebuilt it as a native Android app: series, movies, books and manga in one place, tracked episode by episode or chapter by chapter, with an automatic daily backup to my own Nextcloud. It used to be a PWA, but GrapheneOS can\'t install WebAPKs, so it got rewritten from scratch as a proper native app. The data layer is tested against a desktop SQLite before it ever touches a phone, because losing years of watch history once was enough.',
       project_ludoktime_tags:        'Expo, React Native, TypeScript, SQLite, Drizzle, TMDB, MangaDex, Nextcloud, Git',
       project_ludoktime_learned:     'data integrity testing, self-hosted backups',
-      project_ludoktime_private_note: 'The repo is private simply because it\'s a personal app I never got around to publishing, there\'s nothing sensitive in the code itself. Ask me if you want to see it.',
 
       project_ludokbeen_story:       'I wanted a "been" style app for the countries I\'ve visited, but free, without an account, and without my travel history sitting on someone else\'s server. It was a PWA first, then rewritten as a native Android app for real system scroll and gestures, and storage that only disappears if I uninstall it myself. Tap a country on the map to mark it, tap again to switch between visited and want-to-go, and share a card with your percentage of the world.',
       project_ludokbeen_tags:        'Expo, React Native, TypeScript, SQLite, Drizzle, D3, Git',
@@ -120,6 +122,18 @@
       project_ludoksound_tags:       'Expo, React Native, TypeScript, SQLite, Drizzle, expo-audio, Nextcloud, Git',
       project_ludoksound_learned:    'streaming clients, background audio playback',
       project_ludoksound_private_note: 'The repo is private simply because it\'s a personal app I never got around to publishing, there\'s nothing sensitive in the code itself. Ask me if you want to see it.',
+
+      project_ludokhome_story:       'Most assistants send your personal life to someone else\'s servers, so I built mine around the opposite idea. The phone app keeps medicines, car expenses, lists, notes and saved links in SQLite, with a daily JSON backup to my own Nextcloud. The Raspberry Pi does the rest: tasks and events come from Nextcloud (CalDAV and Deck), every morning a Python script reads my Nextcloud News feeds and turns them into audio locally with Piper, and the app can start and stop the Pi\'s Docker containers, reached privately over Tailscale.',
+      project_ludokhome_tags:        'Expo, React Native, TypeScript, SQLite, Drizzle, Python, Piper TTS, Docker, Nextcloud, Tailscale, Raspberry Pi, Git',
+      project_ludokhome_learned:     'self-hosted services, local text-to-speech',
+
+      project_ludokcount_story:       'It started at the table: counting sushi pieces at the buffet, drink rounds and mus points on scraps of paper. Now one phone logs it all. Each session has its own attendees, so "went and ate 0" is not the same as "didn\'t go", and skipping a day never lowers your average. Expenses split equally, by shares or by exact amounts, and it works out the fewest payments to settle up. As with every Ludok app, the rule is never losing data: JSON backups, an automatic copy to my own Nextcloud, and a data layer tested against a desktop SQLite.',
+      project_ludokcount_tags:        'Expo, React Native, TypeScript, SQLite, Drizzle, Nextcloud, Git',
+      project_ludokcount_learned:     'expense splitting, settle-up algorithms',
+
+      project_ludokmonster_story:       'A collector\'s app for Monster cans. The 45 cans and 2 bottles were modeled in Blender from six real photos of each one, and rendered on the phone with Three.js, offline. The can catalog ships with the app and your data links to it by id, so a new version with more cans needs no migration. Purchases go on an OpenStreetMap map, with each city geocoded once through Nominatim and stored locally.',
+      project_ludokmonster_tags:        'Expo, React Native, TypeScript, SQLite, Drizzle, Three.js, Blender, OpenStreetMap, Git',
+      project_ludokmonster_learned:     '3D on mobile, photogrammetry-style modeling',
 
       project_playlist_story:        'I keep playlists on both Spotify and SoundCloud but I need WAV files for DJ sets. Downloading track by track was tedious. I wanted a tool that handled entire playlists in one command.',
       project_playlist_tags:         'Python, API, Git, SoundCloud, Spotify, YouTube',
@@ -141,6 +155,7 @@
       link_deck:    'Deck',
       link_video:   'Video',
       link_apk:     'Download APK',
+      link_app:     'View app',
 
       visitor_challenge_title: 'your_turn',
       visitor_challenge_desc:  "I've hidden 4 easter eggs somewhere on this page. Think you can find them all?",
@@ -263,6 +278,9 @@
       project_ludokwallet_desc: 'App personal de cartera para cualquier tipo de tarjeta (restaurantes, personas, tiendas, hoteles) y entradas de eventos. Fotografías una tarjeta y el OCR rellena teléfono, email y dirección; fotografías o compartes una entrada y lee el QR/código de barras y rellena el formulario. Reescrita desde cero como app nativa, sustituyendo a la antigua versión en Flutter.',
       project_ludoktaste_desc:  'Diario de restaurantes personal, ahora nativo. Registra los platos que pruebas en cada sitio, puntúalos, añade fotos y notas, y controla cuánto de cada carta llevas completado, con una sugerencia de "¿qué pido hoy?".',
       project_ludoksound_desc:  'App Android para escuchar, desde el móvil, la música de mi propio servidor casero, sin Spotify ni nube ajena. Guarda una caché local para buscar al instante, reproduce en segundo plano con controles en pantalla bloqueada, y hace copia automática de favoritas e historial en mi propio Nextcloud.',
+      project_ludokhome_desc: 'Organizador de casa hecho con una app Android y mi propia Raspberry Pi: tareas y eventos del día, medicinas con recordatorios sin conexión, gastos del coche, listas, enlaces para mirar luego, las noticias del día en audio y los contenedores Docker de la Pi. Todo en mi propio hardware, sin suscripciones ni IA en la nube.',
+      project_ludokcount_desc: 'App Android para la cuadrilla: cuántos trozos de sushi se come cada uno en el buffet, quién bebe más en cada ronda, el marcador del mus y quién le debe cuánto a quién, al estilo Tricount. La lleva una sola persona en su móvil y apunta por todos.',
+      project_ludokmonster_desc: 'App de fan para llevar la cuenta de las latas de Monster Energy que has probado: nota, comentario, dónde las compraste y por cuánto. Cada lata es un modelo 3D que se gira y se acerca, y las que pruebas van formando tu torre.',
       project_jaialai_desc:     'Chatbot de IA con conocimiento especializado sobre el deporte y la cultura del Jai Alai.',
       project_playlist_desc:    'Herramienta de descarga masiva de playlists de SoundCloud y Spotify vía YouTube, generando archivos WAV.',
       project_habewiki_desc:     'Wiki de estudio para el examen HABE C1 de euskera, centrada en la parte escrita. Reúne esquemas de estructura, marcadores del discurso, redacciones modelo, palabras que se confunden con frecuencia y un prompt de IA que evalúa un texto por adecuación, coherencia, cohesión, riqueza y corrección.',
@@ -280,7 +298,6 @@
       project_jaialai_story:         'Yo jugué a cesta punta durante muchos años, pero el verdadero experto en mi familia es mi abuelo, un fanático de toda la vida que incluso ha escrito libros sobre el deporte. A lo largo de décadas ha recopilado una cantidad enorme de información que no existe en ningún otro sitio: entrevistas con pelotaris, registros históricos, notas personales fruto de años de investigación. Cuando empecé a construir chatbots basados en RAG, supe exactamente qué quería hacer con ese conocimiento. Le construí una herramienta donde puede preguntar en lenguaje natural y obtener respuestas de sus propios documentos, cientos de páginas que de otra forma llevarían horas de búsqueda manual.',
       project_jaialai_private_note:  'Este proyecto está terminado pero es privado. Los documentos con los que trabaja contienen información personal de personas reales, hacerlos públicamente accesibles sin su consentimiento sería un problema legal y ético.',
       project_ludoktime_story:       'TV Time se cayó unas horas y me entró el pánico al darme cuenta de que todo mi historial vivía en el servidor de otro. La reconstruí como app Android nativa: series, películas, libros y manga en un solo sitio, con seguimiento episodio a episodio o capítulo a capítulo, y copia automática diaria a mi propio Nextcloud. Antes era una PWA, pero GrapheneOS no puede instalar WebAPKs, así que se reescribió desde cero como app nativa de verdad. La capa de datos se prueba contra un SQLite de escritorio antes de tocar un móvil, porque perder años de historial una vez ya fue suficiente.',
-      project_ludoktime_private_note: 'El repo es privado sin más motivo que no haberlo publicado nunca, no hay nada delicado en el código en sí. Pregúntame si quieres verlo.',
       project_ludokbeen_story:       'Quería una app tipo "been" para los países que he visitado, pero gratis, sin cuenta y sin que mi historial de viajes viva en el servidor de otro. Primero fue una PWA, luego la reescribí como app Android nativa para tener el scroll y los gestos reales del sistema, y un almacenamiento que solo desaparece si la desinstalo yo mismo. Tocas un país en el mapa para marcarlo, vuelves a tocar para cambiar entre visitado y quiero ir, y compartes una tarjeta con tu porcentaje del mundo.',
       project_ludokwallet_story:     'Empezó como Ludovis, una app en Flutter para guardar entradas y tarjetas de restaurantes porque GrapheneOS no tiene Google Wallet. La reescribí desde cero en Expo/React Native para seguir el mismo patrón que mis otras apps, y aproveché la reescritura para ir mucho más lejos: cualquier tipo de tarjeta, no solo restaurantes, con un OCR que saca teléfono, email y dirección de una foto de la propia tarjeta. Las entradas ahora se importan desde una foto, un PDF o el menú de compartir de Android, leyendo el código de barras y rellenando el formulario en un solo paso. Un script de migración trae la base de datos SQLite y las fotos de la vieja versión en Flutter para que nada se pierda en el cambio.',
       project_ludokwallet_tags:      'Expo, React Native, TypeScript, SQLite, Drizzle, ML Kit OCR, Git',
@@ -291,6 +308,18 @@
 
       project_ludoksound_story:      'Toda mi biblioteca musical vive en una Raspberry Pi con SoundVault, un servidor FastAPI que monté con mutagen para los metadatos y librosa para el BPM y la tonalidad. Ludok Sound es el cliente: transmite directamente desde el servidor por WiFi de casa o por mi propia red de Tailscale, guardando solo una caché de la biblioteca en el móvil para buscar al instante sin depender de la red. Favoritas, historial y ajustes viven en SQLite, con copia de seguridad en JSON que se sube sola a mi Nextcloud una vez al día por WiFi, así que nada de eso depende de que el servidor esté encendido. La reproducción en segundo plano aguanta con controles en pantalla bloqueada y notificación, y la capa de datos se verifica contra un SQLite de escritorio antes de tocar un móvil. Sin color de acento en la interfaz, un reproductor monocromo donde lo único que pone color es la portada de cada canción.',
       project_ludoksound_private_note: 'El repo es privado sin más motivo que no haberlo publicado nunca, no hay nada delicado en el código en sí. Pregúntame si quieres verlo.',
+
+      project_ludokhome_story:       'Casi todos los asistentes mandan tu vida personal a servidores ajenos, así que monté el mío al revés. La app del móvil guarda medicinas, gastos del coche, listas, notas y enlaces en SQLite, con copia diaria en JSON a mi propio Nextcloud. La Raspberry Pi hace el resto: las tareas y eventos salen de Nextcloud (CalDAV y Deck), cada mañana un script en Python lee mis fuentes de Nextcloud News y las convierte en audio en local con Piper, y desde la app se arrancan y paran los contenedores Docker de la Pi, a los que llega por Tailscale.',
+      project_ludokhome_tags:        'Expo, React Native, TypeScript, SQLite, Drizzle, Python, Piper TTS, Docker, Nextcloud, Tailscale, Raspberry Pi, Git',
+      project_ludokhome_learned:     'servicios autoalojados, texto a voz en local',
+
+      project_ludokcount_story:       'Nació en la mesa: contar los trozos de sushi del buffet, las rondas y las piedras del mus en servilletas. Ahora lo apunta todo un solo móvil. Cada sesión tiene sus asistentes, así que «fue y comió 0» no es lo mismo que «no fue», y no ir nunca baja tu media. Los gastos se reparten a partes iguales, por partes o por importes exactos, y calcula los pagos mínimos para quedar en paz. Como en todas las apps Ludok, lo que manda es no perder datos: copias en JSON, copia automática a mi Nextcloud y una capa de datos probada contra un SQLite de escritorio.',
+      project_ludokcount_tags:        'Expo, React Native, TypeScript, SQLite, Drizzle, Nextcloud, Git',
+      project_ludokcount_learned:     'reparto de gastos, cálculo de pagos mínimos',
+
+      project_ludokmonster_story:       'Una app de coleccionista para las latas de Monster. Las 45 latas y 2 botellas se modelaron en Blender a partir de seis fotos reales de cada una, y se ven en el móvil con Three.js, sin conexión. El catálogo de latas viene con la app y tus datos se enlazan por su identificador, así que una versión con más latas no obliga a migrar nada. Las compras salen en un mapa de OpenStreetMap, y cada ciudad se sitúa una sola vez con Nominatim y se guarda en local.',
+      project_ludokmonster_tags:        'Expo, React Native, TypeScript, SQLite, Drizzle, Three.js, Blender, OpenStreetMap, Git',
+      project_ludokmonster_learned:     '3D en el móvil, modelado a partir de fotos',
       project_playlist_story:        'Tengo playlists en Spotify y SoundCloud pero necesito archivos WAV para los sets. Descargar pista a pista era tedioso. Quería una herramienta que gestionara playlists enteras con un solo comando.',
       project_habewiki_story:        'Lo monté mientras preparaba el examen HABE C1 de euskera, centrado en la parte escrita. Lo aprobé.',
 
@@ -301,6 +330,7 @@
       link_deck:    'Presentación',
       link_video:   'Vídeo',
       link_apk:     'Descargar APK',
+      link_app:     'Ver app',
 
       visitor_challenge_title: 'tu_turno',
       visitor_challenge_desc:  'He escondido 4 easter eggs en algún lugar de esta página. ¿Crees que puedes encontrarlos todos?',
@@ -424,6 +454,9 @@
       project_ludokwallet_desc: 'Edozein motatako txartel (jatetxeak, pertsonak, dendak, hotelak) eta gertaeren sarreretarako wallet app pertsonala. Txartel bat argazkitu eta OCR-ak telefonoa, emaila eta helbidea betetzen ditu; sarrera bat argazkitu edo partekatu eta QR/barra-kodea irakurri eta formularioa betetzen du. Hutsetik berridatzia app natibo gisa, Flutter bertsio zaharra ordezkatuz.',
       project_ludoktaste_desc:  'Jatetxe-egunkari pertsonala, orain natiboa. Leku bakoitzean probatzen dituzun platerak erregistratu, baloratu, argazkiak eta oharrak gehitu, eta karta bakoitzetik zenbat osatu duzun jarraitu, "zer eskatu gaur?" iradokizunarekin.',
       project_ludoksound_desc:  'Nire etxeko zerbitzaritik, mugikorretik, musika entzuteko Android app-a, Spotify-rik eta hodeirik gabe. Bilaketa unean egiteko cache lokal bat gordetzen du, bigarren planoan erreproduzitzen du pantaila blokeatuko kontrolekin, eta gogokoen eta historialaren babeskopia automatikoa egiten du nire Nextcloud propiora.',
+      project_ludokhome_desc: 'Etxeko antolatzailea, Android app batek eta nire Raspberry Pi-ak osatua: eguneko atazak eta gertaerak, sendagaiak konexiorik gabeko gogorarazleekin, autoaren gastuak, zerrendak, gero ikusteko estekak, eguneko albisteak audioan eta Pi-aren Docker edukiontziak. Dena nire hardwarean, harpidetzarik eta hodeiko IArik gabe.',
+      project_ludokcount_desc: 'Koadrilarentzako Android app-a: bufetean bakoitzak zenbat sushi zati jaten dituen, txanda bakoitzean nork edaten duen gehien, musaren markagailua eta nork nori zenbat zor dion, Tricount-en estiloan. Pertsona bakar batek darama bere mugikorrean eta guztiena apuntatzen du.',
+      project_ludokmonster_desc: 'Probatu dituzun Monster Energy laten kontua eramateko fan app-a: nota, iruzkina, non erosi zenituen eta zenbatean. Lata bakoitza 3D eredu bat da, biratu eta hurbildu daitekeena, eta probatzen dituzunek zure dorrea osatzen dute.',
       project_playlist_desc:    'YouTube bidez SoundCloud eta Spotify playlist-ak masiboki deskargatzeko tresna, WAV fitxategiak sortuz.',
       project_habewiki_desc:     'HABE C1 euskara azterketa prestatzeko ikasketa-wikia, idazlan atalean zentratua. Egitura-eskemak, diskurtso-markatzaileak, eredu-idazlanak, sarritan nahasten diren hitzak eta testu bat egokitasun, koherentzia, kohesio, aberastasun eta zuzentasunaren arabera ebaluatzen duen IA prompt bat biltzen ditu.',
 
@@ -462,7 +495,6 @@
       project_ludoktime_story:       'TV Time zenbait ordutan erori zen eta izua sartu zitzaidan, konturatuta nire ikusitako guztiaren historiala beste baten zerbitzarian bizi zela. Android app natibo gisa berreraiki nuen: serieak, filmak, liburuak eta manga leku bakarrean, atal edo kapituluz kapitulu jarraituta, eguneroko babeskopia automatikoarekin nire Nextcloud propiora. Lehen PWA bat zen, baina GrapheneOS-ek ezin ditu WebAPK-ak instalatu, beraz hutsetik berridatzi zen app natibo egoki gisa. Datu-geruza mahaigaineko SQLite baten kontra probatzen da mugikor bati ukitu baino lehen, ikusitako historiala behin galtzea nahikoa izan zelako.',
       project_ludoktime_tags:        'Expo, React Native, TypeScript, SQLite, Drizzle, TMDB, MangaDex, Nextcloud, Git',
       project_ludoktime_learned:     'datu-integritatearen probak, babeskopia autoalojatuak',
-      project_ludoktime_private_note: 'Errepositorioa pribatua da argitaratu ez dudalako, ez besterik; kodean berean ez dago ezer sentikorrik. Galdetu ikusi nahi baduzu.',
 
       project_ludokbeen_story:       'Bisitatu ditudan herrialdeentzako "been" motako app bat nahi nuen, baina doakoa, konturik gabe eta nire bidaia-historiala beste baten zerbitzarian bizi gabe. Lehenengo PWA bat izan zen, gero Android app natibo gisa berridatzi nuen sistemaren benetako scroll eta keinuak izateko, eta nik neuk desinstalatzen dudanean bakarrik desagertzen den biltegiratzea izateko. Herrialde bat ukitu mapan markatzeko, berriro ukitu bisitatuaren eta joan-nahi-dudanaren artean aldatzeko, eta munduaren zure ehunekoarekin txartel bat partekatzeko.',
       project_ludokbeen_tags:        'Expo, React Native, TypeScript, SQLite, Drizzle, D3, Git',
@@ -478,6 +510,18 @@
 
       project_ludoksound_story:      'Nire musika-liburutegi osoa Raspberry Pi batean bizi da, SoundVault exekutatzen, mutagen metadatuetarako eta librosa BPM eta tonalitaterako erabiliz eraiki nuen FastAPI zerbitzari batean. Ludok Sound bezeroa da: zerbitzaritik zuzenean transmititzen du etxeko WiFitik edo nire Tailscale sarearen bidez, liburutegiaren cache bat bakarrik gordez mugikorrean bilaketa lokal unekoa izateko. Gogokoak, historiala eta ezarpenak SQLiten bizi dira, JSON babeskopiarekin, egunean behin WiFian dagoenean nire Nextcloud-era automatikoki igotzen dena, ezer ere zerbitzaria martxan egotearen mende egon gabe. Bigarren planoko erreprodukzioak pantaila blokeatuko eta jakinarazpeneko kontrolekin irauten du, eta datu-geruza mahaigaineko SQLite baten kontra egiaztatzen da mugikor bati ukitu baino lehen. Interfazean kolore-azenturik ez, erreproduzigailu monokromo bat non kantu bakoitzaren azalak bakarrik jartzen duen kolorea.',
       project_ludoksound_private_note: 'Errepositorioa pribatua da argitaratu ez dudalako, ez besterik; kodean berean ez dago ezer sentikorrik. Galdetu ikusi nahi baduzu.',
+
+      project_ludokhome_story:       'Laguntzaile gehienek zure bizitza pertsonala besteen zerbitzarietara bidaltzen dute, beraz nirea alderantziz eraiki nuen. Mugikorreko app-ak sendagaiak, autoaren gastuak, zerrendak, oharrak eta estekak SQLiten gordetzen ditu, eguneroko JSON babeskopiarekin nire Nextcloud propiora. Raspberry Pi-ak egiten du gainerakoa: atazak eta gertaerak Nextcloudetik datoz (CalDAV eta Deck), goizero Python script batek nire Nextcloud News iturriak irakurri eta audio bihurtzen ditu lokalean Piper-ekin, eta app-etik Pi-aren Docker edukiontziak abiarazi eta gelditu daitezke, Tailscale bidez.',
+      project_ludokhome_tags:        'Expo, React Native, TypeScript, SQLite, Drizzle, Python, Piper TTS, Docker, Nextcloud, Tailscale, Raspberry Pi, Git',
+      project_ludokhome_learned:     'zerbitzu autoalojatuak, testutik ahotsera lokalean',
+
+      project_ludokcount_story:       'Mahaian jaio zen: bufeteko sushi zatiak, txandak eta musaren harriak paperezko zapietan kontatzen. Orain mugikor bakar batek apuntatzen du dena. Saio bakoitzak bere bertaratuak ditu, beraz «joan eta 0 jan» ez da «ez joan» bezala, eta ez joateak ez du inoiz zure batezbestekoa jaisten. Gastuak zati berdinetan, zatika edo zenbateko zehatzetan banatzen dira, eta kontuak kitatzeko gutxieneko ordainketak kalkulatzen ditu. Ludok app guztietan bezala, datuak inoiz ez galtzea da nagusi: JSON babeskopiak, nire Nextcloud-erako kopia automatikoa eta mahaigaineko SQLite baten kontra probatutako datu-geruza.',
+      project_ludokcount_tags:        'Expo, React Native, TypeScript, SQLite, Drizzle, Nextcloud, Git',
+      project_ludokcount_learned:     'gastuen banaketa, gutxieneko ordainketen kalkulua',
+
+      project_ludokmonster_story:       'Monster laten bildumazaleentzako app bat. 45 latak eta 2 botilak Blender-en modelatu ziren bakoitzaren sei argazki errealetatik abiatuta, eta mugikorrean Three.js-ekin ikusten dira, konexiorik gabe. Laten katalogoa app-arekin dator eta zure datuak identifikatzailearen bidez lotzen dira, beraz lata gehiago dituen bertsio batek ez du ezer migratu beharrik. Erosketak OpenStreetMap mapa batean agertzen dira, eta hiri bakoitza behin bakarrik kokatzen da Nominatim-ekin eta lokalean gordetzen da.',
+      project_ludokmonster_tags:        'Expo, React Native, TypeScript, SQLite, Drizzle, Three.js, Blender, OpenStreetMap, Git',
+      project_ludokmonster_learned:     '3D mugikorrean, argazkietatik modelatzea',
 
       project_playlist_story:        'Spotify eta SoundCloud-en playlist-ak dauzkadan arren, DJ seterako WAV fitxategiak behar ditut. Pista pista deskargatzen nekagarria zen. Playlist osoak komando bakar batekin kudeatuko zituen tresna bat nahi nuen.',
       project_playlist_tags:         'Python, API, Git, SoundCloud, Spotify, YouTube',
@@ -499,6 +543,7 @@
       link_deck:    'Aurkezpena',
       link_video:   'Bideoa',
       link_apk:     'APKa deskargatu',
+      link_app:     'App-a ikusi',
 
       visitor_challenge_title: 'zure_txanda',
       visitor_challenge_desc:  '4 easter egg ezkutatu ditut orrialdearen nonbaiten. Denak aurkitzeko gai al zara?',
