@@ -206,7 +206,6 @@
 
       links_title: 'find_me',
       links_intro: 'Want to connect, collaborate, or just say hi?',
-      cal_name: 'Book a Meeting',
 
       secrets_hint:      '4 secrets hidden somewhere in this page',
       paranoid_msg:      '<span class="paranoid-accent">Your data.</span><br>Your rules.',
@@ -381,7 +380,6 @@
 
       links_title: 'encuéntrame',
       links_intro: '¿Quieres conectar, colaborar o simplemente saludar?',
-      cal_name: 'Reservar una Reunión',
 
       secrets_hint:     '4 secretos escondidos en algún lugar de esta página',
       paranoid_msg:     '<span class="paranoid-accent">Tus datos.</span><br>Tus reglas.',
@@ -594,7 +592,6 @@
 
       links_title: 'aurkitu_ni',
       links_intro: 'Konektatu, kolaboratu edo kaixo esan nahi al duzu?',
-      cal_name: 'Bilera Erreserbatu',
 
       secrets_hint:      '4 sekretu ezkutatuta orrialdearen nonbaiten',
       paranoid_msg:      '<span class="paranoid-accent">Zure datuak.</span><br>Zure arauak.',
