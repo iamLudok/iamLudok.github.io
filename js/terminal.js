@@ -41,9 +41,8 @@
   }
 
   /* ---- data readers (single source of truth = the DOM) ---- */
-  function readProjects(filter) {
+  function readProjects() {
     return [...document.querySelectorAll('.project-card[data-project]')]
-      .filter(c => !filter || c.dataset.category === filter)
       .map(c => ({
         title: c.querySelector('.project-title')?.textContent.trim() || c.dataset.project,
         cat:   c.dataset.category,
@@ -80,7 +79,7 @@
         ['help',            'this list'],
         ['whoami',          'who I am'],
         ['about',           'short bio'],
-        ['projects [cat]',  'list projects (cat: dev, hackathon, wip, private)'],
+        ['projects',        'list projects'],
         ['skills',          'tech I work with'],
         ['experience',      'studies & work'],
         ['ctf',             'visitor challenge status'],
@@ -106,17 +105,10 @@
       line(tmp.textContent);
     },
 
-    projects(args) {
-      const cat = args[0];
-      const valid = ['dev', 'hackathon', 'wip', 'private'];
-      if (cat && !valid.includes(cat)) {
-        line(`unknown category: ${cat}`, 'term-error');
-        line(`try: ${valid.join(', ')}`);
-        return;
-      }
-      const list = readProjects(cat);
+    projects() {
+      const list = readProjects();
       if (!list.length) { line('no projects found.', 'term-error'); return; }
-      line(cat ? `projects [${cat}]:` : 'projects:', 'term-accent');
+      line('projects:', 'term-accent');
       list.forEach(p => line(`  → ${p.title.padEnd(26)} [${p.cat}]`));
       line('');
       line("run 'cd projects' to open the section.", 'term-dim');

@@ -293,7 +293,7 @@ function withViewTransition(update) {
 
   imgEl.addEventListener('click', () => openGalleryAt(currentImgIndex));
 
-  document.getElementById('projects-grid')?.addEventListener('click', e => {
+  document.getElementById('projects')?.addEventListener('click', e => {
     if (e.target.closest('a, button')) return;
     const card = e.target.closest('.project-card[data-project]');
     if (card) openDrawer(card);
@@ -498,7 +498,6 @@ function withViewTransition(update) {
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => activateTab(btn.dataset.target));
   });
-
   const brand = document.querySelector('.navbar-brand');
   if (brand) brand.addEventListener('click', () => {
     activateTab('me');
@@ -653,44 +652,6 @@ function withViewTransition(update) {
       new IntersectionObserver(([entry]) => (entry.isIntersecting ? start() : stop()), { threshold: 0.6 })
         .observe(card);
     }
-  });
-})();
-
-
-// ---- Project filters ----
-(function initFilters() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards      = document.querySelectorAll('.project-card');
-
-  // Everything that moves when the grid changes height gets its own
-  // View Transition name. Fixed UI is named too so the animating cards
-  // don't paint over it.
-  const movers = [
-    ...[...cards].map(card => [card, `card-${card.dataset.project}`]),
-    [document.querySelector('.oss-heading'), 'oss-heading'],
-    [document.querySelector('.oss-grid'),    'oss-grid'],
-    [document.querySelector('.navbar'),      'navbar'],
-    [document.getElementById('navbar-graph-btn'), 'fab-graph'],
-    [document.getElementById('terminal-btn'),     'fab-terminal'],
-  ].filter(([el]) => el);
-
-  function setMoverNames(on) {
-    movers.forEach(([el, name]) => { el.style.viewTransitionName = on ? name : ''; });
-  }
-
-  function applyFilter(filter) {
-    setMoverNames(true);
-    withViewTransition(() => {
-      filterBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.filter === filter));
-      cards.forEach(card => {
-        const match = filter === 'all' || card.dataset.category === filter;
-        card.classList.toggle('hidden', !match);
-      });
-    }).then(() => setMoverNames(false));
-  }
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
   });
 })();
 

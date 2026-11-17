@@ -610,30 +610,6 @@ main { padding-top: var(--nav-h); }
 /* =============================================
    SECTION: PROJECTS
    ============================================= */
-.filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 36px;
-}
-
-.filter-btn {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--text-soft);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 6px 14px;
-  transition: all var(--transition);
-  letter-spacing: 0.03em;
-}
-.filter-btn:hover { color: var(--text); border-color: var(--text-muted); }
-.filter-btn.active {
-  color: var(--accent);
-  border-color: var(--border-accent);
-  background: var(--accent-glow);
-}
-
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
@@ -656,6 +632,104 @@ main { padding-top: var(--nav-h); }
   transform: translateY(-2px);
 }
 .project-card.hidden { display: none; }
+
+/* ---- Featured projects: one wide row each ---- */
+.projects-featured {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.project-card--row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.project-card--row .project-preview {
+  flex: 3 1 440px;
+  min-width: 0;
+}
+.project-card--row .preview-img-wrap {
+  aspect-ratio: auto;
+  height: 100%;
+  min-height: 340px;
+}
+.project-card--row .project-content {
+  flex: 2 1 300px;
+  min-width: 0;
+  justify-content: center;
+  gap: 12px;
+  padding: 32px;
+}
+.row-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.row-index {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+.project-card--row .project-title { font-size: 1.5rem; line-height: 1.25; }
+.project-tagline {
+  color: #b0b0b0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+/* The long text and collaborators live in the drawer; the row shows
+   the tagline, every tag and every link. */
+.project-card--row .project-desc,
+.project-card--row .project-collab,
+.project-card--row .project-skills,
+.project-card--compact .project-desc,
+.project-card--compact .project-tags,
+.project-card--compact .project-skills { display: none; }
+.project-card--row .project-links { flex-wrap: wrap; row-gap: 8px; }
+.project-card--compact .project-link:not(:first-child) { display: none; }
+.project-card--row .project-link--demo { color: var(--accent); }
+
+/* SKAI only has a logo: show it whole instead of cropping it */
+.project-card--row[data-project="skai"] .preview-img-wrap { background: #00143c; }
+.project-card--row[data-project="skai"] .preview-img { object-fit: contain; filter: none; }
+
+@media (max-width: 768px) {
+  .project-card--row .preview-img-wrap { height: auto; min-height: 0; aspect-ratio: 16 / 10; }
+  .project-card--row .preview-img-wrap.phone-stage { aspect-ratio: auto; height: 280px; }
+  .project-card--row .project-content { padding: 24px; }
+}
+
+/* Ludok Apps: a slightly bigger phone in the row */
+.project-card--row .phone-stage { padding-top: 32px; }
+.project-card--row .phone-stage .phone { width: min(170px, 40%); }
+
+/* ---- Smaller projects: one line each ---- */
+.others-heading { margin-top: 56px; }
+.projects-others {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+.project-card--compact {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 20px;
+  padding: 14px 4px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+}
+.project-card--compact:hover {
+  box-shadow: none;
+  transform: none;
+  background: var(--bg-2);
+}
+.project-card--compact .project-title { flex: 0 0 180px; font-size: 0.95rem; }
+.project-card--compact .project-tagline { flex: 1 1 300px; font-size: 0.9rem; color: var(--text-soft); }
 
 .project-header {
   display: flex;
@@ -686,11 +760,6 @@ main { padding-top: var(--nav-h); }
   color: #ff9f43;
   border-color: rgba(255, 159, 67, 0.3);
   background: rgba(255, 159, 67, 0.08);
-}
-.wip-badge {
-  color: #a29bfe;
-  border-color: rgba(162, 155, 254, 0.3);
-  background: rgba(162, 155, 254, 0.08);
 }
 .private-badge {
   color: #74b9ff;
