@@ -319,19 +319,6 @@ main { padding-top: var(--nav-h); }
 }
 .avatar-placeholder svg { width: 80px; height: 80px; }
 
-/* ASCII version of the avatar (canvas drawn by JS), shown on load and on hover */
-.avatar-placeholder { position: relative; }
-.avatar-ascii {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  pointer-events: none;
-}
-.avatar-placeholder:hover .avatar-ascii,
-.avatar-placeholder.ascii-intro .avatar-ascii { opacity: 1; }
 .avatar-placeholder img { width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
 
 /* =============================================
