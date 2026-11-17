@@ -14,6 +14,9 @@
 
       hero_sub:      'Computer Engineer · AI & ML Enthusiast · DJ & Producer as Ludok',
       hero_location: 'Markina-Xemein, Basque Country',
+      intro_sub: 'AI · privacy · DJ as Ludok',
+      intro_enter: 'enter',
+      intro_keys: 'scroll · click · enter',
 
       about_title: 'about_me',
       about_text:  `Hi! I'm <strong>Luken Iriondo Bilbao</strong>, also known as <strong>iamLudok</strong>. I'm passionate about AI, privacy and building things on my own. Highly motivated by agentic AI and constantly curious about the latest trends in frameworks, models and architectures.`,
@@ -194,6 +197,9 @@
 
       hero_sub:      'Ingeniero Informático · Entusiasta de IA & ML · DJ & Productor como Ludok',
       hero_location: 'Markina-Xemein, País Vasco',
+      intro_sub: 'IA · privacidad · DJ como Ludok',
+      intro_enter: 'entrar',
+      intro_keys: 'scroll · clic · enter',
 
       about_title: 'sobre_mí',
       about_text:  '¡Hola! Soy <strong>Luken Iriondo Bilbao</strong>, también conocido como <strong>iamLudok</strong>. Me apasiona la IA, la privacidad y construir cosas por mi cuenta. Alta motivación por la IA agéntica y curiosidad constante por las últimas tendencias en frameworks, modelos y arquitecturas.',
@@ -344,6 +350,9 @@
 
       hero_sub:      'Informatika Ingeniaria · AI & ML Zalea · DJ & Ekoizlea Ludok gisa',
       hero_location: 'Markina-Xemein, Euskal Herria',
+      intro_sub: 'AI · pribatutasuna · DJ Ludok gisa',
+      intro_enter: 'sartu',
+      intro_keys: 'scroll · klik · enter',
 
       about_title: 'ni_buruz',
       about_text:  `Kaixo! <strong>Luken Iriondo Bilbao</strong> naiz, <strong>iamLudok</strong> izenez ere ezaguna. AIak, pribatutasunak eta gauzak nire kabuz eraikitzeak liluratu egiten naute. AI agentikoak motibazio handia ematen dit eta framework, modelo eta arkitektura berrienekiko etengabeko jakin-mina daukat.`,

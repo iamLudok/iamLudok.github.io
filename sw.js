@@ -5,13 +5,14 @@
    Bump CACHE when assets change to invalidate.
    ============================================= */
 
-const CACHE = 'iamludok-v14';
+const CACHE = 'iamludok-v15';
 
 const CORE = [
   '/',
   '/index.html',
   '/css/style.css',
   '/js/i18n.js',
+  '/js/intro.js',
   '/js/main.js',
   '/js/graph.js',
   '/js/terminal.js',

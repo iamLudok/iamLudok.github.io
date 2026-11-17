@@ -61,6 +61,21 @@
 
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
   <link rel="stylesheet" href="css/style.css" />
+  <!-- Decides before first paint whether the ASCII intro (js/intro.js) plays:
+       once per session, not on deep links (#projects...), not with reduced motion.
+       The 5 s timeout is a safety net in case intro.js never runs. -->
+  <script>
+    (function () {
+      try {
+        var hash = location.hash;
+        if (sessionStorage.getItem('introSeen') || (hash && hash !== '#me') ||
+            matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var root = document.documentElement;
+        root.classList.add('intro-pending');
+        setTimeout(function () { root.classList.remove('intro-pending'); }, 5000);
+      } catch (e) { /* storage blocked: just show the site */ }
+    })();
+  </script>
 </head>
 <body>
 <a href="#main" class="skip-link" data-i18n="skip_link">Skip to content</a>
@@ -1027,6 +1042,7 @@
   </div>
 
   <script src="js/i18n.js"></script>
+  <script src="js/intro.js"></script>
   <script src="js/main.js"></script>
   <script src="js/graph.js"></script>
   <script src="js/terminal.js"></script>

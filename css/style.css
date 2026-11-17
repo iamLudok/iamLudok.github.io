@@ -2141,3 +2141,96 @@ html.crt body {
   color: var(--accent);
   transform: translate(2px, -2px);
 }
+
+/* =============================================
+   INTRO (js/intro.js): full-screen ASCII avatar, once per session
+   ============================================= */
+/* Until intro.js builds the overlay, keep the site from flashing */
+html.intro-pending body > * { visibility: hidden; }
+html.intro-active,
+html.intro-active body { overflow: hidden; }
+
+.site-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9800;
+  background: var(--bg);
+  touch-action: none;
+  transition: opacity 0.45s ease;
+}
+.site-intro.gone { opacity: 0; pointer-events: none; }
+.si-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.si-layout { position: absolute; inset: 0; display: flex; pointer-events: none; }
+.si-text {
+  flex: 0 0 44%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  padding-left: 7vw;
+}
+.si-face { flex: 1; }
+.si-name {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.4vw, 3rem);
+  line-height: 1.15;
+  min-height: 1.2em;
+  color: var(--text);
+}
+.si-prompt { color: var(--accent); margin-right: 0.45em; }
+.si-cursor { color: var(--accent); animation: siBlink 1s steps(1) infinite; }
+.si-sub {
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, 1.1vw, 1rem);
+  color: var(--text-soft);
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.si-enter {
+  pointer-events: auto;
+  align-self: flex-start;
+  margin-top: 14px;
+  min-height: 44px;
+  padding: 0 2px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.si-enter svg { animation: siNudge 1.6s ease-in-out infinite; }
+.si-keys { color: var(--text-soft); }
+.si-timer {
+  width: 180px;
+  height: 2px;
+  margin-top: -10px;
+  background: #1c1c1c;
+  border-radius: 2px;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.si-timer-bar {
+  height: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.site-intro.ready .si-sub { opacity: 1; transform: none; }
+.site-intro.ready .si-enter,
+.site-intro.ready .si-timer { opacity: 1; }
+.site-intro.leaving .si-text { opacity: 0; transition: opacity 0.3s ease; }
+@keyframes siBlink { 50% { opacity: 0; } }
+@keyframes siNudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+
+@media (max-width: 700px) {
+  .si-layout { flex-direction: column-reverse; }
+  .si-text { flex: 0 0 auto; padding: 0 24px 40px; justify-content: flex-end; }
+  .si-keys { display: none; }
+}
